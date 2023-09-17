@@ -1,0 +1,225 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
+import 'package:travel_buddy/Views/BookingScreen/Widgets/rating_button.dart';
+
+import '../../../Constants/constants.dart';
+
+class VehicleItem extends StatefulWidget {
+  const VehicleItem({super.key});
+
+  @override
+  State<VehicleItem> createState() => _VehicleItemState();
+}
+
+class _VehicleItemState extends State<VehicleItem> {
+  bool isExpended = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: 5.w,
+      ),
+      decoration: BoxDecoration(
+        color: Constants.primaryColor,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: 2.w,
+        vertical: 0.5.h,
+      ),
+      child: Theme(
+        data: ThemeData().copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          tilePadding: EdgeInsets.symmetric(
+            horizontal: 1.5.w,
+          ),
+          maintainState: isExpended,
+          onExpansionChanged: (val) {
+            setState(() {
+              isExpended = !isExpended;
+            });
+          },
+          collapsedBackgroundColor: Constants.primaryColor,
+          backgroundColor: Constants.primaryColor,
+          leading: Icon(
+            Icons.car_rental,
+            color: Colors.black,
+            size: 25.sp,
+          ),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Maruti Alto",
+                style: GoogleFonts.roboto().copyWith(
+                  fontSize: 12.sp,
+                  color: Colors.black,
+                  // fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 0.3.h,
+              ),
+              !isExpended
+                  ? Text(
+                      "Time: 21:00 - 03:45",
+                      style: GoogleFonts.roboto().copyWith(
+                        fontSize: 9.sp,
+                        color: Colors.black,
+                        // fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  : Text(
+                      "21:00 - 03:45",
+                      style: GoogleFonts.roboto().copyWith(
+                        fontSize: 10.sp,
+                        color: Colors.black,
+                        // fontWeight: FontWeight.bold,
+                      ),
+                    ),
+              SizedBox(
+                height: 0.3.h,
+              ),
+              isExpended
+                  ? Text(
+                      "11h 30m - 8 seats left",
+                      style: GoogleFonts.roboto().copyWith(
+                        fontSize: 8.sp,
+                        color: Colors.black54,
+                        // fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  : Container(),
+            ],
+          ),
+          trailing: SizedBox(
+            width: 37.w,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    !isExpended
+                        ? const RatingButton()
+                        : Container(),
+                    Text(
+                      "₹900",
+                      style: GoogleFonts.roboto().copyWith(
+                        fontSize: 14.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isExpended = !isExpended;
+                        });
+                      },
+                      child: Icon(
+                        isExpended
+                            ? Icons.keyboard_arrow_up_sharp
+                            : Icons.keyboard_arrow_down_sharp,
+                        color: Colors.black,
+                        size: 20.sp,
+                      ),
+                    ),
+                  ],
+                ),
+                isExpended
+                    ? Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        width: 20.w,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 12.w,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 1.w,
+                                vertical: 0.5.h,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    color: Constants.primaryColor,
+                                    size: 13.sp,
+                                  ),
+                                  SizedBox(
+                                    width: 1.w,
+                                  ),
+                                  Text(
+                                    "4.5",
+                                    style: GoogleFonts.roboto().copyWith(
+                                      fontSize: 8.sp,
+                                      color: Colors.white,
+                                      // fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 1.w,),
+                            Text(
+                              "300",
+                              style: GoogleFonts.roboto().copyWith(
+                                fontSize: 8.5.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Container(),
+              ],
+            ),
+          ),
+          children: [
+            isExpended
+                ?SizedBox(
+              height: 1.h,
+            ):Container(),
+            isExpended
+                ?Container(
+              padding: EdgeInsets.symmetric(
+                vertical: 0.5.h,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.black87,
+                borderRadius: BorderRadius.circular(15),
+              ),
+                child: Center(
+                  child: Text(
+                    "SELECT VEHICLE",
+                    style: GoogleFonts.roboto().copyWith(
+                      fontSize: 13.sp,
+                      color: Colors.white,
+                      // fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+            ):Container(),
+            isExpended
+                ?SizedBox(
+              height: 1.h,
+            ):Container(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
