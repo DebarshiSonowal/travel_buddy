@@ -12,4 +12,12 @@ class Routes {
   static const String seatLayout = "/seatLayout";
 
   static const String passengerLayout = "/passengerInfo";
+
+  static const String paymentScreen = "/paymentScreen";
+
+  static const String bookingConfirmationScreen = "/bookingConfirmation";
+
+  static const String invoiceReceiptScreen = "/invoiceReceipts";
+
+  static const String oldBookingScreen = "/oldBookingScreen";
 }

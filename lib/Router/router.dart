@@ -5,8 +5,12 @@ import 'package:travel_buddy/Views/LogInScreen/login_screen.dart';
 import 'package:travel_buddy/Views/OtpScreen/otp_screen.dart';
 import 'package:travel_buddy/Views/SeatLayout/seat_layout.dart';
 import '../Constants/routes.dart';
+import '../Views/BookingConfirmation/booking_confirmation.dart';
+import '../Views/InvoiceReceipt/invoice_receipt.dart';
 import '../Views/MainScreen/main_screen.dart';
+import '../Views/OlderBookings/older_bookings.dart';
 import '../Views/PassengerInfo/passenger_info.dart';
+import '../Views/PaymentScreen/payment_screen.dart';
 import '../Views/SplashScreen/splash_screen.dart';
 import '../Widgets/transition_builder.dart';
 
@@ -28,6 +32,14 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return FadeTransitionPageRouteBuilder(page: const SeatLayout());
     case Routes.passengerLayout:
       return FadeTransitionPageRouteBuilder(page: const PassengerInfo());
+    case Routes.paymentScreen:
+      return FadeTransitionPageRouteBuilder(page: const PaymentScreen());
+    case Routes.bookingConfirmationScreen:
+      return FadeTransitionPageRouteBuilder(page: const BookingConfirmation());
+    case Routes.invoiceReceiptScreen:
+      return FadeTransitionPageRouteBuilder(page: const InvoiceReceipt());
+    case Routes.oldBookingScreen:
+      return FadeTransitionPageRouteBuilder(page: const OlderBookingScreen());
     // case Routes.searchScreen:
     //   return FadeTransitionPageRouteBuilder(page:  SearchPage(type: settings.arguments as int));
     //

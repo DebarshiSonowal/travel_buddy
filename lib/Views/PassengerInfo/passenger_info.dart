@@ -56,7 +56,7 @@ class _PassengerInfoState extends State<PassengerInfo> {
                       ProceedButton(
                         title: "Total Amount ₹1280",
                         onTap: () {
-                          Navigation.instance.navigate(Routes.passengerLayout);
+                          Navigation.instance.navigate(Routes.paymentScreen);
                         },
                       ),
                     ],
