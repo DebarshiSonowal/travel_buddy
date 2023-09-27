@@ -162,189 +162,11 @@ class _OlderBookingScreenState extends State<OlderBookingScreen> {
                               child: Timeline(
                                 children: [
                                   TimelineModel(
-                                    TicketWidget(
-                                      margin: EdgeInsets.only(top: 1.h),
-                                      width: 85.w,
-                                      height: 20.h,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Constants.primaryColor,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 2.w,
-                                                vertical: 1.h,
-                                              ),
-                                              width: 35.w,
-                                              height: double.infinity,
-                                              child: Column(
-                                                children: [
-                                                  SizedBox(
-                                                    width: double.infinity,
-                                                    height: 14.h,
-                                                    child: Row(
-                                                      children: [
-                                                        Container(
-                                                          height:
-                                                              double.infinity,
-                                                          width: 15.w,
-                                                          child: Column(
-                                                            children: [
-                                                              Text(
-                                                                "Itanagar",
-                                                                style: GoogleFonts
-                                                                        .roboto()
-                                                                    .copyWith(
-                                                                  fontSize:
-                                                                      15.sp,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  // fontWeight: FontWeight.bold,
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          height:
-                                                              double.infinity,
-                                                          width: 15.w,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: double.infinity,
-                                                    height: 3.h,
-                                                    child: Center(
-                                                      child: Text(
-                                                        "Fare: ₹1280",
-                                                        style:
-                                                            GoogleFonts.roboto()
-                                                                .copyWith(
-                                                          fontSize: 15.sp,
-                                                          color: Colors.black,
-                                                          // fontWeight: FontWeight.bold,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            DottedLine(
-                                              lineLength: double.infinity,
-                                              dashColor: Colors.black,
-                                              direction: Axis.vertical,
-                                            ),
-                                            Container(
-                                              width: 35.w,
-                                              height: double.infinity,
-                                              child: Column(
-                                                children: [],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
+                                    const TicketWidgetBody(),
                                     position: TimelineItemPosition.random,
                                   ),
                                   TimelineModel(
-                                    TicketWidget(
-                                      margin: EdgeInsets.only(top: 1.h),
-                                      width: 85.w,
-                                      height: 20.h,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Constants.primaryColor,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 2.w,
-                                                vertical: 1.h,
-                                              ),
-                                              width: 35.w,
-                                              height: double.infinity,
-                                              child: Column(
-                                                children: [
-                                                  SizedBox(
-                                                    width: double.infinity,
-                                                    height: 14.h,
-                                                    child: Row(
-                                                      children: [
-                                                        Container(
-                                                          height:
-                                                              double.infinity,
-                                                          width: 15.w,
-                                                          child: Column(
-                                                            children: [
-                                                              Text(
-                                                                "Itanagar",
-                                                                style: GoogleFonts
-                                                                        .roboto()
-                                                                    .copyWith(
-                                                                  fontSize:
-                                                                      15.sp,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  // fontWeight: FontWeight.bold,
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          height:
-                                                              double.infinity,
-                                                          width: 15.w,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: double.infinity,
-                                                    height: 3.h,
-                                                    child: Center(
-                                                      child: Text(
-                                                        "Fare: ₹1280",
-                                                        style:
-                                                            GoogleFonts.roboto()
-                                                                .copyWith(
-                                                          fontSize: 15.sp,
-                                                          color: Colors.black,
-                                                          // fontWeight: FontWeight.bold,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            DottedLine(
-                                              lineLength: double.infinity,
-                                              dashColor: Colors.black,
-                                              direction: Axis.vertical,
-                                            ),
-                                            Container(
-                                              width: 35.w,
-                                              height: double.infinity,
-                                              child: Column(
-                                                children: [],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
+                                    const TicketWidgetBody(),
                                     position: TimelineItemPosition.random,
                                   ),
                                 ],
@@ -373,6 +195,237 @@ class _OlderBookingScreenState extends State<OlderBookingScreen> {
         ),
       ),
       bottomNavigationBar: const MainScreenBottomWidget(),
+    );
+  }
+}
+
+class TicketWidgetBody extends StatelessWidget {
+  const TicketWidgetBody({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TicketWidget(
+      margin: EdgeInsets.only(top: 1.h),
+      width: 85.w,
+      height: 20.h,
+      child: Container(
+        decoration: const BoxDecoration(
+          color: Constants.primaryColor,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 1.w,
+                vertical: 1.h,
+              ),
+              width: 35.w,
+              height: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 15.6.h,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: double.infinity,
+                          width: 13.w,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width: 10.w,
+                                height: 5.h,
+                                child: const Icon(
+                                  Icons.car_crash_sharp,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 4.h,
+                                child: const Center(
+                                  child: DottedLine(
+                                    direction: Axis.vertical,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                                height: 5.h,
+                                child: const Icon(
+                                  Icons.car_crash_sharp,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: double.infinity,
+                          width: 18.w,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Itanagar",
+                                style: GoogleFonts.roboto().copyWith(
+                                  fontSize: 12.5.sp,
+                                  color: Colors.black,
+                                  // fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "18:00",
+                                style: GoogleFonts.roboto().copyWith(
+                                  fontSize: 11.5.sp,
+                                  color: Colors.black87,
+                                  // fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Spacer(),
+                              Text(
+                                "Guwahati",
+                                style: GoogleFonts.roboto().copyWith(
+                                  fontSize: 12.5.sp,
+                                  color: Colors.black,
+                                  // fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "05:00",
+                                style: GoogleFonts.roboto().copyWith(
+                                  fontSize: 11.5.sp,
+                                  color: Colors.black87,
+                                  // fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 2.h,
+                    child: Center(
+                      child: Text(
+                        "Fare: ₹1280",
+                        style: GoogleFonts.roboto().copyWith(
+                          fontSize: 10.sp,
+                          color: Colors.black,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const DottedLine(
+              lineLength: double.infinity,
+              dashColor: Colors.black,
+              direction: Axis.vertical,
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                top: 1.h,
+                bottom: 1.h,
+                left: 1.w,
+                right: 3.5.w,
+              ),
+              width: 41.w,
+              height: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 15.6.h,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "30 Mar ",
+                                style: GoogleFonts.roboto().copyWith(
+                                  color: Colors.black,
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              TextSpan(
+                                text: "Thursday\nJagganath Travel",
+                                style: GoogleFonts.roboto().copyWith(
+                                  color: Colors.black,
+                                  fontSize: 13.sp,
+                                  // fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Seat No: ",
+                                style: GoogleFonts.roboto().copyWith(
+                                  color: Colors.black,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              TextSpan(
+                                text: "22,26",
+                                style: GoogleFonts.roboto().copyWith(
+                                  color: Colors.black,
+                                  fontSize: 12.sp,
+                                  // fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // const Spacer(),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 2.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "See Details",
+                          style: GoogleFonts.roboto().copyWith(
+                            fontSize: 10.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Icon(
+                          Icons.arrow_drop_down,
+                          color: Colors.black,
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

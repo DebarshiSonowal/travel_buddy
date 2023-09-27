@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:travel_buddy/Views/AccountScreen/account_screen.dart';
 import 'package:travel_buddy/Views/BookingScreen/booking_screen.dart';
+import 'package:travel_buddy/Views/HelpScreen/help_screen.dart';
 import 'package:travel_buddy/Views/IntroScreen/intro_screen.dart';
 import 'package:travel_buddy/Views/LogInScreen/login_screen.dart';
 import 'package:travel_buddy/Views/OtpScreen/otp_screen.dart';
@@ -40,6 +42,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return FadeTransitionPageRouteBuilder(page: const InvoiceReceipt());
     case Routes.oldBookingScreen:
       return FadeTransitionPageRouteBuilder(page: const OlderBookingScreen());
+    case Routes.helpScreen:
+      return FadeTransitionPageRouteBuilder(page: const HelpScreen());
+    case Routes.accountScreen:
+      return FadeTransitionPageRouteBuilder(page: const AccountScreen());
     // case Routes.searchScreen:
     //   return FadeTransitionPageRouteBuilder(page:  SearchPage(type: settings.arguments as int));
     //

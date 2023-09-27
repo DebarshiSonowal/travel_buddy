@@ -16,16 +16,19 @@ class MainScreenBottomWidget extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(top: Radius.circular(20.0)),
       child: BottomNavigationBar(
-        onTap: (val){
+        onTap: (val) {
           switch (val) {
             case 1:
               Navigation.instance.navigate(Routes.oldBookingScreen);
               break;
             case 2:
+              Navigation.instance.navigate(Routes.helpScreen);
               break;
             case 3:
+              Navigation.instance.navigate(Routes.accountScreen);
               break;
             default:
+              Navigation.instance.navigate(Routes.mainScreen);
               break;
           }
         },

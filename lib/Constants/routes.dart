@@ -20,4 +20,8 @@ class Routes {
   static const String invoiceReceiptScreen = "/invoiceReceipts";
 
   static const String oldBookingScreen = "/oldBookingScreen";
+
+  static const String helpScreen = "/helpScreen";
+
+  static const String accountScreen = "/accountScreen";
 }
