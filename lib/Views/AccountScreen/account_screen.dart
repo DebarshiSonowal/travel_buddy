@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_buddy/Router/navigator.dart';
 import 'package:travel_buddy/Views/MainScreen/Widgets/main_screen_bottom_widget.dart';
 
 import '../../Common/back_button.dart';
@@ -172,21 +173,26 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    height: 6.h,
-                    width: 40.w,
-                    decoration: BoxDecoration(
-                      color: Constants.primaryColor,
-                      // shape: BoxShape.circle,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Delete Account",
-                        style: GoogleFonts.roboto().copyWith(
-                          fontSize: 12.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: () {
+                      showDeleteDialog(context);
+                    },
+                    child: Container(
+                      height: 6.h,
+                      width: 40.w,
+                      decoration: BoxDecoration(
+                        color: Constants.primaryColor,
+                        // shape: BoxShape.circle,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Delete Account",
+                          style: GoogleFonts.roboto().copyWith(
+                            fontSize: 12.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -199,6 +205,155 @@ class _AccountScreenState extends State<AccountScreen> {
       ),
       bottomNavigationBar: const MainScreenBottomWidget(),
     );
+  }
+
+  void showDeleteDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            alignment: Alignment.bottomCenter,
+            backgroundColor: Colors.white,
+            content: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 4.w,
+                vertical: 2.h,
+              ),
+              width: 80.w,
+              // height: 40.h,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    height: 6.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      // shape: BoxShape.circle,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Keep My Account",
+                        style: GoogleFonts.roboto().copyWith(
+                          fontSize: 12.sp,
+                          color: Colors.white,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigation.instance.goBack();
+                      showConfirmationWidget(context);
+                    },
+                    child: Container(
+                      height: 6.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Constants.primaryColor,
+                        // shape: BoxShape.circle,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Delete My Account",
+                          maxLines: 2,
+                          style: GoogleFonts.roboto().copyWith(
+                            fontSize: 12.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  void showConfirmationWidget(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            alignment: Alignment.bottomCenter,
+            backgroundColor: Colors.transparent,
+            content: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 8.w,
+                vertical: 2.h,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              height: 18.h,
+              width: 90.w,
+              child: Center(
+                child: Text(
+                  "Are you sure you want to delete this account?",
+                  style: GoogleFonts.roboto().copyWith(
+                    fontSize: 14.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            actions: [
+              Container(
+                height: 5.h,
+                width: 25.w,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  // shape: BoxShape.circle,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: Text(
+                    "No",
+                    style: GoogleFonts.roboto().copyWith(
+                      fontSize: 12.sp,
+                      color: Colors.white,
+                      // fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 15.w,
+              ),
+              Container(
+                height: 5.h,
+                width: 25.w,
+                decoration: BoxDecoration(
+                  color: Constants.primaryColor,
+                  // shape: BoxShape.circle,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: Text(
+                    "Yes",
+                    maxLines: 2,
+                    style: GoogleFonts.roboto().copyWith(
+                      fontSize: 12.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          );
+        });
   }
 }
 
