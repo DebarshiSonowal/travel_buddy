@@ -27,7 +27,7 @@ class OrderInfo extends StatelessWidget {
               Text(
                 "Order Id:",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 11.sp,
+                  fontSize: 10.sp,
                   color: Colors.black54,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -35,7 +35,7 @@ class OrderInfo extends StatelessWidget {
               Text(
                 "785665",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 14.sp,
+                  fontSize: 10.sp,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
@@ -48,7 +48,7 @@ class OrderInfo extends StatelessWidget {
               Text(
                 "Ticket No:",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 11.sp,
+                  fontSize: 10.sp,
                   color: Colors.black54,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -56,7 +56,7 @@ class OrderInfo extends StatelessWidget {
               Text(
                 "AR4k9857",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 14.sp,
+                  fontSize: 10.sp,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),

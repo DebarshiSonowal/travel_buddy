@@ -89,7 +89,7 @@ class _OlderBookingScreenState extends State<OlderBookingScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(14.h),
+        preferredSize: Size.fromHeight(12.h),
         child: const olderAppBar(),
       ),
       body: Container(
@@ -106,7 +106,7 @@ class _OlderBookingScreenState extends State<OlderBookingScreen> {
               Text(
                 "Your Journey, Our Booking",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 13.sp,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
@@ -114,7 +114,7 @@ class _OlderBookingScreenState extends State<OlderBookingScreen> {
               Text(
                 "Travel Smarter with Us",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 15.sp,
+                  fontSize: 12.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -132,14 +132,14 @@ class _OlderBookingScreenState extends State<OlderBookingScreen> {
                         borderWidth: 0.1.h,
                         borderColor: Colors.black,
                         contentPadding: EdgeInsets.symmetric(
-                            horizontal: 4.w, vertical: 1.h),
+                            horizontal: 2.w, vertical: 0.5.h),
                         labelStyle: GoogleFonts.roboto().copyWith(
-                          fontSize: 11.sp,
+                          fontSize: 9.sp,
                           color: Colors.white,
                           // fontWeight: FontWeight.bold,
                         ),
                         unselectedLabelStyle: GoogleFonts.roboto().copyWith(
-                          fontSize: 11.sp,
+                          fontSize: 8.sp,
                           color: Colors.black,
                           // fontWeight: FontWeight.bold,
                         ),
@@ -272,7 +272,7 @@ class TicketWidgetBody extends StatelessWidget {
                               Text(
                                 "Itanagar",
                                 style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 12.5.sp,
+                                  fontSize: 11.sp,
                                   color: Colors.black,
                                   // fontWeight: FontWeight.bold,
                                 ),
@@ -280,7 +280,7 @@ class TicketWidgetBody extends StatelessWidget {
                               Text(
                                 "18:00",
                                 style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 11.5.sp,
+                                  fontSize: 9.sp,
                                   color: Colors.black87,
                                   // fontWeight: FontWeight.bold,
                                 ),
@@ -289,7 +289,7 @@ class TicketWidgetBody extends StatelessWidget {
                               Text(
                                 "Guwahati",
                                 style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 12.5.sp,
+                                  fontSize: 11.sp,
                                   color: Colors.black,
                                   // fontWeight: FontWeight.bold,
                                 ),
@@ -297,7 +297,7 @@ class TicketWidgetBody extends StatelessWidget {
                               Text(
                                 "05:00",
                                 style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 11.5.sp,
+                                  fontSize: 9.sp,
                                   color: Colors.black87,
                                   // fontWeight: FontWeight.bold,
                                 ),
@@ -315,7 +315,7 @@ class TicketWidgetBody extends StatelessWidget {
                       child: Text(
                         "Fare: ₹1280",
                         style: GoogleFonts.roboto().copyWith(
-                          fontSize: 10.sp,
+                          fontSize: 9.sp,
                           color: Colors.black,
                           // fontWeight: FontWeight.bold,
                         ),
@@ -355,7 +355,7 @@ class TicketWidgetBody extends StatelessWidget {
                                 text: "30 Mar ",
                                 style: GoogleFonts.roboto().copyWith(
                                   color: Colors.black,
-                                  fontSize: 13.sp,
+                                  fontSize: 11.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -363,7 +363,7 @@ class TicketWidgetBody extends StatelessWidget {
                                 text: "Thursday\nJagganath Travel",
                                 style: GoogleFonts.roboto().copyWith(
                                   color: Colors.black,
-                                  fontSize: 13.sp,
+                                  fontSize: 11.sp,
                                   // fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -380,7 +380,7 @@ class TicketWidgetBody extends StatelessWidget {
                                 text: "Seat No: ",
                                 style: GoogleFonts.roboto().copyWith(
                                   color: Colors.black,
-                                  fontSize: 12.sp,
+                                  fontSize: 9.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -388,7 +388,7 @@ class TicketWidgetBody extends StatelessWidget {
                                 text: "22,26",
                                 style: GoogleFonts.roboto().copyWith(
                                   color: Colors.black,
-                                  fontSize: 12.sp,
+                                  fontSize: 10.sp,
                                   // fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -408,7 +408,7 @@ class TicketWidgetBody extends StatelessWidget {
                         Text(
                           "See Details",
                           style: GoogleFonts.roboto().copyWith(
-                            fontSize: 10.sp,
+                            fontSize: 9.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),

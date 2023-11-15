@@ -9,19 +9,22 @@ class BookWidget extends StatelessWidget {
   const BookWidget({
     super.key,
     required this.from,
-    required this.to,
+    required this.to, required this.selected, required this.updateSelected,
   });
 
   final TextEditingController from;
   final TextEditingController to;
+  final int selected;
+  final Function(int) updateSelected;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: 5.w,
+        horizontal:6.w,
+        vertical: 1.h,
       ),
-      height: 25.h,
+      height: 23.h,
       decoration: BoxDecoration(
         border: Border.all(
           color: const Color(0xffdcdcdc),
@@ -42,10 +45,10 @@ class BookWidget extends StatelessWidget {
               children: [
                 Icon(
                   Icons.calendar_month,
-                  size: 25.sp,
+                  size: 22.sp,
                 ),
                 SizedBox(
-                  width: 2.w,
+                  width: 1.w,
                 ),
                 SizedBox(
                   width: 22.w,
@@ -54,12 +57,12 @@ class BookWidget extends StatelessWidget {
                       Text(
                         "Date of journey",
                         style: GoogleFonts.roboto()
-                            .copyWith(fontSize: 8.sp, color: Colors.black45),
+                            .copyWith(fontSize: 7.sp, color: Colors.black45),
                       ),
                       Text(
                         "Mon, 04 Sep",
                         style: GoogleFonts.roboto().copyWith(
-                          fontSize: 11.sp,
+                          fontSize: 9.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
@@ -70,20 +73,25 @@ class BookWidget extends StatelessWidget {
                 SizedBox(
                   width: 4.w,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Constants.primaryColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  width: 23.w,
-                  height: 5.5.h,
-                  child: Center(
-                    child: Text(
-                      "Today",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
+                GestureDetector(
+                  onTap: (){
+                    updateSelected(0);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: selected==0?Constants.primaryColor:Colors.black,
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    width: 23.w,
+                    height: 5.5.h,
+                    child: Center(
+                      child: Text(
+                        "Today",
+                        style: GoogleFonts.roboto().copyWith(
+                          fontSize: 11.sp,
+                          color: selected==0?Colors.black:Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -91,20 +99,25 @@ class BookWidget extends StatelessWidget {
                 SizedBox(
                   width: 2.w,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  width: 23.w,
-                  height: 5.5.h,
-                  child: Center(
-                    child: Text(
-                      "Tomorrow",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                GestureDetector(
+                  onTap: (){
+                    updateSelected(1);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: selected==1?Constants.primaryColor:Colors.black,
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    width: 23.w,
+                    height: 5.5.h,
+                    child: Center(
+                      child: Text(
+                        "Tomorrow",
+                        style: GoogleFonts.roboto().copyWith(
+                          fontSize: 11.sp,
+                          color: selected==1?Colors.black:Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),

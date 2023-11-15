@@ -14,7 +14,7 @@ class AdvertiseBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 12.h,
+      height: 11.5.h,
       width: double.infinity,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

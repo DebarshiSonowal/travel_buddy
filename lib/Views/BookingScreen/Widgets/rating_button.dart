@@ -12,7 +12,7 @@ class RatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 16.w,
+      width: 15.w,
       decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.circular(20),
@@ -27,7 +27,7 @@ class RatingButton extends StatelessWidget {
           Icon(
             Icons.star,
             color: Constants.primaryColor,
-            size: 15.sp,
+            size: 13.sp,
           ),
           SizedBox(
             width: 1.w,
@@ -35,7 +35,7 @@ class RatingButton extends StatelessWidget {
           Text(
             "4.5",
             style: GoogleFonts.roboto().copyWith(
-              fontSize: 9.5.sp,
+              fontSize: 8.5.sp,
               color: Colors.white,
               // fontWeight: FontWeight.bold,
             ),

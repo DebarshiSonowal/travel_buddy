@@ -25,6 +25,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 5,
       margin: EdgeInsets.symmetric(
         horizontal: 4.w,
       ),
@@ -38,10 +39,10 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
         ),
         padding: EdgeInsets.symmetric(
           horizontal: 3.w,
-          vertical: 1.h,
+          vertical: 0.5.h,
         ),
         width: double.infinity,
-        height: 17.h,
+        // height: 17.h,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,7 +53,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                 Text(
                   "Add Passengers",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 13.sp,
+                    fontSize: 9.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -78,7 +79,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
             Text(
               "Passenger 1",
               style: GoogleFonts.roboto().copyWith(
-                fontSize: 11.sp,
+                fontSize: 8.sp,
                 color: Colors.black,
                 // fontWeight: FontWeight.bold,
               ),
@@ -92,7 +93,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                   child: TextField(
                     controller: widget.nameController,
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 9.sp,
+                      fontSize: 7.sp,
                       color: Colors.white,
                       // fontWeight: FontWeight.bold,
                     ),
@@ -121,7 +122,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                 Text(
                   "Seat",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.sp,
+                    fontSize: 9.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -141,7 +142,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                   child: Text(
                     "14",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 11.sp,
+                      fontSize: 9.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -160,11 +161,12 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                   height: 5.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "Gender",
                         style: GoogleFonts.roboto().copyWith(
-                          fontSize: 11.sp,
+                          fontSize: 9.sp,
                           color: Colors.black,
                           // fontWeight: FontWeight.bold,
                         ),
@@ -191,7 +193,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                           Text(
                             "Male",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 10.sp,
+                              fontSize: 7.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -220,7 +222,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                           Text(
                             "Female",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 10.sp,
+                              fontSize: 7.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -242,7 +244,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                     Text(
                       "Age",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
+                        fontSize: 8.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -253,7 +255,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                       child: TextField(
                         controller: widget.nameController,
                         style: GoogleFonts.roboto().copyWith(
-                          fontSize: 9.sp,
+                          fontSize: 7.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),

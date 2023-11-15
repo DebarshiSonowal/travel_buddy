@@ -21,7 +21,7 @@ class IconLabelValue extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: 6.w,
       ),
-      height: 6.h,
+      height: 5.h,
       width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,7 +34,7 @@ class IconLabelValue extends StatelessWidget {
                 Text(
                   firstLabel,
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 12.sp,
+                    fontSize: 11.sp,
                     color: Colors.black87,
                     fontWeight: FontWeight.bold,
                   ),
@@ -42,7 +42,7 @@ class IconLabelValue extends StatelessWidget {
                 Text(
                   firstValue,
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: secondValue.length > 10 ? 11.sp : 13.sp,
+                    fontSize: secondValue.length > 10 ? 9.sp : 10.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -54,7 +54,7 @@ class IconLabelValue extends StatelessWidget {
               ? Icon(
                   iconData,
                   color: Colors.black,
-                  size: 25.sp,
+                  size: 20.sp,
                 )
               : Container(),
           SizedBox(
@@ -68,7 +68,7 @@ class IconLabelValue extends StatelessWidget {
                 Text(
                   secondLabel,
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 12.sp,
+                    fontSize: 11.sp,
                     color: Colors.black87,
                     fontWeight: FontWeight.bold,
                   ),
@@ -76,7 +76,7 @@ class IconLabelValue extends StatelessWidget {
                 Text(
                   secondValue,
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: secondValue.length > 10 ? 11.sp : 13.sp,
+                    fontSize: secondValue.length > 10 ? 9.sp : 10.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),

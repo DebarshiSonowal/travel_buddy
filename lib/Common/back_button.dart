@@ -23,7 +23,7 @@ class BackButtonCustom extends StatelessWidget {
         child: Icon(
           Icons.arrow_back,
           color: Colors.white,
-          size: 16.sp,
+          size: 12.sp,
         ),
       ),
     );

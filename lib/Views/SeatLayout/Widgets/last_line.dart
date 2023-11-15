@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Views/SeatLayout/Widgets/seat_image.dart';
 
-class OtherLines extends StatelessWidget {
-  const OtherLines({
+class LastLines extends StatelessWidget {
+  const LastLines({
     super.key,
     required this.ids,
     required this.selected,
@@ -25,7 +25,7 @@ class OtherLines extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SeatImage(
-           type: selected.contains(ids[0])?1:0,
+            type: selected.contains(ids[0])?1:0,
             onTap: (int val) {
               onTap(val);
             },
@@ -34,6 +34,14 @@ class OtherLines extends StatelessWidget {
           SizedBox(
             width: 4.w,
           ),
+          SeatImage(
+            type: selected.contains(ids[1])?1:0,
+            onTap: (int val) {
+              onTap(val);
+            },
+            id: ids[1],
+          ),
+          const Spacer(),
           SeatImage(
             type: selected.contains(ids[1])?1:0,
             onTap: (int val) {

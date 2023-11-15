@@ -18,7 +18,7 @@ class SearchWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(25),
       ),
       width: double.infinity,
-      height: 7.h,
+      height: 6.h,
       padding: EdgeInsets.symmetric(
         horizontal: 2.w,
       ),

@@ -42,9 +42,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
               Text(
                 "Ticket Details",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 14.sp,
+                  fontSize: 13.sp,
                   color: Colors.black,
-                  fontWeight: FontWeight.bold,
+                  // fontWeight: FontWeight.bold,
                 ),
               ),
               const TicketDetails(),
@@ -64,7 +64,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   Text(
                     "Fare",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 14.sp,
+                      fontSize: 11.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -72,7 +72,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   Text(
                     "₹1280",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 14.sp,
+                      fontSize: 11.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -117,7 +117,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   Text(
                     "Total Fare",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 14.sp,
+                      fontSize: 11.sp,
                       color: Colors.black,
                       // fontWeight: FontWeight.bold,
                     ),
@@ -125,7 +125,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   Text(
                     "₹1486",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 14.sp,
+                      fontSize: 11.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -142,7 +142,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               Text(
                 "UPI PAYMENTS",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 13.sp,
+                  fontSize: 11.sp,
                   color: Colors.black54,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -161,7 +161,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     Text(
                       "Phonepe",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 13.sp,
+                        fontSize: 10.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
@@ -187,7 +187,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     Text(
                       "Google Pay",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 13.sp,
+                        fontSize: 10.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
@@ -205,7 +205,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   Text(
                     "Add a new UPI ID",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 11.sp,
+                      fontSize: 9.sp,
                       color: Colors.black,
                       // fontWeight: FontWeight.bold,
                     ),

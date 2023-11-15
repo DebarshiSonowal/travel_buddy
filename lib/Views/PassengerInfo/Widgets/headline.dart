@@ -18,7 +18,7 @@ class Headline extends StatelessWidget {
         Text(
           "Insurance Details",
           style: GoogleFonts.roboto().copyWith(
-            fontSize: 12.sp,
+            fontSize: 10.sp,
             color: Colors.black,
             // fontWeight: FontWeight.bold,
           ),

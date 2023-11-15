@@ -46,15 +46,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return FadeTransitionPageRouteBuilder(page: const HelpScreen());
     case Routes.accountScreen:
       return FadeTransitionPageRouteBuilder(page: const AccountScreen());
-    // case Routes.searchScreen:
-    //   return FadeTransitionPageRouteBuilder(page:  SearchPage(type: settings.arguments as int));
-    //
-    // //edit
-    // case Routes.editOrderItem:
-    //   return FadeTransitionPageRouteBuilder(
-    //       page: EditOrderAddProduct(id: settings.arguments as int));
-    // case Routes.editOrderCart:
-    //   return FadeTransitionPageRouteBuilder(page: EditCartScreen(id: settings.arguments as int));
     default:
       return FadeTransitionPageRouteBuilder(page: Container());
   }

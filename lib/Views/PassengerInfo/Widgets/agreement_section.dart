@@ -21,7 +21,7 @@ class AgreementSection extends StatelessWidget {
           Row(
             children: [
               SizedBox(
-                height: 2.h,
+                height: 1.8.h,
                 width: 4.w,
                 child: Radio(
                   value: true,
@@ -39,7 +39,7 @@ class AgreementSection extends StatelessWidget {
                     TextSpan(
                       text: "Yes, protect my trip at ",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 9.sp,
+                        fontSize: 8.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -47,7 +47,7 @@ class AgreementSection extends StatelessWidget {
                     TextSpan(
                       text: "₹30",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 9.sp,
+                        fontSize: 8.sp,
                         color: Constants.selected,
                         fontWeight: FontWeight.bold,
                       ),
@@ -55,7 +55,7 @@ class AgreementSection extends StatelessWidget {
                     TextSpan(
                       text: " (2 passenger)",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 9.sp,
+                        fontSize:8.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -89,7 +89,7 @@ class AgreementSection extends StatelessWidget {
                     TextSpan(
                       text: "No, I would like to proceed without insurance ",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 9.sp,
+                        fontSize: 8.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -109,7 +109,7 @@ class AgreementSection extends StatelessWidget {
                 TextSpan(
                   text: "*Platform Fee ",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 9.sp,
+                    fontSize: 8.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -117,7 +117,7 @@ class AgreementSection extends StatelessWidget {
                 TextSpan(
                   text: "₹30",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 9.sp,
+                    fontSize: 8.sp,
                     color: Constants.selected,
                     fontWeight: FontWeight.bold,
                   ),

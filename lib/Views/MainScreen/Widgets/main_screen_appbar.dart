@@ -15,7 +15,7 @@ class MainScreenAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 12.h,
+      height: 10.h,
       decoration: const BoxDecoration(
         color: Constants.primaryColor,
         borderRadius: BorderRadius.vertical(
@@ -25,8 +25,8 @@ class MainScreenAppbar extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(
           left: 4.w,
-          top: 2.h,
-          bottom: 5.h,
+          // top: 0.2.h,
+          bottom: 0.5.h,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,15 +39,15 @@ class MainScreenAppbar extends StatelessWidget {
               "Hello, Deepak",
               style: GoogleFonts.roboto().copyWith(
                 // fontWeight: FontWeight.bold,
-                fontSize: 18.sp,
+                fontSize: 13.sp,
               ),
             ),
             SizedBox(
-              width: 25.w,
+              width: 45.w,
             ),
             Image.asset(
               Assets.colorLogo,
-              scale: 20,
+              scale: 25,
             ),
           ],
         ),

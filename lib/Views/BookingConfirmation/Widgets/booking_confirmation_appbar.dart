@@ -16,7 +16,7 @@ class BookingConfirmationAppbar extends StatelessWidget {
     return SafeArea(
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: 4.w,
+          horizontal: 5.w,
           vertical: 1.5.h,
         ),
         decoration: const BoxDecoration(
@@ -46,7 +46,7 @@ class BookingConfirmationAppbar extends StatelessWidget {
             Text(
               "Booking Confirmation",
               style: GoogleFonts.roboto().copyWith(
-                fontSize: 17.sp,
+                fontSize: 13.sp,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),

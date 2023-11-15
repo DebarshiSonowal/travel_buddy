@@ -19,7 +19,7 @@ class PriceIndependentWidget extends StatelessWidget {
         Text(
           label,
           style: GoogleFonts.roboto().copyWith(
-            fontSize: 11.sp,
+            fontSize: 10.sp,
             color: Colors.black,
             // fontWeight: FontWeight.bold,
           ),
@@ -27,7 +27,7 @@ class PriceIndependentWidget extends StatelessWidget {
         Text(
           value,
           style: GoogleFonts.roboto().copyWith(
-            fontSize: 11.sp,
+            fontSize: 9.sp,
             color: Colors.black54,
             fontWeight: FontWeight.bold,
           ),

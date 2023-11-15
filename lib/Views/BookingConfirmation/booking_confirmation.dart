@@ -124,7 +124,7 @@ class TravellerDetails extends StatelessWidget {
                 Text(
                   "Traveller Details",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 13.sp,
+                    fontSize: 10.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -152,7 +152,7 @@ class TravellerDetails extends StatelessWidget {
                         Text(
                           "Jhon Deori (M,35)",
                           style: GoogleFonts.roboto().copyWith(
-                            fontSize: 13.sp,
+                            fontSize: 9.sp,
                             color: Colors.black87,
                             fontWeight: FontWeight.bold,
                           ),
@@ -160,7 +160,7 @@ class TravellerDetails extends StatelessWidget {
                         Text(
                           "26 Seater",
                           style: GoogleFonts.roboto().copyWith(
-                            fontSize: 11.sp,
+                            fontSize: 8.sp,
                             color: Colors.black87,
                             // fontWeight: FontWeight.bold,
                           ),
@@ -192,7 +192,7 @@ class TravellerDetails extends StatelessWidget {
                         Text(
                           "Marry Deori (F,30)",
                           style: GoogleFonts.roboto().copyWith(
-                            fontSize: 13.sp,
+                            fontSize: 9.sp,
                             color: Colors.black87,
                             fontWeight: FontWeight.bold,
                           ),
@@ -200,7 +200,7 @@ class TravellerDetails extends StatelessWidget {
                         Text(
                           "27 Seater",
                           style: GoogleFonts.roboto().copyWith(
-                            fontSize: 11.sp,
+                            fontSize: 8.sp,
                             color: Colors.black87,
                             // fontWeight: FontWeight.bold,
                           ),
@@ -229,7 +229,7 @@ class TravellerDetails extends StatelessWidget {
                 Text(
                   "Contact Details",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 13.sp,
+                    fontSize: 11.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -240,7 +240,7 @@ class TravellerDetails extends StatelessWidget {
                 Text(
                   "Email",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 10.sp,
+                    fontSize: 9.sp,
                     color: Colors.black87,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -248,7 +248,7 @@ class TravellerDetails extends StatelessWidget {
                 Text(
                   "qwerty@gmail.com",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.sp,
+                    fontSize: 8.sp,
                     color: Colors.black87,
                     fontWeight: FontWeight.bold,
                   ),
@@ -259,7 +259,7 @@ class TravellerDetails extends StatelessWidget {
                 Text(
                   "Mobile No",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 10.sp,
+                    fontSize: 9.sp,
                     color: Colors.black87,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -267,7 +267,7 @@ class TravellerDetails extends StatelessWidget {
                 Text(
                   "+91 7002819283",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.sp,
+                    fontSize: 8.sp,
                     color: Colors.black87,
                     fontWeight: FontWeight.bold,
                   ),
@@ -294,7 +294,7 @@ class TravellerDetails extends StatelessWidget {
                     Text(
                       "Fare",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 13.sp,
+                        fontSize: 11.sp,
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                       ),
@@ -302,7 +302,7 @@ class TravellerDetails extends StatelessWidget {
                     Text(
                       "₹1930",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 13.sp,
+                        fontSize: 11.sp,
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                       ),
@@ -321,7 +321,7 @@ class TravellerDetails extends StatelessWidget {
                           Text(
                             "Gst 18%",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 13.sp,
+                              fontSize: 10.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -329,7 +329,7 @@ class TravellerDetails extends StatelessWidget {
                           Text(
                             "₹1466",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 11.sp,
+                              fontSize: 9.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -342,7 +342,7 @@ class TravellerDetails extends StatelessWidget {
                           Text(
                             "Platform Charge (20)",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 13.sp,
+                              fontSize: 10.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -350,7 +350,7 @@ class TravellerDetails extends StatelessWidget {
                           Text(
                             "₹1466",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 11.sp,
+                              fontSize: 9.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -363,7 +363,7 @@ class TravellerDetails extends StatelessWidget {
                           Text(
                             "Insurance",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 13.sp,
+                              fontSize: 10.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -371,7 +371,7 @@ class TravellerDetails extends StatelessWidget {
                           Text(
                             "₹1466",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 11.sp,
+                              fontSize: 9.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -394,7 +394,7 @@ class TravellerDetails extends StatelessWidget {
                     Text(
                       "Total Fare",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 13.sp,
+                        fontSize: 11.sp,
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                       ),
@@ -402,7 +402,7 @@ class TravellerDetails extends StatelessWidget {
                     Text(
                       "₹1930",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 13.sp,
+                        fontSize: 11.sp,
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                       ),
@@ -429,7 +429,7 @@ class TravellerDetails extends StatelessWidget {
                 Text(
                   "Payment Mode",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 13.sp,
+                    fontSize: 9.sp,
                     color: Colors.black54,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -437,7 +437,7 @@ class TravellerDetails extends StatelessWidget {
                 Text(
                   "₹1466",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.sp,
+                    fontSize: 9.sp,
                     color: Colors.black87,
                     // fontWeight: FontWeight.bold,
                   ),

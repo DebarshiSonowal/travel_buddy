@@ -103,9 +103,9 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "Travel Buddy",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 13.5.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 11.sp,
+                    color: Colors.black87,
+                    // fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
@@ -122,8 +122,8 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "Sep 7th, 2023",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.sp,
-                    color: Colors.black,
+                    fontSize: 10.sp,
+                    color: Colors.black87,
                     // fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -145,7 +145,7 @@ class TicketDetails extends StatelessWidget {
                     Text(
                       "Capital Travel",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 12.5.sp,
+                        fontSize: 10.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -153,7 +153,7 @@ class TicketDetails extends StatelessWidget {
                     Text(
                       "AS05H0987",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
+                        fontSize: 9.sp,
                         color: Colors.black54,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -166,7 +166,7 @@ class TicketDetails extends StatelessWidget {
                     Text(
                       "Toyota Innova",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 12.5.sp,
+                        fontSize: 10.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -174,7 +174,7 @@ class TicketDetails extends StatelessWidget {
                     Text(
                       "AS05H0987",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
+                        fontSize: 9.sp,
                         color: Colors.black54,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -199,7 +199,7 @@ class TicketDetails extends StatelessWidget {
                     Text(
                       "Mr.Jhon Lenon (M, 35)",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
+                        fontSize: 10.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -207,7 +207,7 @@ class TicketDetails extends StatelessWidget {
                     Text(
                       "Mrs. Marry Johnson (F,30)",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
+                        fontSize: 10.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -257,7 +257,7 @@ class TicketDetails extends StatelessWidget {
                   width: 20.w,
                   child: Icon(
                     Icons.car_crash_sharp,
-                    size: 30.sp,
+                    size: 25.sp,
                   ),
                 ),
                 LabelValue(
@@ -281,7 +281,7 @@ class TicketDetails extends StatelessWidget {
                   width: 20.w,
                   child: Icon(
                     Icons.arrow_forward_ios,
-                    size: 15.sp,
+                    size: 12.sp,
                   ),
                 ),
                 LabelValue(
@@ -327,17 +327,17 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "Fare",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 14.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
-                    fontWeight: FontWeight.bold,
+                    // fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   "₹1280",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 14.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
-                    fontWeight: FontWeight.bold,
+                    // fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
@@ -356,7 +356,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "GST 18%",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.5.sp,
+                    fontSize: 10.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -364,7 +364,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "₹1280",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.5.sp,
+                    fontSize: 9.sp,
                     color: Colors.black54,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -385,7 +385,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "Platform Charge (20)",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.5.sp,
+                    fontSize: 10.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -393,7 +393,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "₹1280",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.5.sp,
+                    fontSize: 9.sp,
                     color: Colors.black54,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -414,7 +414,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "Insurance",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.5.sp,
+                    fontSize: 10.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -422,7 +422,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "₹1280",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.5.sp,
+                    fontSize: 9.sp,
                     color: Colors.black54,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -442,7 +442,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "Total Fare",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 14.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -450,7 +450,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "₹1280",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 14.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -470,7 +470,7 @@ class TicketDetails extends StatelessWidget {
                 Text(
                   "Pick-up Point Contact Detail",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.sp,
+                    fontSize: 10.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -489,7 +489,7 @@ class TicketDetails extends StatelessWidget {
                     Text(
                       "+91 0000000000",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
+                        fontSize: 9.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
@@ -510,7 +510,7 @@ class TicketDetails extends StatelessWidget {
                     Text(
                       "+91 0000000000",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
+                        fontSize: 9.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
@@ -539,7 +539,7 @@ class TicketDetails extends StatelessWidget {
                           Text(
                             "Seat",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 11.sp,
+                              fontSize: 9.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -547,7 +547,7 @@ class TicketDetails extends StatelessWidget {
                           Text(
                             "26, 27",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 12.5.sp,
+                              fontSize: 10.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -563,7 +563,7 @@ class TicketDetails extends StatelessWidget {
                           Text(
                             "Ticket No:",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 11.sp,
+                              fontSize: 10.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -571,7 +571,7 @@ class TicketDetails extends StatelessWidget {
                           Text(
                             "AR4k98675",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 12.5.sp,
+                              fontSize: 9.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -587,7 +587,7 @@ class TicketDetails extends StatelessWidget {
                           Text(
                             "OrderId:",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 11.sp,
+                              fontSize: 10.sp,
                               color: Colors.black87,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -595,7 +595,7 @@ class TicketDetails extends StatelessWidget {
                           Text(
                             "78638",
                             style: GoogleFonts.roboto().copyWith(
-                              fontSize: 12.5.sp,
+                              fontSize: 9.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),

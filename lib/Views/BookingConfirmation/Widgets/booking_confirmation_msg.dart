@@ -33,7 +33,7 @@ class BookingCofirmationMsg extends StatelessWidget {
           Text(
             "Your bookings are confirmed",
             style: GoogleFonts.roboto().copyWith(
-              fontSize: 14.sp,
+              fontSize: 12.sp,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
@@ -41,7 +41,7 @@ class BookingCofirmationMsg extends StatelessWidget {
           Text(
             "on 21st Sept, 10:23 AM",
             style: GoogleFonts.roboto().copyWith(
-              fontSize: 14.sp,
+              fontSize: 11.sp,
               color: Colors.white,
               // fontWeight: FontWeight.bold,
             ),

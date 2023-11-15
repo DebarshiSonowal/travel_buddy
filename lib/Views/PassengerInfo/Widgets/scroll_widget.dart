@@ -36,7 +36,7 @@ class ScrollWidget extends StatelessWidget {
                 mobileController: mobileController,
                 whatsappController: whatsappController),
             SizedBox(
-              height: 0.5.h,
+              height: 0.2.h,
             ),
             const PassengerListWidget(),
             const InsuranceDetails(),

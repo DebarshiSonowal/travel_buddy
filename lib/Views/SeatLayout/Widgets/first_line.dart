@@ -22,15 +22,13 @@ class FirstLine extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: 3.w,
       ),
-      height: 8.h,
+      height: 5.h,
       width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SeatImage(
-            demo: false,
-            isSelected: false,
-            occupied: false,
+            type:0,
             onTap: (int val) {
               onTap(val);
             },
@@ -38,7 +36,7 @@ class FirstLine extends StatelessWidget {
           ),
           Image.asset(
             Assets.steeringLogo,
-            scale: 9,
+            scale: 3,
           ),
           // Icon(
           //   Icons.,

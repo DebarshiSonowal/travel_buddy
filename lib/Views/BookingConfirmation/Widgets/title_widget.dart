@@ -23,7 +23,7 @@ class TitleWidget extends StatelessWidget {
               Text(
                 "Travel Buddy",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 12.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
@@ -31,7 +31,7 @@ class TitleWidget extends StatelessWidget {
               Text(
                 "Toyota Innova, 8 Seater",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 11.sp,
+                  fontSize:10.sp,
                   color: Colors.black54,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -41,7 +41,7 @@ class TitleWidget extends StatelessWidget {
           Icon(
             Icons.car_crash_sharp,
             color: Colors.black,
-            size: 30.sp,
+            size: 25.sp,
           ),
         ],
       ),

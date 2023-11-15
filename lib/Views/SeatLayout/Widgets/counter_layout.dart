@@ -17,10 +17,10 @@ class CounterAppBar extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 4.w,
-        vertical: 1.5.h,
+        vertical: 1.h,
       ),
       width: double.infinity,
-      height: 18.h,
+      height: 16.h,
       decoration: const BoxDecoration(
         color: Constants.primaryColor,
         borderRadius: BorderRadius.only(
@@ -38,7 +38,7 @@ class CounterAppBar extends StatelessWidget {
               const BackButtonCustom(),
               Image.asset(
                 Assets.colorLogo,
-                scale: 20,
+                scale: 25,
               ),
             ],
           ),

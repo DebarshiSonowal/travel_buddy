@@ -31,7 +31,7 @@ class LabelValue extends StatelessWidget {
           Text(
             value,
             style: GoogleFonts.roboto().copyWith(
-              fontSize: 13.sp,
+              fontSize: 9.sp,
               color: Colors.black,
               // fontWeight: FontWeight.bold,
             ),

@@ -46,7 +46,7 @@ class olderAppBar extends StatelessWidget {
             Text(
               "What's New",
               style: GoogleFonts.roboto().copyWith(
-                fontSize: 20.sp,
+                fontSize: 15.sp,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),

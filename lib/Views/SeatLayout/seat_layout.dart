@@ -12,6 +12,7 @@ import '../BookingScreen/Widgets/rating_button.dart';
 import 'Widgets/counter_layout.dart';
 import 'Widgets/first_line.dart';
 import 'Widgets/info_card.dart';
+import 'Widgets/last_line.dart';
 import 'Widgets/other_lines.dart';
 import 'Widgets/proceed_button.dart';
 import 'Widgets/seat_image.dart';
@@ -35,24 +36,24 @@ class _SeatLayoutState extends State<SeatLayout> {
         child: SizedBox(
           height: double.infinity,
           width: double.infinity,
-          child: SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
-            child: Column(
-              children: [
-                const CounterAppBar(),
-                Container(
-                  height: 71.h,
-                  width: double.infinity,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 2.w,
-                    vertical: 2.h,
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const CounterAppBar(),
+              Container(
+                height: double.infinity,
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 2.w,
+                  // vertical: 0.1.h,
+                ),
+                child: SingleChildScrollView(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const InfoCard(),
                       SizedBox(
-                        height: 2.h,
+                        height: 0.5.h,
                       ),
                       Container(
                         padding: EdgeInsets.symmetric(
@@ -60,91 +61,216 @@ class _SeatLayoutState extends State<SeatLayout> {
                           vertical: 1.h,
                         ),
                         width: 70.w,
-                        height: 50.h,
+                        height: 55.h,
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: Colors.black,
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
+                        child: SingleChildScrollView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          child: Column(
+                            children: [
+                              FirstLine(
+                                selected: selected,
+                                onTap: (val) {
+                                  setState(() {
+                                    if (selected.contains(0)) {
+                                      selected.remove(0);
+                                    } else {
+                                      selected.add(0);
+                                    }
+                                  });
+                                },
+                                id: 0,
+                              ),
+                              Divider(
+                                thickness: 0.2.h,
+                              ),
+                              OtherLines(
+                                ids: const [1, 2, 3, 4],
+                                selected: selected,
+                                onTap: (int id) {
+                                  setState(() {
+                                    if (selected.contains(id)) {
+                                      selected.remove(id);
+                                    } else {
+                                      selected.add(id);
+                                    }
+                                  });
+                                },
+                              ),
+                              Divider(
+                                thickness: 0.2.h,
+                              ),
+                              OtherLines(
+                                ids: const [5, 6, 7, 8],
+                                selected: selected,
+                                onTap: (int id) {
+                                  setState(() {
+                                    if (selected.contains(id)) {
+                                      selected.remove(id);
+                                    } else {
+                                      selected.add(id);
+                                    }
+                                  });
+                                },
+                              ),
+                              Divider(
+                                thickness: 0.2.h,
+                              ),
+                              OtherLines(
+                                ids: const [9, 10, 11, 12],
+                                selected: selected,
+                                onTap: (int id) {
+                                  setState(() {
+                                    if (selected.contains(id)) {
+                                      selected.remove(id);
+                                    } else {
+                                      selected.add(id);
+                                    }
+                                  });
+                                },
+                              ),
+                              Divider(
+                                thickness: 0.2.h,
+                              ),
+                              OtherLines(
+                                ids: const [13, 14, 15, 16],
+                                selected: selected,
+                                onTap: (int id) {
+                                  setState(() {
+                                    if (selected.contains(id)) {
+                                      selected.remove(id);
+                                    } else {
+                                      selected.add(id);
+                                    }
+                                  });
+                                },
+                              ),
+                              Divider(
+                                thickness: 0.2.h,
+                              ),
+                              OtherLines(
+                                ids: const [17, 18, 19, 20],
+                                selected: selected,
+                                onTap: (int id) {
+                                  setState(() {
+                                    if (selected.contains(id)) {
+                                      selected.remove(id);
+                                    } else {
+                                      selected.add(id);
+                                    }
+                                  });
+                                },
+                              ),
+                              Divider(
+                                thickness: 0.2.h,
+                              ),
+                              OtherLines(
+                                ids: const [21, 22, 23, 24],
+                                selected: selected,
+                                onTap: (int id) {
+                                  setState(() {
+                                    if (selected.contains(id)) {
+                                      selected.remove(id);
+                                    } else {
+                                      selected.add(id);
+                                    }
+                                  });
+                                },
+                              ),
+                              Divider(
+                                thickness: 0.2.h,
+                              ),
+                              LastLines(
+                                ids: const [25, 26, 27, 28],
+                                selected: selected,
+                                onTap: (int id) {
+                                  setState(() {
+                                    if (selected.contains(id)) {
+                                      selected.remove(id);
+                                    } else {
+                                      selected.add(id);
+                                    }
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 0.5.h,
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 5.w,
+                        ),
+                        width: double.infinity,
+                        // height: 5.h,
                         child: Column(
                           children: [
-                            FirstLine(
-                              selected: selected,
-                              onTap: (val) {
-                                setState(() {
-                                  if (selected.contains(0)) {
-                                    selected.remove(0);
-                                  } else {
-                                    selected.add(0);
-                                  }
-                                });
-                              },
-                              id: 0,
+                            Row(
+                              children: [
+                                Text(
+                                  "Seats ${selected.length}",
+                                  style: GoogleFonts.roboto().copyWith(
+                                    fontSize: 11.sp,
+                                    color: Colors.black,
+                                    // fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10.w,
+                                ),
+                                Text(
+                                  "Seats No: ${selected.toList()}",
+                                  style: GoogleFonts.roboto().copyWith(
+                                    fontSize: 11.sp,
+                                    color: Colors.black,
+                                    // fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const Spacer(),
+                                Text(
+                                  "₹ 1200",
+                                  style: GoogleFonts.roboto().copyWith(
+                                    fontSize: 11.sp,
+                                    color: Colors.black,
+                                    // fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
                             Divider(
-                              thickness: 0.2.h,
+                              thickness: 0.15.h,
+                              color: Colors.black87,
                             ),
-                            OtherLines(
-                              ids: const [1, 2, 3, 4],
-                              selected: selected,
-                              onTap: (int id) {
-                                setState(() {
-                                  if (selected.contains(id)) {
-                                    selected.remove(id);
-                                  } else {
-                                    selected.add(id);
-                                  }
-                                });
-                              },
-                            ),
-                            Divider(
-                              thickness: 0.2.h,
-                            ),
-                            OtherLines(
-                              ids: const [5, 6, 7, 8],
-                              selected: selected,
-                              onTap: (int id) {
-                                setState(() {
-                                  if (selected.contains(id)) {
-                                    selected.remove(id);
-                                  } else {
-                                    selected.add(id);
-                                  }
-                                });
-                              },
-                            ),
-                            Divider(
-                              thickness: 0.2.h,
-                            ),
-                            OtherLines(
-                              ids: const [9, 10, 11, 12],
-                              selected: selected,
-                              onTap: (int id) {
-                                setState(() {
-                                  if (selected.contains(id)) {
-                                    selected.remove(id);
-                                  } else {
-                                    selected.add(id);
-                                  }
-                                });
-                              },
-                            ),
-                            Divider(
-                              thickness: 0.2.h,
-                            ),
-                            OtherLines(
-                              ids: const [13, 14, 15, 16],
-                              selected: selected,
-                              onTap: (int id) {
-                                setState(() {
-                                  if (selected.contains(id)) {
-                                    selected.remove(id);
-                                  } else {
-                                    selected.add(id);
-                                  }
-                                });
-                              },
+                            Row(
+                              children: [
+                                Text(
+                                  "Itanagar",
+                                  style: GoogleFonts.roboto().copyWith(
+                                    fontSize: 11.sp,
+                                    color: Colors.black,
+                                    // fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  "Guwahati",
+                                  style: GoogleFonts.roboto().copyWith(
+                                    fontSize: 11.sp,
+                                    color: Colors.black,
+                                    // fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -152,26 +278,26 @@ class _SeatLayoutState extends State<SeatLayout> {
                     ],
                   ),
                 ),
-                Container(
-                  height: 7.h,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                  ),
-                  child: Center(
-                    child: ProceedButton(
-                      onTap: () {
-                        Navigation.instance.navigate(Routes.passengerLayout);
-                      },
-                    ),
+              ),
+              Container(
+                height: 7.h,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ),
                 ),
-              ],
-            ),
+                child: Center(
+                  child: ProceedButton(
+                    onTap: () {
+                      Navigation.instance.navigate(Routes.passengerLayout);
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

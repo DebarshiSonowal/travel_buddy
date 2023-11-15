@@ -31,7 +31,7 @@ class _BookingScreenState extends State<BookingScreen> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 23.h,
+                  height: 20.h,
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
@@ -58,7 +58,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     },
                     separatorBuilder: (context, index) {
                       return SizedBox(
-                        width: 4.w,
+                        width: 3.w,
                       );
                     },
                     itemCount: 5,

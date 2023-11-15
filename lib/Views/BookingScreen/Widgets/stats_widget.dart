@@ -14,13 +14,13 @@ class StatsWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(
-        horizontal: 5.w,
+        horizontal: 8.w,
       ),
       padding: EdgeInsets.symmetric(
         horizontal: 4.w,
         vertical: 1.5.h,
       ),
-      height: 12.h,
+      height: 10.h,
       decoration: BoxDecoration(
         color: Colors.black87,
         borderRadius: BorderRadius.circular(20),
@@ -33,7 +33,7 @@ class StatsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: 55.w,
+                width: 50.w,
                 padding: EdgeInsets.symmetric(
                   horizontal: 4.w,
                   vertical: 0.5.h,
@@ -49,7 +49,7 @@ class StatsWidget extends StatelessWidget {
                     Text(
                       "Itanagar",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 13.sp,
+                        fontSize: 11.sp,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
@@ -62,7 +62,7 @@ class StatsWidget extends StatelessWidget {
                     Text(
                       "Pasighat",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 13.sp,
+                        fontSize: 11.sp,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
@@ -84,7 +84,7 @@ class StatsWidget extends StatelessWidget {
                   child: Text(
                     "04 Sept",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 13.sp,
+                      fontSize: 11.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -100,7 +100,7 @@ class StatsWidget extends StatelessWidget {
             child: Text(
               "20 Vehicles available",
               style: GoogleFonts.roboto().copyWith(
-                fontSize: 15.sp,
+                fontSize: 12.sp,
                 color: Colors.white,
                 // fontWeight: FontWeight.bold,
               ),

@@ -19,28 +19,34 @@ class InfoCard extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: 4.w,
+          vertical: 0.5.h,
         ),
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(20)),
         width: 80.w,
-        height: 10.h,
+        // height: 10.h,
         child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SeatLayoutImage(
               name: "Available",
-              selected: false,
-              occupied: false,
+              type:0,
             ),
             SeatLayoutImage(
               name: "Selected",
-              selected: true,
-              occupied: false,
+              type:1,
             ),
             SeatLayoutImage(
               name: "Occupied",
-              selected: true,
-              occupied: true,
+              type:2,
+            ),
+            SeatLayoutImage(
+              name: "Male",
+              type:3,
+            ),
+            SeatLayoutImage(
+              name: "Female",
+              type:4,
             ),
           ],
         ),

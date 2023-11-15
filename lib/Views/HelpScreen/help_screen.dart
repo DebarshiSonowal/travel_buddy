@@ -20,7 +20,7 @@ class _HelpScreenState extends State<HelpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(17.h),
+        preferredSize: Size.fromHeight(13.h),
         child: const HelpAppBar(),
       ),
       body: Container(
@@ -42,7 +42,7 @@ class _HelpScreenState extends State<HelpScreen> {
                 Text(
                   "FAQ!",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 20.sp,
+                    fontSize: 14.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -53,7 +53,7 @@ class _HelpScreenState extends State<HelpScreen> {
               title: Text(
                 "My Bookings",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -63,7 +63,7 @@ class _HelpScreenState extends State<HelpScreen> {
               title: Text(
                 "Help",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -73,7 +73,7 @@ class _HelpScreenState extends State<HelpScreen> {
               title: Text(
                 "Call Support",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -83,7 +83,7 @@ class _HelpScreenState extends State<HelpScreen> {
               title: Text(
                 "About Us",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -93,7 +93,7 @@ class _HelpScreenState extends State<HelpScreen> {
               title: Text(
                 "Privacy Policy",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -103,7 +103,7 @@ class _HelpScreenState extends State<HelpScreen> {
               title: Text(
                 "Terms & Conditions",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -113,7 +113,7 @@ class _HelpScreenState extends State<HelpScreen> {
               title: Text(
                 "Refund Policy",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 18.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -167,7 +167,7 @@ class HelpAppBar extends StatelessWidget {
             Text(
               "Help!",
               style: GoogleFonts.roboto().copyWith(
-                fontSize: 20.sp,
+                fontSize: 13.sp,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),

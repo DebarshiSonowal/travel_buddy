@@ -13,7 +13,7 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 19.h,
+      height: 17.h,
       decoration: const BoxDecoration(
         color: Constants.blackColor,
         borderRadius: BorderRadius.only(
@@ -33,7 +33,7 @@ class BottomBar extends StatelessWidget {
                   TextSpan(
                     text: "You've chosen to make your payment using ",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 13.sp,
+                      fontSize: 11.sp,
                       color: const Color(0xffeaeaea),
                       // fontWeight: FontWeight.bold,
                     ),
@@ -41,7 +41,7 @@ class BottomBar extends StatelessWidget {
                   TextSpan(
                     text: "PhonePe",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 13.sp,
+                      fontSize: 11.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -59,7 +59,7 @@ class BottomBar extends StatelessWidget {
               child: Text(
                 "Pay ₹1448",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 13.sp,
+                  fontSize: 11.sp,
                   color: Colors.white,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -74,17 +74,17 @@ class BottomBar extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(
-                  horizontal: 4.w,
-                  vertical: 1.h,
+                  horizontal: 2.5.w,
+                  vertical: 0.5.h,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
                   "CANCEL",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 13.sp,
+                    fontSize: 9.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -99,17 +99,17 @@ class BottomBar extends StatelessWidget {
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 4.w,
-                    vertical: 1.h,
+                    horizontal: 2.5.w,
+                    vertical: 0.5.h,
                   ),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
                     "PAY NOW",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 13.sp,
+                      fontSize:9.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),

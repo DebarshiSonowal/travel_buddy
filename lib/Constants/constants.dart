@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  static const Color primaryColor = Color(0xfffee403);
+  static const Color primaryColor = Color(0xffffe300);
   static const Color selected = Color(0xff1da67c);
   static const Color occupied = Color(0xffd44544);
   static const Color grey = Color(0xff4d4d4d);

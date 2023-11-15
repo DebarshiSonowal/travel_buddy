@@ -22,96 +22,125 @@ class _IntroScreenState extends State<IntroScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Constants.primaryColor,
-      body: Column(
-        children: [
-          SizedBox(
-            height: 85.h,
-            width: double.infinity,
-            child: IntroductionScreen(
-              globalBackgroundColor: Constants.primaryColor,
-              pages: [
-                PageViewModel(
-                  // title: "",
-                  decoration: const PageDecoration(
-                    // pageColor: Constants.primaryColor,
-                    boxDecoration: BoxDecoration(
-                      color: Constants.primaryColor,
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 85.h,
+              width: double.infinity,
+              child: IntroductionScreen(
+                globalBackgroundColor: Constants.primaryColor,
+                pages: [
+                  PageViewModel(
+                    // title: "",
+                    decoration: const PageDecoration(
+                      // pageColor: Constants.primaryColor,
+                      boxDecoration: BoxDecoration(
+                        color: Constants.primaryColor,
+                      ),
                     ),
-                  ),
-                  titleWidget: Column(
-                    children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      SizedBox(
-                        width: 42.w,
-                        child: AutoSizeText(
-                          "Decide your destination",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 22.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  bodyWidget: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 42.w,
-                        child: AutoSizeText(
-                          "and find a ticket",
-                          style: GoogleFonts.roboto().copyWith(
-                              // fontSize: 19.sp,
+                    titleWidget: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            GestureDetector(
+                              onTap: (){
+
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 2.w,
+                                  vertical: 0.5.h,
+                                ),
+
+                                child: Text(
+                                  "Skip",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(color: Colors.black),
+                                ),
                               ),
-                          stepGranularity: 1.sp,
-                          minFontSize: 17.sp,
-                          maxLines: 1,
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                        child: Row(
-                          children: [],
+                        SizedBox(
+                          height: 5.h,
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(
-                          color: Colors.white,
-                          width: 0.2.h,
-                        ))),
-                        width: 80.w,
-                        height: 25.h,
-                        child: Transform(
-                          alignment: Alignment.center,
-                          transform: Matrix4.rotationY(math.pi),
-                          child: Image.asset(
-                            Assets.destinationLogo,
-                            fit: BoxFit.fill,
+                        SizedBox(
+                          width: 42.w,
+                          child: AutoSizeText(
+                            "Decide your destination",
+                            style: GoogleFonts.roboto().copyWith(
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    bodyWidget: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 42.w,
+                          child: AutoSizeText(
+                            "and find a ticket",
+                            style: GoogleFonts.roboto().copyWith(
+                                // fontSize: 19.sp,
+                                ),
+                            stepGranularity: 1.sp,
+                            minFontSize: 17.sp,
+                            maxLines: 1,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                          child: Row(
+                            children: [],
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(
+                            color: Colors.white,
+                            width: 0.2.h,
+                          ))),
+                          width: 80.w,
+                          height: 25.h,
+                          child: Transform(
+                            alignment: Alignment.center,
+                            transform: Matrix4.rotationY(math.pi),
+                            child: Image.asset(
+                              Assets.destinationLogo,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
 
-                  // image: const Center(child: Icon(Icons.android)),
-                )
-              ],
-              showSkipButton: true,
-              showNextButton: false,
-              skip: const Text("Skip"),
-              done: const Text(""),
-              onDone: () {
-                // On button pressed
-
-              },
+                    // image: const Center(child: Icon(Icons.android)),
+                  )
+                ],
+                showSkipButton: true,
+                showNextButton: false,
+                skip: const Text("Skip"),
+                done: const Text(""),
+                onDone: () {
+                  // On button pressed
+                },
+              ),
             ),
-          ),
-          const LoginButton(),
-        ],
+            const LoginButton(),
+          ],
+        ),
       ),
     );
   }
@@ -125,7 +154,7 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         Navigation.instance.navigateAndRemoveUntil(Routes.loginScreen);
       },
       child: Container(

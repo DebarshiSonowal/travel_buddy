@@ -18,7 +18,7 @@ class FromToWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 7.h,
+      height: 6.h,
       padding: EdgeInsets.symmetric(
         horizontal: 4.w,
       ),

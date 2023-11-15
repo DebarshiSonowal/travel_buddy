@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:sizer/sizer.dart';
+// import 'package:social_login_buttons/social_login_buttons.dart';
 import 'package:travel_buddy/Constants/assets.dart';
 import 'package:travel_buddy/Constants/constants.dart';
 import 'package:travel_buddy/Constants/routes.dart';
@@ -28,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: const BoxDecoration(
                 color: Constants.primaryColor,
                 borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(125),
+                  bottom: Radius.circular(120),
                 ),
               ),
               child: Image.asset(Assets.loginLogo),
@@ -105,10 +107,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     onChanged: (phone) {},
                   ),
                   SizedBox(
-                    height: 2.h,
+                    height: 1.5.h,
                   ),
                   SizedBox(
-                    height: 7.h,
+                    height: 6.h,
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -131,7 +133,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Center(
                     child: Text(
-                      "A 6 digit OTP will be sent via message to\n verify your mobile number",
+                      "A 6 digit OTP will be sent via SMS to",
+                      style: GoogleFonts.roboto().copyWith(
+                        fontSize: 9.sp,
+                        color: Colors.black45,
+                        // fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      "verify your mobile number",
                       style: GoogleFonts.roboto().copyWith(
                         fontSize: 9.sp,
                         color: Colors.black45,
@@ -140,7 +153,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 4.h,
+                    height: 2.h,
+                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     SizedBox(
+                  //       width:15.w,
+                  //       height: 15.w,
+                  //       child: FlutterSocialButton(
+                  //         onTap: () {},
+                  //         mini: true,
+                  //         buttonType: ButtonType.google, // Button type for different type buttons
+                  //         iconColor: Colors.white,  // for change icons colors
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  SizedBox(
+                    height: 2.h,
                   ),
                   Center(
                     child: Text(

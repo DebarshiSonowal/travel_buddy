@@ -39,7 +39,7 @@ class BookingAppBar extends StatelessWidget {
                   const BackButtonCustom(),
                   Image.asset(
                     Assets.colorLogo,
-                    scale: 18,
+                    scale: 20,
                   ),
                 ],
               ),

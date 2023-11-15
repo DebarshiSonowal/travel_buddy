@@ -19,7 +19,7 @@ class _VehicleItemState extends State<VehicleItem> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: 5.w,
+        horizontal: 8.w,
       ),
       decoration: BoxDecoration(
         color: Constants.primaryColor,
@@ -46,7 +46,7 @@ class _VehicleItemState extends State<VehicleItem> {
           leading: Icon(
             Icons.car_rental,
             color: Colors.black,
-            size: 25.sp,
+            size: 23.sp,
           ),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +54,7 @@ class _VehicleItemState extends State<VehicleItem> {
               Text(
                 "Maruti Alto",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 12.sp,
+                  fontSize: 11.sp,
                   color: Colors.black,
                   // fontWeight: FontWeight.bold,
                 ),
@@ -66,7 +66,7 @@ class _VehicleItemState extends State<VehicleItem> {
                   ? Text(
                       "Time: 21:00 - 03:45",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 9.sp,
+                        fontSize: 7.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -74,7 +74,7 @@ class _VehicleItemState extends State<VehicleItem> {
                   : Text(
                       "21:00 - 03:45",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 10.sp,
+                        fontSize: 7.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -86,9 +86,9 @@ class _VehicleItemState extends State<VehicleItem> {
                   ? Text(
                       "11h 30m - 8 seats left",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize: 8.sp,
+                        fontSize: 6.sp,
                         color: Colors.black54,
-                        // fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.bold,
                       ),
                     )
                   : Container(),
@@ -135,11 +135,11 @@ class _VehicleItemState extends State<VehicleItem> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        width: 20.w,
+                        width: 17.w,
                         child: Row(
                           children: [
                             Container(
-                              width: 12.w,
+                              width: 11.w,
                               decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(20),
@@ -154,7 +154,7 @@ class _VehicleItemState extends State<VehicleItem> {
                                   Icon(
                                     Icons.star,
                                     color: Constants.primaryColor,
-                                    size: 13.sp,
+                                    size: 11.sp,
                                   ),
                                   SizedBox(
                                     width: 1.w,
@@ -162,7 +162,7 @@ class _VehicleItemState extends State<VehicleItem> {
                                   Text(
                                     "4.5",
                                     style: GoogleFonts.roboto().copyWith(
-                                      fontSize: 8.sp,
+                                      fontSize: 7.sp,
                                       color: Colors.white,
                                       // fontWeight: FontWeight.bold,
                                     ),
@@ -170,11 +170,11 @@ class _VehicleItemState extends State<VehicleItem> {
                                 ],
                               ),
                             ),
-                            SizedBox(width: 1.w,),
+                            SizedBox(width: 0.5.w,),
                             Text(
                               "300",
                               style: GoogleFonts.roboto().copyWith(
-                                fontSize: 8.5.sp,
+                                fontSize: 7.5.sp,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -204,7 +204,7 @@ class _VehicleItemState extends State<VehicleItem> {
                   child: Text(
                     "SELECT VEHICLE",
                     style: GoogleFonts.roboto().copyWith(
-                      fontSize: 13.sp,
+                      fontSize: 9.sp,
                       color: Colors.white,
                       // fontWeight: FontWeight.bold,
                     ),

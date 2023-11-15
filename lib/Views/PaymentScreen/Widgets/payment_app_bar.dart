@@ -55,7 +55,7 @@ class PaymentAppbar extends StatelessWidget {
                       TextSpan(
                         text: "Hi, ",
                         style: GoogleFonts.roboto().copyWith(
-                          fontSize: 17.sp,
+                          fontSize: 12.sp,
                           color: Colors.black,
                           // fontWeight: FontWeight.bold,
                         ),
@@ -63,7 +63,7 @@ class PaymentAppbar extends StatelessWidget {
                       TextSpan(
                         text: "Mr. Johnson",
                         style: GoogleFonts.roboto().copyWith(
-                          fontSize: 17.sp,
+                          fontSize: 12.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
@@ -74,7 +74,7 @@ class PaymentAppbar extends StatelessWidget {
                 Text(
                   "Seat: 25,26",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 12.sp,
+                    fontSize: 8.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),

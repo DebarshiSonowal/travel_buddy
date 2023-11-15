@@ -20,8 +20,8 @@ class InfoTitle extends StatelessWidget {
           title,
           style: GoogleFonts.roboto().copyWith(
             fontSize: 10.5.sp,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
+            color: Colors.black87,
+            // fontWeight: FontWeight.bold,
           ),
         ),
         Text(

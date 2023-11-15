@@ -20,7 +20,7 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(15.h),
+        preferredSize: Size.fromHeight(13.h),
         child: SafeArea(
           child: Container(
             padding: EdgeInsets.symmetric(
@@ -54,7 +54,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 Text(
                   "My Account",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 17.sp,
+                    fontSize: 13.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -82,7 +82,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: Text(
                   "My Bookings",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 18.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -92,7 +92,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: Text(
                   "Help",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 18.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -102,7 +102,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: Text(
                   "Call Support",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 18.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -112,7 +112,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: Text(
                   "About Us",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 18.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -122,7 +122,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: Text(
                   "Privacy Policy",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 18.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -132,7 +132,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: Text(
                   "Terms & Conditions",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 18.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -142,7 +142,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: Text(
                   "Refund Policy",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 18.sp,
+                    fontSize: 12.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -155,18 +155,18 @@ class _AccountScreenState extends State<AccountScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    height: 6.h,
-                    width: 40.w,
+                    height: 4.h,
+                    width: 30.w,
                     decoration: BoxDecoration(
                       color: Colors.black,
                       // shape: BoxShape.circle,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
                       child: Text(
                         "Log out",
                         style: GoogleFonts.roboto().copyWith(
-                          fontSize: 12.sp,
+                          fontSize: 10.sp,
                           color: Colors.white,
                           // fontWeight: FontWeight.bold,
                         ),
@@ -178,18 +178,18 @@ class _AccountScreenState extends State<AccountScreen> {
                       showDeleteDialog(context);
                     },
                     child: Container(
-                      height: 6.h,
-                      width: 40.w,
+                      height: 4.h,
+                      width: 30.w,
                       decoration: BoxDecoration(
                         color: Constants.primaryColor,
                         // shape: BoxShape.circle,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
                         child: Text(
                           "Delete Account",
                           style: GoogleFonts.roboto().copyWith(
-                            fontSize: 12.sp,
+                            fontSize: 10.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
@@ -370,15 +370,15 @@ class RoundedBarAccount extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(30),
       ),
       width: double.infinity,
-      height: 11.h,
+      height: 6.h,
       child: Row(
         children: [
           Container(
-            height: 7.h,
-            width: 7.h,
+            height: 4.5.h,
+            width: 4.5.h,
             decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
@@ -390,7 +390,7 @@ class RoundedBarAccount extends StatelessWidget {
           Text(
             "Hi, John",
             style: GoogleFonts.roboto().copyWith(
-              fontSize: 16.sp,
+              fontSize: 10.sp,
               color: Colors.white,
               // fontWeight: FontWeight.bold,
             ),

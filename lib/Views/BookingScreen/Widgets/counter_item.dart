@@ -12,7 +12,7 @@ class CounterItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50.w,
+      width: 40.w,
       decoration: BoxDecoration(
           color: Constants.primaryColor,
           borderRadius: BorderRadius.circular(15)),
@@ -32,6 +32,7 @@ class CounterItem extends StatelessWidget {
               vertical: 0.2.h,
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Icon(
                   Icons.desk,
@@ -43,7 +44,7 @@ class CounterItem extends StatelessWidget {
                 Text(
                   "Counter Name",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 13.sp,
+                    fontSize: 9.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -54,7 +55,7 @@ class CounterItem extends StatelessWidget {
           Icon(
             Icons.arrow_drop_down,
             color: Colors.black,
-            size: 22.sp,
+            size: 20.sp,
           ),
         ],
       ),

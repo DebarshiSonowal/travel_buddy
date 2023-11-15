@@ -21,7 +21,11 @@ class _PassengerListWidgetState extends State<PassengerListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: 3.w,
+        vertical: 0.8.h,
+      ),
       // height: 15.h,
       width: double.infinity,
       child: ListView.separated(

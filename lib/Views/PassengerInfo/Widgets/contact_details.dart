@@ -21,7 +21,7 @@ class ContactDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: 4.w,
+        horizontal: 6.w,
       ),
       padding: EdgeInsets.symmetric(
         horizontal: 4.w,
@@ -32,7 +32,7 @@ class ContactDetails extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       width: double.infinity,
-      height: 19.h,
+      // height: 17.5.h,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,7 @@ class ContactDetails extends StatelessWidget {
           Text(
             "Contact Details",
             style: GoogleFonts.roboto().copyWith(
-              fontSize: 12.sp,
+              fontSize: 9.sp,
               color: const Color(0xffdbdbdb),
               // fontWeight: FontWeight.bold,
             ),
@@ -50,7 +50,7 @@ class ContactDetails extends StatelessWidget {
             child: TextField(
               controller: nameController,
               style: GoogleFonts.roboto().copyWith(
-                fontSize: 9.sp,
+                fontSize: 8.sp,
                 color: Colors.white,
                 // fontWeight: FontWeight.bold,
               ),
@@ -68,7 +68,7 @@ class ContactDetails extends StatelessWidget {
                 ),
                 hintText: "Name",
                 hintStyle: GoogleFonts.roboto().copyWith(
-                  fontSize: 8.sp,
+                  fontSize: 7.sp,
                   color: const Color(0xff747474),
 
                   // fontWeight: FontWeight.bold,
@@ -77,32 +77,32 @@ class ContactDetails extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 0.5.h,
+            height: 0.2.h,
           ),
           Row(
             children: [
               Text(
                 "+91",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 9.sp,
+                  fontSize: 8.sp,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
-                width: 2.w,
+                width: 1.5.w,
               ),
               Container(
-                height: 4.h,
+                height: 2.5.h,
                 width: 0.3.w,
                 color: const Color(0xff747474),
               ),
               SizedBox(
-                width: 2.w,
+                width: 1.5.w,
               ),
               SizedBox(
                 height: 3.h,
-                width: 27.w,
+                width: 25.w,
                 child: TextField(
                   controller: mobileController,
                   style: GoogleFonts.roboto().copyWith(
@@ -136,9 +136,10 @@ class ContactDetails extends StatelessWidget {
               SizedBox(
                 width: 4.w,
               ),
-              const Icon(
+              Icon(
                 FontAwesomeIcons.whatsapp,
                 color: Colors.white,
+                size: 14.sp,
               ),
               SizedBox(
                 width: 1.w,
@@ -146,7 +147,7 @@ class ContactDetails extends StatelessWidget {
               Text(
                 "+91",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 9.sp,
+                  fontSize: 8.sp,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
@@ -155,7 +156,7 @@ class ContactDetails extends StatelessWidget {
                 width: 1.w,
               ),
               Container(
-                height: 4.h,
+                height: 2.5.h,
                 width: 0.3.w,
                 color: const Color(0xff747474),
               ),
@@ -168,7 +169,7 @@ class ContactDetails extends StatelessWidget {
                 child: TextField(
                   controller: whatsappController,
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 9.sp,
+                    fontSize: 8.sp,
                     color: Colors.white,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -187,7 +188,7 @@ class ContactDetails extends StatelessWidget {
                     ),
                     hintText: "Whatsapp",
                     hintStyle: GoogleFonts.roboto().copyWith(
-                      fontSize: 8.sp,
+                      fontSize: 7.sp,
                       color: const Color(0xff747474),
 
                       // fontWeight: FontWeight.bold,
@@ -214,7 +215,7 @@ class ContactDetails extends StatelessWidget {
               Text(
                 "Send Booking Details to Whatsapp",
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 9.sp,
+                  fontSize: 8.sp,
                   color: Colors.white,
                   // fontWeight: FontWeight.bold,
                 ),
