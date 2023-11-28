@@ -8,6 +8,7 @@ import 'package:travel_buddy/Constants/assets.dart';
 import 'package:travel_buddy/Constants/constants.dart';
 import 'package:travel_buddy/Constants/routes.dart';
 import 'package:travel_buddy/Router/navigator.dart';
+import 'package:travel_buddy/Services/api_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,6 +18,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController? controller = TextEditingController();
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 1.h,
                   ),
                   IntlPhoneField(
+                    controller: controller,
                     flagsButtonPadding: EdgeInsets.only(
                       left: 4.w,
                     ),
@@ -116,7 +126,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black),
                       onPressed: () {
-                        Navigation.instance.navigate(Routes.otpScreen);
+
+                        loginOTP(controller?.text);
                       },
                       child: Text(
                         "GENERATE OTP",
@@ -205,5 +216,14 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> loginOTP(String? mobile) async {
+    final response = await ApiProvider.instance.sendOTP(mobile!);
+    if(response.status??false) {
+      Navigation.instance.navigate(Routes.otpScreen);
+    }else{
+
+    }
   }
 }

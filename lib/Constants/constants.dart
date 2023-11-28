@@ -8,4 +8,6 @@ class Constants {
   static const Color selectedBorder = Color(0xff1e8b6b);
   static const Color blackColor = Color(0xff202020);
   static const Color backgroundColor = Color(0xfff0f0f0);
+
+  static const String baseUrl="https://dev.gotravelbuddy.com/";
 }
