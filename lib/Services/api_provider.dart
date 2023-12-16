@@ -2,12 +2,16 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:travel_buddy/Models/generic_response.dart';
 
-class ApiProvider {
-  ApiProvider._();
+import '../Helper/storage.dart';
+import '../Models/location_response.dart';
 
-  static final ApiProvider instance = ApiProvider._();
+class ApiProvider {
+  // ApiProvider._();
+  //
+  // static final ApiProvider instance = ApiProvider._();
 
   static const waitTime = 10000;
 
@@ -95,8 +99,75 @@ class ApiProvider {
   }
 
   //AUTHORIZED
+  Future<LocationResponse> searchFrom() async {
+    BaseOptions option = BaseOptions(
+        connectTimeout: const Duration(seconds: waitTime),
+        receiveTimeout: const Duration(seconds: waitTime),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${Storage.instance.token}'
+          // 'APP-KEY': ConstanceData.app_key
+        });
+    var url = "$endpoint/$path/search/from";
+    dio = Dio(option);
+    debugPrint(url.toString());
+    debugPrint('Bearer ${Storage.instance.token}');
 
+    try {
+      Response? response = await dio?.get(
+        url,
+        // data: jsonEncode(data),
+      );
+      debugPrint("searchFrom response: ${response?.data} ${response?.headers}");
+      if (response?.statusCode == 200 || response?.statusCode == 201) {
+        return LocationResponse.fromJson(response?.data);
+      } else {
+        debugPrint("searchFrom error response: ${response?.data}");
+        return LocationResponse.error(response?.data['error']
+            ? response?.data['message']['success']
+            : response?.data['message']['error']);
+      }
+    } on DioError catch (e) {
+      debugPrint("searchFrom  error: ${e.error} ${e.message}");
+      return LocationResponse.error(e.message ?? "");
+    }
+  }
 
+  Future<LocationResponse> searchTo() async {
+    BaseOptions option = BaseOptions(
+        connectTimeout: const Duration(seconds: waitTime),
+        receiveTimeout: const Duration(seconds: waitTime),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${Storage.instance.token}'
+          // 'APP-KEY': ConstanceData.app_key
+        });
+    var url = "$endpoint/$path/search/to";
+    dio = Dio(option);
+    debugPrint(url.toString());
+    // debugPrint(jsonEncode(data));
 
-
+    try {
+      Response? response = await dio?.get(
+        url,
+        // data: jsonEncode(data),
+      );
+      debugPrint("searchTo response: ${response?.data} ${response?.headers}");
+      if (response?.statusCode == 200 || response?.statusCode == 201) {
+        return LocationResponse.fromJson(response?.data);
+      } else {
+        debugPrint("searchTo error response: ${response?.data}");
+        return LocationResponse.error(response?.data['error']
+            ? response?.data['message']['success']
+            : response?.data['message']['error']);
+      }
+    } on DioError catch (e) {
+      debugPrint("searchTo  error: ${e.error} ${e.message}");
+      return LocationResponse.error(e.message ?? "");
+    }
+  }
 }
+
+final userProvider = Provider<ApiProvider>((ref) => ApiProvider());

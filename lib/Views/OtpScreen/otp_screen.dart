@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
@@ -6,16 +9,71 @@ import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Constants/assets.dart';
 import 'package:travel_buddy/Constants/constants.dart';
 import 'package:travel_buddy/Constants/routes.dart';
+import 'package:travel_buddy/Helper/storage.dart';
 import 'package:travel_buddy/Router/navigator.dart';
+import 'package:travel_buddy/Services/api_provider.dart';
 
 class OtpScreen extends StatefulWidget {
-  const OtpScreen({super.key});
+  const OtpScreen({super.key, required this.mobile});
+
+  final String mobile;
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();
 }
 
 class _OtpScreenState extends State<OtpScreen> {
+  final OtpFieldController otpTextController = OtpFieldController();
+  String otp = "";
+  Timer? timer;
+  int time = 30;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      setTimer();
+
+    });
+  }
+  void setTimer() {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (timer.tick == 30) {
+        try {
+          if (mounted) {
+            setState(() {
+              timer.cancel();
+            });
+          } else {
+            timer.cancel();
+          }
+        } catch (e) {
+          debugPrint(e.toString());
+        }
+      }
+      if (mounted) {
+        debugPrint(timer.tick.toString());
+        try {
+          setState(() {
+            time = (30 - timer.tick);
+          });
+        } catch (e) {
+          debugPrint(e.toString());
+          time = (30 - timer.tick);
+          setState(() {
+
+          });
+        }
+      } else {
+        debugPrint(timer.tick.toString());
+        time = (30 - timer.tick);
+        setState(() {
+
+        });
+      }
+      // print("Dekhi 5 sec por por kisu hy ni :/");
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +146,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         horizontal: 5.w,
                       ),
                       child: Text(
-                        "+91 8638372157",
+                        "+91 ${widget.mobile}",
                         style: GoogleFonts.roboto().copyWith(
                           fontSize: 12.sp,
                           color: Colors.black,
@@ -114,7 +172,8 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     OTPTextField(
-                      length: 5,
+                      controller: otpTextController,
+                      length: 6,
                       width: MediaQuery.of(context).size.width,
                       fieldWidth: 8.w,
                       style: GoogleFonts.roboto().copyWith(
@@ -124,7 +183,27 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                       textFieldAlignment: MainAxisAlignment.spaceAround,
                       fieldStyle: FieldStyle.underline,
-                      onCompleted: (pin) {},
+                      onCompleted: (pin) {
+                        setState(() {
+                          otp = pin;
+                        });
+                      },
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        time>0?Text(
+                          "Retry after: 00:$time",
+                          style: GoogleFonts.roboto().copyWith(
+                            fontSize: 12.sp,
+                            color: Colors.black,
+                          ),
+                          textAlign: TextAlign.center,
+                        ):Container(),
+                      ],
                     ),
                     SizedBox(
                       height: 3.h,
@@ -140,7 +219,9 @@ class _OtpScreenState extends State<OtpScreen> {
                                 backgroundColor: Colors.black),
                             onPressed: () {
                               debugPrint("onPressed: ");
-                              Navigation.instance.navigate(Routes.mainScreen);
+                              if (otp != "" && otp.length == 6) {
+                                verifyOTP(widget.mobile, otp);
+                              }
                             },
                             child: Text(
                               "VERIFY OTP",
@@ -154,7 +235,20 @@ class _OtpScreenState extends State<OtpScreen> {
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.black),
-                            onPressed: () {},
+                            onPressed: () {
+                              if(time<=0){
+                                setState(() {
+                                  time=30;
+                                });
+                                timer = Timer(const Duration(seconds: 30), () {
+                                  setState(() {
+                                    time--;
+                                  });
+                                });
+                              }else{
+                                Fluttertoast.showToast(msg: "Please wait few more seconds");
+                              }
+                            },
                             child: Text(
                               "RESEND OTP",
                               style: GoogleFonts.roboto().copyWith(
@@ -175,5 +269,15 @@ class _OtpScreenState extends State<OtpScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> verifyOTP(String mobile_no, String otp) async {
+    final response = await ApiProvider().login(mobile_no, otp);
+    if (response.status ?? false) {
+      Storage.instance.setUser(response.token ?? "");
+      Navigation.instance.navigate(Routes.mainScreen);
+    } else {
+      Fluttertoast.showToast(msg: response.message ?? "Something went wrong");
+    }
   }
 }

@@ -219,9 +219,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> loginOTP(String? mobile) async {
-    final response = await ApiProvider.instance.sendOTP(mobile!);
+    final response = await ApiProvider().sendOTP(mobile!);
     if(response.status??false) {
-      Navigation.instance.navigate(Routes.otpScreen);
+      Navigation.instance.navigate(Routes.otpScreen,args: mobile);
     }else{
 
     }

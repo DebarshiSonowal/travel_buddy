@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_buddy/Models/location_model.dart';
+import 'package:travel_buddy/Services/api_provider.dart';
+import 'package:travel_buddy/Services/data_provider.dart';
+import 'package:travel_buddy/Widgets/loading_dialog.dart';
 
 import '../../../Constants/constants.dart';
 import 'from_to_widget.dart';
@@ -9,7 +14,9 @@ class BookWidget extends StatelessWidget {
   const BookWidget({
     super.key,
     required this.from,
-    required this.to, required this.selected, required this.updateSelected,
+    required this.to,
+    required this.selected,
+    required this.updateSelected,
   });
 
   final TextEditingController from;
@@ -19,9 +26,10 @@ class BookWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal:6.w,
+        horizontal: 6.w,
         vertical: 1.h,
       ),
       height: 23.h,
@@ -32,10 +40,19 @@ class BookWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
-          FromToWidget(controller: from, hint: "From"),
+          FromToWidget(
+            controller: from,
+            hint: "From",
+            list: searchFromProvider,
+          ),
           const Divider(),
-          FromToWidget(controller: to, hint: "To"),
+          FromToWidget(
+            controller: to,
+            hint: "To",
+            list: searchToProvider,
+          ),
           const Divider(),
           Padding(
             padding: EdgeInsets.symmetric(
@@ -56,8 +73,8 @@ class BookWidget extends StatelessWidget {
                     children: [
                       Text(
                         "Date of journey",
-                        style: GoogleFonts.roboto()
-                            .copyWith(fontSize: 7.sp, color: Colors.black45),
+                        style: GoogleFonts.roboto().copyWith(
+                            fontSize: 7.sp, color: Colors.black45),
                       ),
                       Text(
                         "Mon, 04 Sep",
@@ -74,12 +91,14 @@ class BookWidget extends StatelessWidget {
                   width: 4.w,
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     updateSelected(0);
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: selected==0?Constants.primaryColor:Colors.black,
+                      color: selected == 0
+                          ? Constants.primaryColor
+                          : Colors.black,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     width: 23.w,
@@ -89,7 +108,8 @@ class BookWidget extends StatelessWidget {
                         "Today",
                         style: GoogleFonts.roboto().copyWith(
                           fontSize: 11.sp,
-                          color: selected==0?Colors.black:Colors.white,
+                          color:
+                          selected == 0 ? Colors.black : Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -100,12 +120,14 @@ class BookWidget extends StatelessWidget {
                   width: 2.w,
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     updateSelected(1);
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: selected==1?Constants.primaryColor:Colors.black,
+                      color: selected == 1
+                          ? Constants.primaryColor
+                          : Colors.black,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     width: 23.w,
@@ -115,7 +137,8 @@ class BookWidget extends StatelessWidget {
                         "Tomorrow",
                         style: GoogleFonts.roboto().copyWith(
                           fontSize: 11.sp,
-                          color: selected==1?Colors.black:Colors.white,
+                          color:
+                          selected == 1 ? Colors.black : Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
