@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sizer/sizer.dart';
 // import 'package:pos_system/Constants/constants.dart';
 
 
@@ -12,36 +13,12 @@ class LoadingDialog extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async{
-        return true;
-      },
-      child: Scaffold(
-        backgroundColor: Colors.black54,
-        body: Column(
-          children: [
-            Expanded(
-              child: Container(),
-            ),
-            Container(
-              padding: const EdgeInsets.all(4),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-              child: const SizedBox(
-                height: 24,
-                width: 24,
-                child: CircularProgressIndicator(
-                  strokeWidth: 3,
-                  // color: Constants.primaryColor,
-                ),
-              ),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-          ],
+    return SizedBox(
+      height: 4.h,
+      width: 4.h,
+      child: const Center(
+        child: CircularProgressIndicator(
+          color: Colors.black,
         ),
       ),
     );

@@ -3,10 +3,11 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:travel_buddy/Models/generic_response.dart';
+import 'package:travel_buddy/Models/Generic/generic_response.dart';
+import 'package:travel_buddy/Models/SearchVehicle/search_vehicle.dart';
 
 import '../Helper/storage.dart';
-import '../Models/location_response.dart';
+import '../Models/LocationResponse/location_response.dart';
 
 class ApiProvider {
   // ApiProvider._();
@@ -98,6 +99,45 @@ class ApiProvider {
     }
   }
 
+  Future<GenericResponse> logOut() async {
+    BaseOptions option = BaseOptions(
+        connectTimeout: const Duration(seconds: waitTime),
+        receiveTimeout: const Duration(seconds: waitTime),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${Storage.instance.token}'
+          // 'APP-KEY': ConstanceData.app_key
+        });
+    var url = "$endpoint/$path/logout";
+    dio = Dio(option);
+    // var data = {
+    //   "mobile_no": mobile_no,
+    //   "otp": otp,
+    // };
+    debugPrint(url.toString());
+    // debugPrint(jsonEncode(data));
+
+    try {
+      Response? response = await dio?.post(
+        url,
+        // data: jsonEncode(data),
+      );
+      debugPrint("logout response: ${response?.data} ${response?.headers}");
+      if (response?.statusCode == 200 || response?.statusCode == 201) {
+        return GenericResponse.fromJson(response?.data);
+      } else {
+        debugPrint("logout error response: ${response?.data}");
+        return GenericResponse.error(response?.data['error']
+            ? response?.data['message']['success']
+            : response?.data['message']['error']);
+      }
+    } on DioError catch (e) {
+      debugPrint("logout  error: ${e.error} ${e.message}");
+      return GenericResponse.error(e.message ?? "");
+    }
+  }
+
   //AUTHORIZED
   Future<LocationResponse> searchFrom() async {
     BaseOptions option = BaseOptions(
@@ -129,8 +169,9 @@ class ApiProvider {
             : response?.data['message']['error']);
       }
     } on DioError catch (e) {
-      debugPrint("searchFrom  error: ${e.error} ${e.message}");
-      return LocationResponse.error(e.message ?? "");
+      debugPrint("searchFrom  error: ${e.error} ${e.response?.data} ${e.message}");
+      return LocationResponse.error(
+          e.response?.data['message'] ?? e.message ?? "");
     }
   }
 
@@ -164,10 +205,55 @@ class ApiProvider {
             : response?.data['message']['error']);
       }
     } on DioError catch (e) {
-      debugPrint("searchTo  error: ${e.error} ${e.message}");
-      return LocationResponse.error(e.message ?? "");
+      debugPrint(
+          "searchTo  error: ${e.error} ${e.response?.data} ${e.message}");
+      return LocationResponse.error(
+          e.response?.data['message'] ?? e.message ?? "");
+    }
+  }
+
+  Future<SearchVehicleResponse> searchVehicle(String date,String strloc,String endloc) async {
+    BaseOptions option = BaseOptions(
+        connectTimeout: const Duration(seconds: waitTime),
+        receiveTimeout: const Duration(seconds: waitTime),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${Storage.instance.token}'
+          // 'APP-KEY': ConstanceData.app_key
+        });
+    var url = "$endpoint/$path/search/vehicle";
+    dio = Dio(option);
+    debugPrint(url.toString());
+    debugPrint("My Data ${date} ${strloc} ${endloc} }");
+    var data = {
+      'date':date,
+      'strloc':strloc,
+      'endloc':endloc,
+    };
+    debugPrint(jsonEncode(data));
+
+    try {
+      Response? response = await dio?.get(
+        url,
+        queryParameters: data,
+      );
+      debugPrint("searchVehicle response: ${response?.data} ${response?.headers}");
+      if (response?.statusCode == 200 || response?.statusCode == 201) {
+        return SearchVehicleResponse.fromJson(response?.data);
+      } else {
+        debugPrint("searchVehicle error response: ${response?.data}");
+        return SearchVehicleResponse.error(response?.data['error']
+            ? response?.data['message']['success']
+            : response?.data['message']['error']);
+      }
+    } on DioError catch (e) {
+      debugPrint(
+          "searchVehicle error: ${e.error} ${e.response?.data} ${e.message}");
+      return SearchVehicleResponse.error(
+          e.response?.data['message'] ?? e.message ?? "");
     }
   }
 }
 
-final userProvider = Provider<ApiProvider>((ref) => ApiProvider());
+final apiProvider = Provider<ApiProvider>((ref) => ApiProvider());

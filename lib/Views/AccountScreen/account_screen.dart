@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_buddy/Constants/routes.dart';
 import 'package:travel_buddy/Router/navigator.dart';
 import 'package:travel_buddy/Views/MainScreen/Widgets/main_screen_bottom_widget.dart';
 
 import '../../Common/back_button.dart';
 import '../../Constants/assets.dart';
 import '../../Constants/constants.dart';
+import '../../Helper/storage.dart';
+import '../../Services/api_provider.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -154,21 +158,26 @@ class _AccountScreenState extends State<AccountScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 4.h,
-                    width: 30.w,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      // shape: BoxShape.circle,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Log out",
-                        style: GoogleFonts.roboto().copyWith(
-                          fontSize: 10.sp,
-                          color: Colors.white,
-                          // fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: (){
+                      logOut(context);
+                    },
+                    child: Container(
+                      height: 4.h,
+                      width: 30.w,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        // shape: BoxShape.circle,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Log out",
+                          style: GoogleFonts.roboto().copyWith(
+                            fontSize: 10.sp,
+                            color: Colors.white,
+                            // fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -354,6 +363,16 @@ class _AccountScreenState extends State<AccountScreen> {
             ],
           );
         });
+  }
+
+  Future<void> logOut(BuildContext context) async{
+    final response = await ApiProvider().logOut();
+    if (response.status ?? false) {
+      await Storage.instance.logout();
+      Navigation.instance.navigateAndRemoveUntil(Routes.loginScreen);
+    } else {
+      Fluttertoast.showToast(msg: response.message ?? "Something went wrong");
+    }
   }
 }
 

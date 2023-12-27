@@ -33,9 +33,9 @@ class _OtpScreenState extends State<OtpScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       setTimer();
-
     });
   }
+
   void setTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (timer.tick == 30) {
@@ -60,20 +60,17 @@ class _OtpScreenState extends State<OtpScreen> {
         } catch (e) {
           debugPrint(e.toString());
           time = (30 - timer.tick);
-          setState(() {
-
-          });
+          setState(() {});
         }
       } else {
         debugPrint(timer.tick.toString());
         time = (30 - timer.tick);
-        setState(() {
-
-        });
+        setState(() {});
       }
       // print("Dekhi 5 sec por por kisu hy ni :/");
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -195,14 +192,16 @@ class _OtpScreenState extends State<OtpScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        time>0?Text(
-                          "Retry after: 00:$time",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 12.sp,
-                            color: Colors.black,
-                          ),
-                          textAlign: TextAlign.center,
-                        ):Container(),
+                        time > 0
+                            ? Text(
+                                "Retry after: 00:$time",
+                                style: GoogleFonts.roboto().copyWith(
+                                  fontSize: 12.sp,
+                                  color: Colors.black,
+                                ),
+                                textAlign: TextAlign.center,
+                              )
+                            : Container(),
                       ],
                     ),
                     SizedBox(
@@ -236,17 +235,12 @@ class _OtpScreenState extends State<OtpScreen> {
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.black),
                             onPressed: () {
-                              if(time<=0){
-                                setState(() {
-                                  time=30;
-                                });
-                                timer = Timer(const Duration(seconds: 30), () {
-                                  setState(() {
-                                    time--;
-                                  });
-                                });
-                              }else{
-                                Fluttertoast.showToast(msg: "Please wait few more seconds");
+                              if (time <= 0) {
+                                loginOTP(widget.mobile);
+
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg: "Please wait few more seconds");
                               }
                             },
                             child: Text(
@@ -276,6 +270,16 @@ class _OtpScreenState extends State<OtpScreen> {
     if (response.status ?? false) {
       Storage.instance.setUser(response.token ?? "");
       Navigation.instance.navigate(Routes.mainScreen);
+    } else {
+      Fluttertoast.showToast(msg: response.message ?? "Something went wrong");
+    }
+  }
+
+  Future<void> loginOTP(String? mobile) async {
+    final response = await ApiProvider().sendOTP(mobile!);
+    if (response.status ?? false) {
+      Fluttertoast.showToast(msg: response.message ?? "OTP Sent Successfully");
+      setTimer();
     } else {
       Fluttertoast.showToast(msg: response.message ?? "Something went wrong");
     }

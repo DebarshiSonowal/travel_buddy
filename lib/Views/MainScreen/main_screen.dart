@@ -40,146 +40,149 @@ class _MainScreenState extends State<MainScreen> {
         child: SizedBox(
           height: double.infinity,
           width: double.infinity,
-          child: Column(
-            children: [
-              const MainScreenAppbar(),
-              SizedBox(
-                height: 78.h,
-                width: double.infinity,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Text(
-                        "Book your tickets",
-                        style: GoogleFonts.roboto().copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.sp,
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            child: Column(
+              children: [
+                const MainScreenAppbar(),
+                SizedBox(
+                  height: 78.h,
+                  width: double.infinity,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 1.h,
                         ),
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      BookWidget(
-                        from: from,
-                        to: to,
-                        selected: selected,
-                        updateSelected: (int val) {
-                          setState(() {
-                            selected = val;
-                          });
-                        },
-                      ),
-                      SizedBox(
-                        height: 1.5.h,
-                      ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigation.instance.navigate(Routes.bookingScreen);
-                          },
-                          child: const SearchWidget()),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 7.w,
+                        Text(
+                          "Book your tickets",
+                          style: GoogleFonts.roboto().copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp,
                           ),
-                          Text(
-                            "Recent Searches",
-                            style: GoogleFonts.roboto().copyWith(
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.black54,
-                              fontSize: 16.sp,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 0.5.h,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 7.h,
-                        child: ListView.separated(
-                          itemCount: 5,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return const ResentSearchItem();
-                          },
-                          separatorBuilder: (BuildContext context, int index) {
-                            return SizedBox(
-                              width: 2.w,
-                            );
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        BookWidget(
+                          from: from,
+                          to: to,
+                          selected: selected,
+                          updateSelected: (int val) {
+                            setState(() {
+                              selected = val;
+                            });
                           },
                         ),
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 7.w,
-                          ),
-                          Text(
-                            "Latest Updates",
-                            style: GoogleFonts.roboto().copyWith(
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.black87,
-                              fontSize: 16.sp,
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigation.instance.navigate(Routes.bookingScreen);
+                            },
+                            child: const SearchWidget()),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 7.w,
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 0.5.h,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 10.h,
-                        child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 4,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              width: 35.w,
-                              decoration: BoxDecoration(
-                                color: Constants.primaryColor,
-                                borderRadius: BorderRadius.circular(15),
+                            Text(
+                              "Recent Searches",
+                              style: GoogleFonts.roboto().copyWith(
+                                // fontWeight: FontWeight.bold,
+                                color: Colors.black54,
+                                fontSize: 16.sp,
                               ),
-                            );
-                          },
-                          separatorBuilder: (BuildContext context, int index) {
-                            return SizedBox(
-                              width: 2.w,
-                            );
-                          },
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 5.w,
+                        SizedBox(
+                          height: 0.5.h,
                         ),
-                        // decoration: BoxDecoration(
-                        //   color: Colors.green,
-                        //   borderRadius: BorderRadius.circular(15),
-                        // ),
-                        // height: 18.h,
-                        width: double.infinity,
-                        child: Image.asset(Assets.travelLogo),
-                      ),
-                    ],
+                        SizedBox(
+                          width: double.infinity,
+                          height: 7.h,
+                          child: ListView.separated(
+                            itemCount: 5,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return const ResentSearchItem();
+                            },
+                            separatorBuilder: (BuildContext context, int index) {
+                              return SizedBox(
+                                width: 2.w,
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 7.w,
+                            ),
+                            Text(
+                              "Latest Updates",
+                              style: GoogleFonts.roboto().copyWith(
+                                // fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                                fontSize: 16.sp,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 0.5.h,
+                        ),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 10.h,
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 4,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                width: 35.w,
+                                decoration: BoxDecoration(
+                                  color: Constants.primaryColor,
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              );
+                            },
+                            separatorBuilder: (BuildContext context, int index) {
+                              return SizedBox(
+                                width: 2.w,
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(
+                            horizontal: 5.w,
+                          ),
+                          // decoration: BoxDecoration(
+                          //   color: Colors.green,
+                          //   borderRadius: BorderRadius.circular(15),
+                          // ),
+                          // height: 18.h,
+                          width: double.infinity,
+                          child: Image.asset(Assets.travelLogo),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

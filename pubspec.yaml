@@ -63,6 +63,7 @@ dependencies:
 #  social_login_buttons: ^1.0.7
   flutter_social_button: ^1.1.4+1
   fluttertoast: ^8.2.4
+  calendar_date_picker2: ^0.5.3
 
 
 dev_dependencies:

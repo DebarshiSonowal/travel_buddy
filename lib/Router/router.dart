@@ -29,7 +29,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case Routes.otpScreen:
       return FadeTransitionPageRouteBuilder(page: OtpScreen(mobile: settings.arguments as String,));
     case Routes.bookingScreen:
-      return FadeTransitionPageRouteBuilder(page: const BookingScreen());
+      return FadeTransitionPageRouteBuilder(page:  BookingScreen());
     case Routes.seatLayout:
       return FadeTransitionPageRouteBuilder(page: const SeatLayout());
     case Routes.passengerLayout:

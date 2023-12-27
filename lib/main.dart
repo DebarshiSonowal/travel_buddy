@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:travel_buddy/Constants/constants.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Helper/storage.dart';
+import 'package:travel_buddy/Repository/repository.dart';
 
 import 'Router/navigator.dart';
 import 'Router/router.dart';
@@ -12,6 +13,8 @@ void main() async {
   await Storage.instance.initializeStorage();
   runApp(const ProviderScope(child: MyApp()));
 }
+
+final repositoryProvider = ChangeNotifierProvider((ref) => Repository());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

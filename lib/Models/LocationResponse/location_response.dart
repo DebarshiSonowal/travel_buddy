@@ -1,10 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'location_model.dart';
+import '../Location/location_model.dart';
 
 part 'location_response.freezed.dart';
 
 part 'location_response.g.dart';
+
+//  {success: true, status: 200,
+//  message: Destination Locations fetched successfully,
+//  data: {
+//  location: [
+//  {id: 4, full_name: newww222, display_name: newloc2, longitude: 34545, latitude: 5433}
+//  ]
+//  }
+//  }
 
 @Freezed()
 class LocationResponse with _$LocationResponse {
