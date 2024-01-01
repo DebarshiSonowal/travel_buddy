@@ -5,10 +5,12 @@ import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Constants/routes.dart';
 import 'package:travel_buddy/Router/navigator.dart';
 import 'package:travel_buddy/Services/data_provider.dart';
+import 'package:travel_buddy/main.dart';
 
 import '../../Constants/assets.dart';
 import '../../Constants/constants.dart';
 import '../../Models/SearchVehicle/search_vehicle.dart';
+import '../../Models/Vehicle/vehicle_model.dart';
 import '../../Widgets/loading_dialog.dart';
 import 'Widgets/booking_app_bar.dart';
 import 'Widgets/counter_item.dart';
@@ -36,9 +38,7 @@ class BookingScreen extends ConsumerWidget {
                     children: [
                       const BookingAppBar(),
                       GestureDetector(
-                        onTap: () {
-                          Navigation.instance.navigate(Routes.seatLayout);
-                        },
+                        onTap: () {},
                         child: const StatsWidget(),
                       ),
                     ],
@@ -55,14 +55,16 @@ class BookingScreen extends ConsumerWidget {
                       return ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return const CounterItem();
+                          final item =
+                              data.vehicleInfo.first.counterInfo[index];
+                          return CounterItem(item: item);
                         },
                         separatorBuilder: (context, index) {
                           return SizedBox(
                             width: 3.w,
                           );
                         },
-                        itemCount: data.counterInfo.length,
+                        itemCount: data.vehicleInfo.first.counterInfo.length,
                       );
                     },
                     error: (err, s) {
@@ -84,7 +86,16 @@ class BookingScreen extends ConsumerWidget {
                       return ListView.separated(
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          return const VehicleItem();
+                          final item = data.vehicleInfo[index];
+                          return VehicleItem(
+                            item: item,
+                            onTap: (VehicleModel val) {
+                              ref.read(repositoryProvider).selectVehicle(item);
+                              // ref.read(repositoryProvider).updateStartTime("");
+                              ref.read(repositoryProvider).updateRouteId("${item.routeInfo.first.id}");
+                              Navigation.instance.navigate(Routes.seatLayout);
+                            },
+                          );
                         },
                         separatorBuilder: (context, index) {
                           return SizedBox(

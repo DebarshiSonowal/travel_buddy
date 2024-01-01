@@ -37,6 +37,7 @@ class FirstLine extends StatelessWidget {
           Image.asset(
             Assets.steeringLogo,
             scale: 3,
+            color: Colors.black,
           ),
           // Icon(
           //   Icons.,

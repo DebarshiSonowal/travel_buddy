@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:travel_buddy/Models/Generic/generic_response.dart';
+import 'package:travel_buddy/Models/Layout/layout_response.dart';
 import 'package:travel_buddy/Models/SearchVehicle/search_vehicle.dart';
 
 import '../Helper/storage.dart';
@@ -55,8 +56,8 @@ class ApiProvider {
             : response?.data['message']['error']);
       }
     } on DioError catch (e) {
-      debugPrint("sendOTP  error: ${e.error} ${e.message}");
-      return GenericResponse.error(e.message ?? "");
+      debugPrint("sendOTP  error: ${e.error} ${e.response?.data} ${e.message}");
+      return GenericResponse.error(e.response?.data['message'] ?? "");
     }
   }
 
@@ -169,7 +170,8 @@ class ApiProvider {
             : response?.data['message']['error']);
       }
     } on DioError catch (e) {
-      debugPrint("searchFrom  error: ${e.error} ${e.response?.data} ${e.message}");
+      debugPrint(
+          "searchFrom  error: ${e.error} ${e.response?.data} ${e.message}");
       return LocationResponse.error(
           e.response?.data['message'] ?? e.message ?? "");
     }
@@ -212,7 +214,11 @@ class ApiProvider {
     }
   }
 
-  Future<SearchVehicleResponse> searchVehicle(String date,String strloc,String endloc) async {
+  Future<SearchVehicleResponse> searchVehicle(
+    String date,
+    String strloc,
+    String endloc,
+  ) async {
     BaseOptions option = BaseOptions(
         connectTimeout: const Duration(seconds: waitTime),
         receiveTimeout: const Duration(seconds: waitTime),
@@ -225,20 +231,21 @@ class ApiProvider {
     var url = "$endpoint/$path/search/vehicle";
     dio = Dio(option);
     debugPrint(url.toString());
-    debugPrint("My Data ${date} ${strloc} ${endloc} }");
+    debugPrint("My Data $date $strloc $endloc }");
     var data = {
-      'date':date,
-      'strloc':strloc,
-      'endloc':endloc,
+      'date': date,
+      'strtloc': strloc,
+      'endloc': endloc,
     };
     debugPrint(jsonEncode(data));
 
     try {
-      Response? response = await dio?.get(
+      Response? response = await dio?.post(
         url,
-        queryParameters: data,
+        data: jsonEncode(data),
       );
-      debugPrint("searchVehicle response: ${response?.data} ${response?.headers}");
+      debugPrint(
+          "searchVehicle response: ${response?.data} ${response?.data['vehicle_info']}");
       if (response?.statusCode == 200 || response?.statusCode == 201) {
         return SearchVehicleResponse.fromJson(response?.data);
       } else {
@@ -251,6 +258,48 @@ class ApiProvider {
       debugPrint(
           "searchVehicle error: ${e.error} ${e.response?.data} ${e.message}");
       return SearchVehicleResponse.error(
+          e.response?.data['message'] ?? e.message ?? "");
+    }
+  }
+
+  Future<LayoutResponse> getLayout(route_id, date, start_time) async {
+    BaseOptions option = BaseOptions(
+        connectTimeout: const Duration(seconds: waitTime),
+        receiveTimeout: const Duration(seconds: waitTime),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${Storage.instance.token}'
+          // 'APP-KEY': ConstanceData.app_key
+        });
+    var url = "$endpoint/$path/booking/layout";
+    dio = Dio(option);
+    debugPrint(url.toString());
+    var data = {
+      'route_id': route_id,
+      'date': date,
+      'start_time': start_time,
+    };
+    debugPrint(jsonEncode(data));
+
+    try {
+      Response? response = await dio?.post(
+        url,
+        data: jsonEncode(data),
+      );
+      debugPrint("layout response: ${response?.data} ${response?.headers}");
+      if (response?.statusCode == 200 || response?.statusCode == 201) {
+        return LayoutResponse.fromJson(response?.data);
+      } else {
+        debugPrint("layout error response: ${response?.data}");
+        return LayoutResponse.error(response?.data['error']
+            ? response?.data['message']['success']
+            : response?.data['message']['error']);
+      }
+    } on DioError catch (e) {
+      debugPrint(
+          "layout  error: ${e.error} ${e.response?.data} ${e.message}");
+      return LayoutResponse.error(
           e.response?.data['message'] ?? e.message ?? "");
     }
   }

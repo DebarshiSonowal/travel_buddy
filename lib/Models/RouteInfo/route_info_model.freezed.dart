@@ -20,6 +20,7 @@ RouteInfoModel _$RouteInfoModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RouteInfoModel {
+  int get id => throw _privateConstructorUsedError;
   List<ViaLocationModel> get viaLocation => throw _privateConstructorUsedError;
   List<StartLocationModel> get startLocation =>
       throw _privateConstructorUsedError;
@@ -39,7 +40,8 @@ abstract class $RouteInfoModelCopyWith<$Res> {
       _$RouteInfoModelCopyWithImpl<$Res, RouteInfoModel>;
   @useResult
   $Res call(
-      {List<ViaLocationModel> viaLocation,
+      {int id,
+      List<ViaLocationModel> viaLocation,
       List<StartLocationModel> startLocation,
       List<DestinationLocationModel> destLocation});
 }
@@ -57,11 +59,16 @@ class _$RouteInfoModelCopyWithImpl<$Res, $Val extends RouteInfoModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? viaLocation = null,
     Object? startLocation = null,
     Object? destLocation = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       viaLocation: null == viaLocation
           ? _value.viaLocation
           : viaLocation // ignore: cast_nullable_to_non_nullable
@@ -87,7 +94,8 @@ abstract class _$$_RouteInfoModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<ViaLocationModel> viaLocation,
+      {int id,
+      List<ViaLocationModel> viaLocation,
       List<StartLocationModel> startLocation,
       List<DestinationLocationModel> destLocation});
 }
@@ -103,11 +111,16 @@ class __$$_RouteInfoModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? viaLocation = null,
     Object? startLocation = null,
     Object? destLocation = null,
   }) {
     return _then(_$_RouteInfoModel(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       viaLocation: null == viaLocation
           ? _value._viaLocation
           : viaLocation // ignore: cast_nullable_to_non_nullable
@@ -128,7 +141,8 @@ class __$$_RouteInfoModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RouteInfoModel implements _RouteInfoModel {
   const _$_RouteInfoModel(
-      {final List<ViaLocationModel> viaLocation = const [],
+      {this.id = 0,
+      final List<ViaLocationModel> viaLocation = const [],
       final List<StartLocationModel> startLocation = const [],
       final List<DestinationLocationModel> destLocation = const []})
       : _viaLocation = viaLocation,
@@ -138,6 +152,9 @@ class _$_RouteInfoModel implements _RouteInfoModel {
   factory _$_RouteInfoModel.fromJson(Map<String, dynamic> json) =>
       _$$_RouteInfoModelFromJson(json);
 
+  @override
+  @JsonKey()
+  final int id;
   final List<ViaLocationModel> _viaLocation;
   @override
   @JsonKey()
@@ -167,7 +184,7 @@ class _$_RouteInfoModel implements _RouteInfoModel {
 
   @override
   String toString() {
-    return 'RouteInfoModel(viaLocation: $viaLocation, startLocation: $startLocation, destLocation: $destLocation)';
+    return 'RouteInfoModel(id: $id, viaLocation: $viaLocation, startLocation: $startLocation, destLocation: $destLocation)';
   }
 
   @override
@@ -175,6 +192,7 @@ class _$_RouteInfoModel implements _RouteInfoModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RouteInfoModel &&
+            (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other._viaLocation, _viaLocation) &&
             const DeepCollectionEquality()
@@ -187,6 +205,7 @@ class _$_RouteInfoModel implements _RouteInfoModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       const DeepCollectionEquality().hash(_viaLocation),
       const DeepCollectionEquality().hash(_startLocation),
       const DeepCollectionEquality().hash(_destLocation));
@@ -207,13 +226,16 @@ class _$_RouteInfoModel implements _RouteInfoModel {
 
 abstract class _RouteInfoModel implements RouteInfoModel {
   const factory _RouteInfoModel(
-      {final List<ViaLocationModel> viaLocation,
+      {final int id,
+      final List<ViaLocationModel> viaLocation,
       final List<StartLocationModel> startLocation,
       final List<DestinationLocationModel> destLocation}) = _$_RouteInfoModel;
 
   factory _RouteInfoModel.fromJson(Map<String, dynamic> json) =
       _$_RouteInfoModel.fromJson;
 
+  @override
+  int get id;
   @override
   List<ViaLocationModel> get viaLocation;
   @override

@@ -3,12 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../Constants/constants.dart';
+import '../../../Models/Counter/counter_info.dart';
 
 class CounterItem extends StatelessWidget {
   const CounterItem({
-    super.key,
+    super.key, required this.item,
   });
-
+  final CounterInfoModel item;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,12 +43,15 @@ class CounterItem extends StatelessWidget {
                   width: 2.w,
                 ),
                 Text(
-                  "Counter Name",
+                  item.name??"Counter Name",
                   style: GoogleFonts.roboto().copyWith(
                     fontSize: 9.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
+                ),
+                SizedBox(
+                  width: 2.w,
                 ),
               ],
             ),

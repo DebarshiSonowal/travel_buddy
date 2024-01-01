@@ -12,6 +12,7 @@ part 'route_info_model.g.dart';
 @Freezed()
 class RouteInfoModel with _$RouteInfoModel {
   const factory RouteInfoModel({
+    @Default(0) int id,
     @Default([]) List<ViaLocationModel> viaLocation,
     @Default([]) List<StartLocationModel> startLocation,
     @Default([]) List<DestinationLocationModel> destLocation,

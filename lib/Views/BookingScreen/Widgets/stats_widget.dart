@@ -166,5 +166,5 @@ class StatsWidget extends ConsumerWidget {
 }
 
 String getDateFormatted(String date) {
-  return DateFormat("dd MMM").format(DateFormat("yyyy/MM/dd").parse(date));
+  return DateFormat("dd MMM").format(DateFormat("yyyy-MM-dd").parse(date));
 }

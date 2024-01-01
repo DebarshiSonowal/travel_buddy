@@ -76,8 +76,7 @@ class SearchVehicleResponse with _$SearchVehicleResponse {
     @Default(false) bool success,
     required String? message,
     @Default([]) List<VehicleModel> vehicleInfo,
-    @Default([]) List<CounterInfoModel> counterInfo,
-    @Default([]) List<RouteInfoModel> routeInfo,
+
   }) = _SearchVehicleResponse;
 
   factory SearchVehicleResponse.fromJson(Map<String, dynamic> json) =>

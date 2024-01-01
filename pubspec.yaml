@@ -64,6 +64,7 @@ dependencies:
   flutter_social_button: ^1.1.4+1
   fluttertoast: ^8.2.4
   calendar_date_picker2: ^0.5.3
+  flutter_datetime_picker_plus: ^2.1.0
 
 
 dev_dependencies:

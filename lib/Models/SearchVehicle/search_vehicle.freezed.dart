@@ -24,8 +24,6 @@ mixin _$SearchVehicleResponse {
   bool get success => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   List<VehicleModel> get vehicleInfo => throw _privateConstructorUsedError;
-  List<CounterInfoModel> get counterInfo => throw _privateConstructorUsedError;
-  List<RouteInfoModel> get routeInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,12 +37,7 @@ abstract class $SearchVehicleResponseCopyWith<$Res> {
           $Res Function(SearchVehicleResponse) then) =
       _$SearchVehicleResponseCopyWithImpl<$Res, SearchVehicleResponse>;
   @useResult
-  $Res call(
-      {bool success,
-      String? message,
-      List<VehicleModel> vehicleInfo,
-      List<CounterInfoModel> counterInfo,
-      List<RouteInfoModel> routeInfo});
+  $Res call({bool success, String? message, List<VehicleModel> vehicleInfo});
 }
 
 /// @nodoc
@@ -64,8 +57,6 @@ class _$SearchVehicleResponseCopyWithImpl<$Res,
     Object? success = null,
     Object? message = freezed,
     Object? vehicleInfo = null,
-    Object? counterInfo = null,
-    Object? routeInfo = null,
   }) {
     return _then(_value.copyWith(
       success: null == success
@@ -80,14 +71,6 @@ class _$SearchVehicleResponseCopyWithImpl<$Res,
           ? _value.vehicleInfo
           : vehicleInfo // ignore: cast_nullable_to_non_nullable
               as List<VehicleModel>,
-      counterInfo: null == counterInfo
-          ? _value.counterInfo
-          : counterInfo // ignore: cast_nullable_to_non_nullable
-              as List<CounterInfoModel>,
-      routeInfo: null == routeInfo
-          ? _value.routeInfo
-          : routeInfo // ignore: cast_nullable_to_non_nullable
-              as List<RouteInfoModel>,
     ) as $Val);
   }
 }
@@ -100,12 +83,7 @@ abstract class _$$_SearchVehicleResponseCopyWith<$Res>
       __$$_SearchVehicleResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool success,
-      String? message,
-      List<VehicleModel> vehicleInfo,
-      List<CounterInfoModel> counterInfo,
-      List<RouteInfoModel> routeInfo});
+  $Res call({bool success, String? message, List<VehicleModel> vehicleInfo});
 }
 
 /// @nodoc
@@ -122,8 +100,6 @@ class __$$_SearchVehicleResponseCopyWithImpl<$Res>
     Object? success = null,
     Object? message = freezed,
     Object? vehicleInfo = null,
-    Object? counterInfo = null,
-    Object? routeInfo = null,
   }) {
     return _then(_$_SearchVehicleResponse(
       success: null == success
@@ -138,14 +114,6 @@ class __$$_SearchVehicleResponseCopyWithImpl<$Res>
           ? _value._vehicleInfo
           : vehicleInfo // ignore: cast_nullable_to_non_nullable
               as List<VehicleModel>,
-      counterInfo: null == counterInfo
-          ? _value._counterInfo
-          : counterInfo // ignore: cast_nullable_to_non_nullable
-              as List<CounterInfoModel>,
-      routeInfo: null == routeInfo
-          ? _value._routeInfo
-          : routeInfo // ignore: cast_nullable_to_non_nullable
-              as List<RouteInfoModel>,
     ));
   }
 }
@@ -156,12 +124,8 @@ class _$_SearchVehicleResponse implements _SearchVehicleResponse {
   const _$_SearchVehicleResponse(
       {this.success = false,
       required this.message,
-      final List<VehicleModel> vehicleInfo = const [],
-      final List<CounterInfoModel> counterInfo = const [],
-      final List<RouteInfoModel> routeInfo = const []})
-      : _vehicleInfo = vehicleInfo,
-        _counterInfo = counterInfo,
-        _routeInfo = routeInfo;
+      final List<VehicleModel> vehicleInfo = const []})
+      : _vehicleInfo = vehicleInfo;
 
   factory _$_SearchVehicleResponse.fromJson(Map<String, dynamic> json) =>
       _$$_SearchVehicleResponseFromJson(json);
@@ -180,27 +144,9 @@ class _$_SearchVehicleResponse implements _SearchVehicleResponse {
     return EqualUnmodifiableListView(_vehicleInfo);
   }
 
-  final List<CounterInfoModel> _counterInfo;
-  @override
-  @JsonKey()
-  List<CounterInfoModel> get counterInfo {
-    if (_counterInfo is EqualUnmodifiableListView) return _counterInfo;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_counterInfo);
-  }
-
-  final List<RouteInfoModel> _routeInfo;
-  @override
-  @JsonKey()
-  List<RouteInfoModel> get routeInfo {
-    if (_routeInfo is EqualUnmodifiableListView) return _routeInfo;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_routeInfo);
-  }
-
   @override
   String toString() {
-    return 'SearchVehicleResponse(success: $success, message: $message, vehicleInfo: $vehicleInfo, counterInfo: $counterInfo, routeInfo: $routeInfo)';
+    return 'SearchVehicleResponse(success: $success, message: $message, vehicleInfo: $vehicleInfo)';
   }
 
   @override
@@ -211,22 +157,13 @@ class _$_SearchVehicleResponse implements _SearchVehicleResponse {
             (identical(other.success, success) || other.success == success) &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality()
-                .equals(other._vehicleInfo, _vehicleInfo) &&
-            const DeepCollectionEquality()
-                .equals(other._counterInfo, _counterInfo) &&
-            const DeepCollectionEquality()
-                .equals(other._routeInfo, _routeInfo));
+                .equals(other._vehicleInfo, _vehicleInfo));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      success,
-      message,
-      const DeepCollectionEquality().hash(_vehicleInfo),
-      const DeepCollectionEquality().hash(_counterInfo),
-      const DeepCollectionEquality().hash(_routeInfo));
+  int get hashCode => Object.hash(runtimeType, success, message,
+      const DeepCollectionEquality().hash(_vehicleInfo));
 
   @JsonKey(ignore: true)
   @override
@@ -247,9 +184,7 @@ abstract class _SearchVehicleResponse implements SearchVehicleResponse {
   const factory _SearchVehicleResponse(
       {final bool success,
       required final String? message,
-      final List<VehicleModel> vehicleInfo,
-      final List<CounterInfoModel> counterInfo,
-      final List<RouteInfoModel> routeInfo}) = _$_SearchVehicleResponse;
+      final List<VehicleModel> vehicleInfo}) = _$_SearchVehicleResponse;
 
   factory _SearchVehicleResponse.fromJson(Map<String, dynamic> json) =
       _$_SearchVehicleResponse.fromJson;
@@ -260,10 +195,6 @@ abstract class _SearchVehicleResponse implements SearchVehicleResponse {
   String? get message;
   @override
   List<VehicleModel> get vehicleInfo;
-  @override
-  List<CounterInfoModel> get counterInfo;
-  @override
-  List<RouteInfoModel> get routeInfo;
   @override
   @JsonKey(ignore: true)
   _$$_SearchVehicleResponseCopyWith<_$_SearchVehicleResponse> get copyWith =>

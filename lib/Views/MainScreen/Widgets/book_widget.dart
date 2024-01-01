@@ -1,5 +1,6 @@
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -33,7 +34,7 @@ class BookWidget extends StatefulWidget {
 
 class _BookWidgetState extends State<BookWidget> {
   LocationModel? fromLocation, toLocation;
-  late String date;
+  String date = "";
   List<DateTime?> dates = [];
 
   @override
@@ -99,27 +100,37 @@ class _BookWidgetState extends State<BookWidget> {
                       (BuildContext context, WidgetRef ref, Widget? child) {
                     return GestureDetector(
                       onTap: () async {
-                        var results = await showCalendarDatePicker2Dialog(
-                          context: context,
-                          config: CalendarDatePicker2WithActionButtonsConfig(
-                            calendarType: CalendarDatePicker2Type.single,
-                          ),
-                          dialogSize: const Size(325, 400),
-                          value: dates,
-                          borderRadius: BorderRadius.circular(15),
+                        final current = DateTime.now();
+                        DatePicker.showDateTimePicker(
+                          context,
+                          showTitleActions: true,
+                          // minTime: DateTime(current.year, current.month, current.day),
+                          // maxTime: DateTime(DateTime.now().year,),
+                          onChanged: (date) {
+                            print('change $date');
+                          },
+                          onConfirm: (val) {
+                            setState(() {
+                              date = DateFormat("E, dd MMM").format(val);
+                              if(val == DateTime.now()) {
+                                widget.updateSelected(0);
+                              }else if(val == DateTime.now().add(const Duration(days: 1))){
+                                widget.updateSelected(1);
+                              }else{
+                                widget.updateSelected(3);
+                              }
+                            });
+                            ref.read(repositoryProvider).updateDate(
+                                DateFormat("yyyy-MM-dd").format(val));
+                            ref.read(repositoryProvider).updateStartTime(
+                                DateFormat("hh:MM:ss").format(val));
+                          },
+                          currentTime: DateTime.now(),
+                          locale: LocaleType.en,
                         );
-                        if (results != []) {
-                          debugPrint("${results?.first}");
-                          setState(() {
-                            date =
-                                DateFormat("E, dd MMM").format(results!.first!);
-                          });
-                          ref.read(repositoryProvider).updateDate(
-                              DateFormat("yyyy/MM/dd").format(results!.first!));
-                        }
                       },
                       child: CalendarButton(
-                        date: date,
+                        date: date ?? "",
                       ),
                     );
                   },
@@ -128,62 +139,88 @@ class _BookWidgetState extends State<BookWidget> {
                 SizedBox(
                   width: 4.w,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    widget.updateSelected(0);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: widget.selected == 0
-                          ? Constants.primaryColor
-                          : Colors.black,
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    width: 23.w,
-                    height: 5.5.h,
-                    child: Center(
-                      child: Text(
-                        "Today",
-                        style: GoogleFonts.roboto().copyWith(
-                          fontSize: 11.sp,
+                Consumer(
+                    builder:
+                        (BuildContext context, WidgetRef ref, Widget? child) {
+                    return GestureDetector(
+                      onTap: () {
+                        final val = DateTime.now();
+                        setState(() {
+                          date = DateFormat("E, dd MMM").format(val);
+                          widget.updateSelected(0);
+                          ref.read(repositoryProvider).updateDate(
+                              DateFormat("yyyy-MM-dd").format(val));
+                          ref.read(repositoryProvider).updateStartTime(
+                              DateFormat("hh:MM:ss").format(val));
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
                           color: widget.selected == 0
-                              ? Colors.black
-                              : Colors.white,
-                          fontWeight: FontWeight.bold,
+                              ? Constants.primaryColor
+                              : Colors.black,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        width: 23.w,
+                        height: 5.5.h,
+                        child: Center(
+                          child: Text(
+                            "Today",
+                            style: GoogleFonts.roboto().copyWith(
+                              fontSize: 11.sp,
+                              color: widget.selected == 0
+                                  ? Colors.black
+                                  : Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  }
                 ),
                 SizedBox(
                   width: 2.w,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    widget.updateSelected(1);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: widget.selected == 1
-                          ? Constants.primaryColor
-                          : Colors.black,
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    width: 23.w,
-                    height: 5.5.h,
-                    child: Center(
-                      child: Text(
-                        "Tomorrow",
-                        style: GoogleFonts.roboto().copyWith(
-                          fontSize: 11.sp,
+                Consumer(
+                    builder:
+                        (BuildContext context, WidgetRef ref, Widget? child) {
+                    return GestureDetector(
+                      onTap: () {
+                        final val = DateTime.now().add(const Duration(days: 1));
+                        setState(() {
+                          date = DateFormat("E, dd MMM").format(val);
+                          widget.updateSelected(1);
+                          ref.read(repositoryProvider).updateDate(
+                              DateFormat("yyyy-MM-dd").format(val));
+                          ref.read(repositoryProvider).updateStartTime(
+                              DateFormat("hh:MM:ss").format(val));
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
                           color: widget.selected == 1
-                              ? Colors.black
-                              : Colors.white,
-                          fontWeight: FontWeight.bold,
+                              ? Constants.primaryColor
+                              : Colors.black,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        width: 23.w,
+                        height: 5.5.h,
+                        child: Center(
+                          child: Text(
+                            "Tomorrow",
+                            style: GoogleFonts.roboto().copyWith(
+                              fontSize: 11.sp,
+                              color: widget.selected == 1
+                                  ? Colors.black
+                                  : Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  }
                 ),
               ],
             ),

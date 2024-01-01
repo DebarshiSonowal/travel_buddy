@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_buddy/main.dart';
 
 import '../../../Common/back_button.dart';
 import '../../../Constants/assets.dart';
 import '../../../Constants/constants.dart';
 import '../../BookingScreen/Widgets/rating_button.dart';
 
-class CounterAppBar extends StatelessWidget {
+class CounterAppBar extends ConsumerWidget {
   const CounterAppBar({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 4.w,
         vertical: 1.h,
       ),
       width: double.infinity,
-      height: 16.h,
+      height: 15.h,
       decoration: const BoxDecoration(
         color: Constants.primaryColor,
         borderRadius: BorderRadius.only(
@@ -38,15 +41,14 @@ class CounterAppBar extends StatelessWidget {
               const BackButtonCustom(),
               Image.asset(
                 Assets.colorLogo,
-                scale: 25,
+                scale: 26,
               ),
             ],
           ),
-
           Text(
-            "Counter Name",
+            "${ref.watch(repositoryProvider).selectedVehicle?.name}",
             style: GoogleFonts.roboto().copyWith(
-              fontSize: 15.sp,
+              fontSize: 14.sp,
               color: Colors.black,
               // fontWeight: FontWeight.bold,
             ),
@@ -73,7 +75,7 @@ class CounterAppBar extends StatelessWidget {
                 width: 0.5.w,
               ),
               Text(
-                "05:30 Fri, 8 Sep",
+                DateFormat("dd MMM, yyyy").format(DateFormat("yyyy-MM-dd").parse(ref.watch(repositoryProvider).dateVal)),
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black87,
@@ -85,7 +87,7 @@ class CounterAppBar extends StatelessWidget {
           Row(
             children: [
               Text(
-                "Itanagar",
+                ref.watch(repositoryProvider).startLoc,
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black,
@@ -104,7 +106,7 @@ class CounterAppBar extends StatelessWidget {
                 width: 0.5.w,
               ),
               Text(
-                "Guwahati",
+                ref.watch(repositoryProvider).endLoc,
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black87,

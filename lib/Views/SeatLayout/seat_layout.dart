@@ -13,6 +13,7 @@ import 'Widgets/counter_layout.dart';
 import 'Widgets/first_line.dart';
 import 'Widgets/info_card.dart';
 import 'Widgets/last_line.dart';
+import 'Widgets/layout_generate.dart';
 import 'Widgets/other_lines.dart';
 import 'Widgets/proceed_button.dart';
 import 'Widgets/seat_image.dart';
@@ -41,7 +42,7 @@ class _SeatLayoutState extends State<SeatLayout> {
             children: [
               const CounterAppBar(),
               Container(
-                height: double.infinity,
+                height: 70.h,
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(
                   horizontal: 2.w,
@@ -55,152 +56,7 @@ class _SeatLayoutState extends State<SeatLayout> {
                       SizedBox(
                         height: 0.5.h,
                       ),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 2.5.w,
-                          vertical: 1.h,
-                        ),
-                        width: 70.w,
-                        height: 55.h,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: SingleChildScrollView(
-                          physics: const NeverScrollableScrollPhysics(),
-                          child: Column(
-                            children: [
-                              FirstLine(
-                                selected: selected,
-                                onTap: (val) {
-                                  setState(() {
-                                    if (selected.contains(0)) {
-                                      selected.remove(0);
-                                    } else {
-                                      selected.add(0);
-                                    }
-                                  });
-                                },
-                                id: 0,
-                              ),
-                              Divider(
-                                thickness: 0.2.h,
-                              ),
-                              OtherLines(
-                                ids: const [1, 2, 3, 4],
-                                selected: selected,
-                                onTap: (int id) {
-                                  setState(() {
-                                    if (selected.contains(id)) {
-                                      selected.remove(id);
-                                    } else {
-                                      selected.add(id);
-                                    }
-                                  });
-                                },
-                              ),
-                              Divider(
-                                thickness: 0.2.h,
-                              ),
-                              OtherLines(
-                                ids: const [5, 6, 7, 8],
-                                selected: selected,
-                                onTap: (int id) {
-                                  setState(() {
-                                    if (selected.contains(id)) {
-                                      selected.remove(id);
-                                    } else {
-                                      selected.add(id);
-                                    }
-                                  });
-                                },
-                              ),
-                              Divider(
-                                thickness: 0.2.h,
-                              ),
-                              OtherLines(
-                                ids: const [9, 10, 11, 12],
-                                selected: selected,
-                                onTap: (int id) {
-                                  setState(() {
-                                    if (selected.contains(id)) {
-                                      selected.remove(id);
-                                    } else {
-                                      selected.add(id);
-                                    }
-                                  });
-                                },
-                              ),
-                              Divider(
-                                thickness: 0.2.h,
-                              ),
-                              OtherLines(
-                                ids: const [13, 14, 15, 16],
-                                selected: selected,
-                                onTap: (int id) {
-                                  setState(() {
-                                    if (selected.contains(id)) {
-                                      selected.remove(id);
-                                    } else {
-                                      selected.add(id);
-                                    }
-                                  });
-                                },
-                              ),
-                              Divider(
-                                thickness: 0.2.h,
-                              ),
-                              OtherLines(
-                                ids: const [17, 18, 19, 20],
-                                selected: selected,
-                                onTap: (int id) {
-                                  setState(() {
-                                    if (selected.contains(id)) {
-                                      selected.remove(id);
-                                    } else {
-                                      selected.add(id);
-                                    }
-                                  });
-                                },
-                              ),
-                              Divider(
-                                thickness: 0.2.h,
-                              ),
-                              OtherLines(
-                                ids: const [21, 22, 23, 24],
-                                selected: selected,
-                                onTap: (int id) {
-                                  setState(() {
-                                    if (selected.contains(id)) {
-                                      selected.remove(id);
-                                    } else {
-                                      selected.add(id);
-                                    }
-                                  });
-                                },
-                              ),
-                              Divider(
-                                thickness: 0.2.h,
-                              ),
-                              LastLines(
-                                ids: const [25, 26, 27, 28],
-                                selected: selected,
-                                onTap: (int id) {
-                                  setState(() {
-                                    if (selected.contains(id)) {
-                                      selected.remove(id);
-                                    } else {
-                                      selected.add(id);
-                                    }
-                                  });
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      LayoutGenerator(selected: selected),
                       SizedBox(
                         height: 0.5.h,
                       ),
@@ -304,9 +160,3 @@ class _SeatLayoutState extends State<SeatLayout> {
     );
   }
 }
-
-
-
-
-
-

@@ -8,6 +8,7 @@ part of 'route_info_model.dart';
 
 _$_RouteInfoModel _$$_RouteInfoModelFromJson(Map<String, dynamic> json) =>
     _$_RouteInfoModel(
+      id: json['id'] as int? ?? 0,
       viaLocation: (json['data']['vialoc'] as List<dynamic>?)
               ?.map((e) => ViaLocationModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -26,6 +27,7 @@ _$_RouteInfoModel _$$_RouteInfoModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_RouteInfoModelToJson(_$_RouteInfoModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'viaLocation': instance.viaLocation,
       'startLocation': instance.startLocation,
       'destLocation': instance.destLocation,

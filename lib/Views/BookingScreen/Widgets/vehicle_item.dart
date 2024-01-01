@@ -4,9 +4,13 @@ import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Views/BookingScreen/Widgets/rating_button.dart';
 
 import '../../../Constants/constants.dart';
+import '../../../Models/Vehicle/vehicle_model.dart';
 
 class VehicleItem extends StatefulWidget {
-  const VehicleItem({super.key});
+  const VehicleItem({super.key, required this.item, required this.onTap});
+
+  final VehicleModel item;
+  final Function(VehicleModel val) onTap;
 
   @override
   State<VehicleItem> createState() => _VehicleItemState();
@@ -36,11 +40,11 @@ class _VehicleItemState extends State<VehicleItem> {
             horizontal: 1.5.w,
           ),
           maintainState: isExpended,
-          onExpansionChanged: (val) {
-            setState(() {
-              isExpended = !isExpended;
-            });
-          },
+          // onExpansionChanged: (val) {
+          //   setState(() {
+          //     isExpended = !isExpended;
+          //   });
+          // },
           collapsedBackgroundColor: Constants.primaryColor,
           backgroundColor: Constants.primaryColor,
           leading: Icon(
@@ -52,7 +56,7 @@ class _VehicleItemState extends State<VehicleItem> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Maruti Alto",
+                widget.item.name ?? "Maruti Alto",
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 11.sp,
                   color: Colors.black,
@@ -102,9 +106,7 @@ class _VehicleItemState extends State<VehicleItem> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    !isExpended
-                        ? const RatingButton()
-                        : Container(),
+                    !isExpended ? const RatingButton() : Container(),
                     Text(
                       "₹900",
                       style: GoogleFonts.roboto().copyWith(
@@ -170,7 +172,9 @@ class _VehicleItemState extends State<VehicleItem> {
                                 ],
                               ),
                             ),
-                            SizedBox(width: 0.5.w,),
+                            SizedBox(
+                              width: 0.5.w,
+                            ),
                             Text(
                               "300",
                               style: GoogleFonts.roboto().copyWith(
@@ -188,38 +192,42 @@ class _VehicleItemState extends State<VehicleItem> {
           ),
           children: [
             isExpended
-                ?SizedBox(
-              height: 1.h,
-            ):Container(),
+                ? SizedBox(
+                    height: 1.h,
+                  )
+                : Container(),
             isExpended
-                ?Container(
-              padding: EdgeInsets.symmetric(
-                vertical: 0.5.h,
-              ),
-              decoration: BoxDecoration(
-                color: Colors.black87,
-                borderRadius: BorderRadius.circular(15),
-              ),
-                child: Center(
-                  child: Text(
-                    "SELECT VEHICLE",
-                    style: GoogleFonts.roboto().copyWith(
-                      fontSize: 9.sp,
-                      color: Colors.white,
-                      // fontWeight: FontWeight.bold,
+                ? GestureDetector(
+                    onTap: () => widget.onTap(widget.item),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 0.5.h,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.black87,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "SELECT VEHICLE",
+                          style: GoogleFonts.roboto().copyWith(
+                            fontSize: 9.sp,
+                            color: Colors.white,
+                            // fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-            ):Container(),
+                  )
+                : Container(),
             isExpended
-                ?SizedBox(
-              height: 1.h,
-            ):Container(),
+                ? SizedBox(
+                    height: 1.h,
+                  )
+                : Container(),
           ],
         ),
       ),
     );
   }
 }
-
-
