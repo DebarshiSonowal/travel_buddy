@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Constants/assets.dart';
 import 'package:travel_buddy/Models/Layout/layout_model.dart';
+import 'package:travel_buddy/Views/SeatLayout/Widgets/seat_widget.dart';
+import 'package:travel_buddy/main.dart';
 
 import '../../../Services/data_provider.dart';
 import '../../../Widgets/loading_dialog.dart';
@@ -12,9 +14,11 @@ import 'last_line.dart';
 import 'other_lines.dart';
 
 class LayoutGenerator extends ConsumerStatefulWidget {
-  const LayoutGenerator({super.key, required this.selected});
+  const LayoutGenerator(this.removeSeat, this.addSeat, {super.key, required this.selected});
 
-  final List<int> selected;
+  final List<LayoutModel> selected;
+  final Function(LayoutModel val) removeSeat;
+  final Function(LayoutModel val) addSeat;
 
   @override
   ConsumerState<LayoutGenerator> createState() => _ConsumerStateState();
@@ -51,7 +55,30 @@ class _ConsumerStateState extends ConsumerState<LayoutGenerator> {
             itemCount: data.layouts.length,
             itemBuilder: (BuildContext context, int index) {
               final item = data.layouts[index];
-              return SeatWidget(item: item);
+
+              return GestureDetector(
+                onTap: () {
+                  final isSelected = widget.selected.contains(item);
+                  final layout = ref.watch(repositoryProvider).layoutResponse;
+                  if (isSelected) {
+                    // ref.read(repositoryProvider).removeLayout(
+                    //       item,
+                    //     );
+                    widget.removeSeat(item);
+                  } else {
+                    // ref.read(repositoryProvider).addLayouts(
+                    //       item,
+                    //       layout,
+                    //     );
+                    widget.addSeat(item);
+                    ref.read(repositoryProvider).setAllLayouts(layout!);
+                  }
+                },
+                child: SeatWidget(
+                  item: item,
+                  is_selected: widget.selected.contains(item),
+                ),
+              );
             },
           ),
         );
@@ -62,28 +89,6 @@ class _ConsumerStateState extends ConsumerState<LayoutGenerator> {
       },
       loading: () => Center(
         child: LoadingDialog(),
-      ),
-    );
-  }
-}
-
-class SeatWidget extends StatelessWidget {
-  const SeatWidget({
-    super.key,
-    required this.item,
-  });
-
-  final LayoutModel item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      // color: Colors.black54,
-      child: GridTile(
-        // child: CachedNetworkImage(
-        //   imageUrl: item.image??"",
-        // ), //just for testing, will fill with image later
-        child: Image.asset(Assets.seatAvailableLogo),
       ),
     );
   }

@@ -21,10 +21,11 @@ RouteInfoModel _$RouteInfoModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RouteInfoModel {
   int get id => throw _privateConstructorUsedError;
-  List<ViaLocationModel> get viaLocation => throw _privateConstructorUsedError;
-  List<StartLocationModel> get startLocation =>
-      throw _privateConstructorUsedError;
-  List<DestinationLocationModel> get destLocation =>
+  int get travel_time => throw _privateConstructorUsedError;
+  String get strt_time => throw _privateConstructorUsedError;
+  List<ViaLocationModel> get vialoc => throw _privateConstructorUsedError;
+  List<StartLocationModel> get start_loc => throw _privateConstructorUsedError;
+  List<DestinationLocationModel> get dest_loc =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,9 +42,11 @@ abstract class $RouteInfoModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      List<ViaLocationModel> viaLocation,
-      List<StartLocationModel> startLocation,
-      List<DestinationLocationModel> destLocation});
+      int travel_time,
+      String strt_time,
+      List<ViaLocationModel> vialoc,
+      List<StartLocationModel> start_loc,
+      List<DestinationLocationModel> dest_loc});
 }
 
 /// @nodoc
@@ -60,26 +63,36 @@ class _$RouteInfoModelCopyWithImpl<$Res, $Val extends RouteInfoModel>
   @override
   $Res call({
     Object? id = null,
-    Object? viaLocation = null,
-    Object? startLocation = null,
-    Object? destLocation = null,
+    Object? travel_time = null,
+    Object? strt_time = null,
+    Object? vialoc = null,
+    Object? start_loc = null,
+    Object? dest_loc = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      viaLocation: null == viaLocation
-          ? _value.viaLocation
-          : viaLocation // ignore: cast_nullable_to_non_nullable
+      travel_time: null == travel_time
+          ? _value.travel_time
+          : travel_time // ignore: cast_nullable_to_non_nullable
+              as int,
+      strt_time: null == strt_time
+          ? _value.strt_time
+          : strt_time // ignore: cast_nullable_to_non_nullable
+              as String,
+      vialoc: null == vialoc
+          ? _value.vialoc
+          : vialoc // ignore: cast_nullable_to_non_nullable
               as List<ViaLocationModel>,
-      startLocation: null == startLocation
-          ? _value.startLocation
-          : startLocation // ignore: cast_nullable_to_non_nullable
+      start_loc: null == start_loc
+          ? _value.start_loc
+          : start_loc // ignore: cast_nullable_to_non_nullable
               as List<StartLocationModel>,
-      destLocation: null == destLocation
-          ? _value.destLocation
-          : destLocation // ignore: cast_nullable_to_non_nullable
+      dest_loc: null == dest_loc
+          ? _value.dest_loc
+          : dest_loc // ignore: cast_nullable_to_non_nullable
               as List<DestinationLocationModel>,
     ) as $Val);
   }
@@ -95,9 +108,11 @@ abstract class _$$_RouteInfoModelCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      List<ViaLocationModel> viaLocation,
-      List<StartLocationModel> startLocation,
-      List<DestinationLocationModel> destLocation});
+      int travel_time,
+      String strt_time,
+      List<ViaLocationModel> vialoc,
+      List<StartLocationModel> start_loc,
+      List<DestinationLocationModel> dest_loc});
 }
 
 /// @nodoc
@@ -112,26 +127,36 @@ class __$$_RouteInfoModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? viaLocation = null,
-    Object? startLocation = null,
-    Object? destLocation = null,
+    Object? travel_time = null,
+    Object? strt_time = null,
+    Object? vialoc = null,
+    Object? start_loc = null,
+    Object? dest_loc = null,
   }) {
     return _then(_$_RouteInfoModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      viaLocation: null == viaLocation
-          ? _value._viaLocation
-          : viaLocation // ignore: cast_nullable_to_non_nullable
+      travel_time: null == travel_time
+          ? _value.travel_time
+          : travel_time // ignore: cast_nullable_to_non_nullable
+              as int,
+      strt_time: null == strt_time
+          ? _value.strt_time
+          : strt_time // ignore: cast_nullable_to_non_nullable
+              as String,
+      vialoc: null == vialoc
+          ? _value._vialoc
+          : vialoc // ignore: cast_nullable_to_non_nullable
               as List<ViaLocationModel>,
-      startLocation: null == startLocation
-          ? _value._startLocation
-          : startLocation // ignore: cast_nullable_to_non_nullable
+      start_loc: null == start_loc
+          ? _value._start_loc
+          : start_loc // ignore: cast_nullable_to_non_nullable
               as List<StartLocationModel>,
-      destLocation: null == destLocation
-          ? _value._destLocation
-          : destLocation // ignore: cast_nullable_to_non_nullable
+      dest_loc: null == dest_loc
+          ? _value._dest_loc
+          : dest_loc // ignore: cast_nullable_to_non_nullable
               as List<DestinationLocationModel>,
     ));
   }
@@ -142,12 +167,14 @@ class __$$_RouteInfoModelCopyWithImpl<$Res>
 class _$_RouteInfoModel implements _RouteInfoModel {
   const _$_RouteInfoModel(
       {this.id = 0,
-      final List<ViaLocationModel> viaLocation = const [],
-      final List<StartLocationModel> startLocation = const [],
-      final List<DestinationLocationModel> destLocation = const []})
-      : _viaLocation = viaLocation,
-        _startLocation = startLocation,
-        _destLocation = destLocation;
+      this.travel_time = 0,
+      this.strt_time = "0",
+      final List<ViaLocationModel> vialoc = const [],
+      final List<StartLocationModel> start_loc = const [],
+      final List<DestinationLocationModel> dest_loc = const []})
+      : _vialoc = vialoc,
+        _start_loc = start_loc,
+        _dest_loc = dest_loc;
 
   factory _$_RouteInfoModel.fromJson(Map<String, dynamic> json) =>
       _$$_RouteInfoModelFromJson(json);
@@ -155,36 +182,42 @@ class _$_RouteInfoModel implements _RouteInfoModel {
   @override
   @JsonKey()
   final int id;
-  final List<ViaLocationModel> _viaLocation;
   @override
   @JsonKey()
-  List<ViaLocationModel> get viaLocation {
-    if (_viaLocation is EqualUnmodifiableListView) return _viaLocation;
+  final int travel_time;
+  @override
+  @JsonKey()
+  final String strt_time;
+  final List<ViaLocationModel> _vialoc;
+  @override
+  @JsonKey()
+  List<ViaLocationModel> get vialoc {
+    if (_vialoc is EqualUnmodifiableListView) return _vialoc;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_viaLocation);
+    return EqualUnmodifiableListView(_vialoc);
   }
 
-  final List<StartLocationModel> _startLocation;
+  final List<StartLocationModel> _start_loc;
   @override
   @JsonKey()
-  List<StartLocationModel> get startLocation {
-    if (_startLocation is EqualUnmodifiableListView) return _startLocation;
+  List<StartLocationModel> get start_loc {
+    if (_start_loc is EqualUnmodifiableListView) return _start_loc;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_startLocation);
+    return EqualUnmodifiableListView(_start_loc);
   }
 
-  final List<DestinationLocationModel> _destLocation;
+  final List<DestinationLocationModel> _dest_loc;
   @override
   @JsonKey()
-  List<DestinationLocationModel> get destLocation {
-    if (_destLocation is EqualUnmodifiableListView) return _destLocation;
+  List<DestinationLocationModel> get dest_loc {
+    if (_dest_loc is EqualUnmodifiableListView) return _dest_loc;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_destLocation);
+    return EqualUnmodifiableListView(_dest_loc);
   }
 
   @override
   String toString() {
-    return 'RouteInfoModel(id: $id, viaLocation: $viaLocation, startLocation: $startLocation, destLocation: $destLocation)';
+    return 'RouteInfoModel(id: $id, travel_time: $travel_time, strt_time: $strt_time, vialoc: $vialoc, start_loc: $start_loc, dest_loc: $dest_loc)';
   }
 
   @override
@@ -193,12 +226,14 @@ class _$_RouteInfoModel implements _RouteInfoModel {
         (other.runtimeType == runtimeType &&
             other is _$_RouteInfoModel &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.travel_time, travel_time) ||
+                other.travel_time == travel_time) &&
+            (identical(other.strt_time, strt_time) ||
+                other.strt_time == strt_time) &&
+            const DeepCollectionEquality().equals(other._vialoc, _vialoc) &&
             const DeepCollectionEquality()
-                .equals(other._viaLocation, _viaLocation) &&
-            const DeepCollectionEquality()
-                .equals(other._startLocation, _startLocation) &&
-            const DeepCollectionEquality()
-                .equals(other._destLocation, _destLocation));
+                .equals(other._start_loc, _start_loc) &&
+            const DeepCollectionEquality().equals(other._dest_loc, _dest_loc));
   }
 
   @JsonKey(ignore: true)
@@ -206,9 +241,11 @@ class _$_RouteInfoModel implements _RouteInfoModel {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      const DeepCollectionEquality().hash(_viaLocation),
-      const DeepCollectionEquality().hash(_startLocation),
-      const DeepCollectionEquality().hash(_destLocation));
+      travel_time,
+      strt_time,
+      const DeepCollectionEquality().hash(_vialoc),
+      const DeepCollectionEquality().hash(_start_loc),
+      const DeepCollectionEquality().hash(_dest_loc));
 
   @JsonKey(ignore: true)
   @override
@@ -227,9 +264,11 @@ class _$_RouteInfoModel implements _RouteInfoModel {
 abstract class _RouteInfoModel implements RouteInfoModel {
   const factory _RouteInfoModel(
       {final int id,
-      final List<ViaLocationModel> viaLocation,
-      final List<StartLocationModel> startLocation,
-      final List<DestinationLocationModel> destLocation}) = _$_RouteInfoModel;
+      final int travel_time,
+      final String strt_time,
+      final List<ViaLocationModel> vialoc,
+      final List<StartLocationModel> start_loc,
+      final List<DestinationLocationModel> dest_loc}) = _$_RouteInfoModel;
 
   factory _RouteInfoModel.fromJson(Map<String, dynamic> json) =
       _$_RouteInfoModel.fromJson;
@@ -237,11 +276,15 @@ abstract class _RouteInfoModel implements RouteInfoModel {
   @override
   int get id;
   @override
-  List<ViaLocationModel> get viaLocation;
+  int get travel_time;
   @override
-  List<StartLocationModel> get startLocation;
+  String get strt_time;
   @override
-  List<DestinationLocationModel> get destLocation;
+  List<ViaLocationModel> get vialoc;
+  @override
+  List<StartLocationModel> get start_loc;
+  @override
+  List<DestinationLocationModel> get dest_loc;
   @override
   @JsonKey(ignore: true)
   _$$_RouteInfoModelCopyWith<_$_RouteInfoModel> get copyWith =>

@@ -4,19 +4,35 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../Constants/constants.dart';
+import '../../../Models/ContactDetails/contact_details.dart';
 
-class ContactDetails extends StatelessWidget {
-  const ContactDetails({
+class ContactDetailsCard extends StatefulWidget {
+  ContactDetailsCard({
     super.key,
-    required this.nameController,
-    required this.mobileController,
-    required this.whatsappController,
+    // required this.nameController,
+    // required this.mobileController,
+    // required this.whatsappController,
+    required this.selected,
+    required this.updateSelected,
+    required this.data,
   });
 
-  final TextEditingController nameController;
-  final TextEditingController mobileController;
-  final TextEditingController whatsappController;
+  // final TextEditingController nameController = TextEditingController();
+  // final TextEditingController mobileController = TextEditingController();
+  // final TextEditingController whatsappController = TextEditingController();
+  final bool selected;
+  final Function(ContactDetails val) updateSelected;
+  final ContactDetails data;
 
+  @override
+  State<ContactDetailsCard> createState() => _ContactDetailsCardState();
+}
+
+class _ContactDetailsCardState extends State<ContactDetailsCard> {
+  bool isSelected = false;
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController mobileController = TextEditingController();
+  final TextEditingController whatsappController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -201,15 +217,20 @@ class ContactDetails extends StatelessWidget {
           Row(
             children: [
               Checkbox(
-                value: true,
-                onChanged: (val) {},
+                value: isSelected,
+                onChanged: (val) {
+                  setState(() {
+                    // widget.updateSelected(val ?? false);
+                    isSelected = val ?? false;
+                  });
+                },
                 checkColor: Colors.white,
                 activeColor: Colors.transparent,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
                 side: MaterialStateBorderSide.resolveWith(
-                      (states) => const BorderSide(width: 1.0, color: Colors.white),
+                  (states) => const BorderSide(width: 1.0, color: Colors.white),
                 ),
               ),
               Text(
@@ -220,10 +241,61 @@ class ContactDetails extends StatelessWidget {
                   // fontWeight: FontWeight.bold,
                 ),
               ),
+              const Spacer(),
+              SizedBox(
+                height: 3.h,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        // side: BorderSide(color: Colors.red)
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        widget.updateSelected(ContactDetails(
+                          widget.data.row,
+                          widget.data.col,
+                          nameController.text,
+                          mobileController.text,
+                          isSelected,
+                          widget.data.gender,
+                          widget.data.age,
+                          "",
+                        ));
+                      });
+                      debugPrint(
+                          "Update Selected:\n${widget.data.row}\n${widget.data.col}\n${nameController.text}\n${mobileController.text}\n${isSelected}\n${widget.data.gender}\n${widget.data.age}");
+                    },
+                    child: Text(
+                      "Update",
+                      style: GoogleFonts.roboto().copyWith(
+                        fontSize: 8.5.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
+              ),
             ],
           ),
         ],
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      debugPrint("ASLOG ${widget.data.passenger_name}");
+
+      // widget.ageController.text = widget.data.passenger_name??'';
+      setState(() {
+        nameController.text = widget.data.passenger_name ?? '';
+        isSelected = widget.selected;
+        mobileController.text = widget.data.passenger_contact??"";
+        whatsappController.text = widget.data.whatsapp??"";
+      });
+    });
   }
 }

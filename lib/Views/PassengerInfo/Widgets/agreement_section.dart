@@ -7,7 +7,11 @@ import '../../../Constants/constants.dart';
 class AgreementSection extends StatelessWidget {
   const AgreementSection({
     super.key,
+    required this.is_insured, required this.updateInsured,
   });
+
+  final int is_insured;
+  final Function(int) updateInsured;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +27,12 @@ class AgreementSection extends StatelessWidget {
               SizedBox(
                 height: 1.8.h,
                 width: 4.w,
-                child: Radio(
-                  value: true,
-                  groupValue: (val) {},
-                  onChanged: (Object? value) {},
+                child: Radio<int>(
+                  value: 1,
+                  groupValue: is_insured,
+                  onChanged: (int? value) {
+                    updateInsured(value!);
+                  },
                 ),
               ),
               SizedBox(
@@ -55,7 +61,7 @@ class AgreementSection extends StatelessWidget {
                     TextSpan(
                       text: " (2 passenger)",
                       style: GoogleFonts.roboto().copyWith(
-                        fontSize:8.sp,
+                        fontSize: 8.sp,
                         color: Colors.black,
                         // fontWeight: FontWeight.bold,
                       ),
@@ -73,10 +79,12 @@ class AgreementSection extends StatelessWidget {
               SizedBox(
                 height: 2.h,
                 width: 4.w,
-                child: Radio(
-                  value: true,
-                  groupValue: (val) {},
-                  onChanged: (Object? value) {},
+                child: Radio<int>(
+                  value: 0,
+                  groupValue: is_insured,
+                  onChanged: (int? value) {
+                    updateInsured(value!);
+                  },
                 ),
               ),
               SizedBox(

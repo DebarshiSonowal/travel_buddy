@@ -16,20 +16,26 @@ class InfoTitle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: GoogleFonts.roboto().copyWith(
-            fontSize: 10.5.sp,
-            color: Colors.black87,
-            // fontWeight: FontWeight.bold,
+        SizedBox(
+          width: 25.w,
+          child: Text(
+            title,
+            style: GoogleFonts.roboto().copyWith(
+              fontSize: 10.5.sp,
+              color: Colors.black87,
+              // fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-        Text(
-          value,
-          style: GoogleFonts.roboto().copyWith(
-            fontSize: 8.5.sp,
-            color: Colors.black,
-            // fontWeight: FontWeight.bold,
+        SizedBox(
+          width: 25.w,
+          child: Text(
+            value,
+            style: GoogleFonts.roboto().copyWith(
+              fontSize: 8.5.sp,
+              color: Colors.black,
+              // fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ],

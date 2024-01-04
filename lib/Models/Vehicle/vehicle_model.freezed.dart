@@ -26,8 +26,8 @@ mixin _$VehicleModel {
   String? get name => throw _privateConstructorUsedError;
   String? get registration_no => throw _privateConstructorUsedError;
   String? get vehicle_pic => throw _privateConstructorUsedError;
-  List<CounterInfoModel> get counterInfo => throw _privateConstructorUsedError;
-  List<RouteInfoModel> get routeInfo => throw _privateConstructorUsedError;
+  List<CounterInfoModel> get counter_info => throw _privateConstructorUsedError;
+  List<RouteInfoModel> get route_info => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,8 +48,8 @@ abstract class $VehicleModelCopyWith<$Res> {
       String? name,
       String? registration_no,
       String? vehicle_pic,
-      List<CounterInfoModel> counterInfo,
-      List<RouteInfoModel> routeInfo});
+      List<CounterInfoModel> counter_info,
+      List<RouteInfoModel> route_info});
 }
 
 /// @nodoc
@@ -71,8 +71,8 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
     Object? name = freezed,
     Object? registration_no = freezed,
     Object? vehicle_pic = freezed,
-    Object? counterInfo = null,
-    Object? routeInfo = null,
+    Object? counter_info = null,
+    Object? route_info = null,
   }) {
     return _then(_value.copyWith(
       chassis_no: freezed == chassis_no
@@ -99,13 +99,13 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
           ? _value.vehicle_pic
           : vehicle_pic // ignore: cast_nullable_to_non_nullable
               as String?,
-      counterInfo: null == counterInfo
-          ? _value.counterInfo
-          : counterInfo // ignore: cast_nullable_to_non_nullable
+      counter_info: null == counter_info
+          ? _value.counter_info
+          : counter_info // ignore: cast_nullable_to_non_nullable
               as List<CounterInfoModel>,
-      routeInfo: null == routeInfo
-          ? _value.routeInfo
-          : routeInfo // ignore: cast_nullable_to_non_nullable
+      route_info: null == route_info
+          ? _value.route_info
+          : route_info // ignore: cast_nullable_to_non_nullable
               as List<RouteInfoModel>,
     ) as $Val);
   }
@@ -126,8 +126,8 @@ abstract class _$$_VehicleModelCopyWith<$Res>
       String? name,
       String? registration_no,
       String? vehicle_pic,
-      List<CounterInfoModel> counterInfo,
-      List<RouteInfoModel> routeInfo});
+      List<CounterInfoModel> counter_info,
+      List<RouteInfoModel> route_info});
 }
 
 /// @nodoc
@@ -147,8 +147,8 @@ class __$$_VehicleModelCopyWithImpl<$Res>
     Object? name = freezed,
     Object? registration_no = freezed,
     Object? vehicle_pic = freezed,
-    Object? counterInfo = null,
-    Object? routeInfo = null,
+    Object? counter_info = null,
+    Object? route_info = null,
   }) {
     return _then(_$_VehicleModel(
       chassis_no: freezed == chassis_no
@@ -175,13 +175,13 @@ class __$$_VehicleModelCopyWithImpl<$Res>
           ? _value.vehicle_pic
           : vehicle_pic // ignore: cast_nullable_to_non_nullable
               as String?,
-      counterInfo: null == counterInfo
-          ? _value._counterInfo
-          : counterInfo // ignore: cast_nullable_to_non_nullable
+      counter_info: null == counter_info
+          ? _value._counter_info
+          : counter_info // ignore: cast_nullable_to_non_nullable
               as List<CounterInfoModel>,
-      routeInfo: null == routeInfo
-          ? _value._routeInfo
-          : routeInfo // ignore: cast_nullable_to_non_nullable
+      route_info: null == route_info
+          ? _value._route_info
+          : route_info // ignore: cast_nullable_to_non_nullable
               as List<RouteInfoModel>,
     ));
   }
@@ -197,10 +197,10 @@ class _$_VehicleModel implements _VehicleModel {
       required this.name,
       required this.registration_no,
       required this.vehicle_pic,
-      final List<CounterInfoModel> counterInfo = const [],
-      final List<RouteInfoModel> routeInfo = const []})
-      : _counterInfo = counterInfo,
-        _routeInfo = routeInfo;
+      final List<CounterInfoModel> counter_info = const [],
+      final List<RouteInfoModel> route_info = const []})
+      : _counter_info = counter_info,
+        _route_info = route_info;
 
   factory _$_VehicleModel.fromJson(Map<String, dynamic> json) =>
       _$$_VehicleModelFromJson(json);
@@ -217,27 +217,27 @@ class _$_VehicleModel implements _VehicleModel {
   final String? registration_no;
   @override
   final String? vehicle_pic;
-  final List<CounterInfoModel> _counterInfo;
+  final List<CounterInfoModel> _counter_info;
   @override
   @JsonKey()
-  List<CounterInfoModel> get counterInfo {
-    if (_counterInfo is EqualUnmodifiableListView) return _counterInfo;
+  List<CounterInfoModel> get counter_info {
+    if (_counter_info is EqualUnmodifiableListView) return _counter_info;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_counterInfo);
+    return EqualUnmodifiableListView(_counter_info);
   }
 
-  final List<RouteInfoModel> _routeInfo;
+  final List<RouteInfoModel> _route_info;
   @override
   @JsonKey()
-  List<RouteInfoModel> get routeInfo {
-    if (_routeInfo is EqualUnmodifiableListView) return _routeInfo;
+  List<RouteInfoModel> get route_info {
+    if (_route_info is EqualUnmodifiableListView) return _route_info;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_routeInfo);
+    return EqualUnmodifiableListView(_route_info);
   }
 
   @override
   String toString() {
-    return 'VehicleModel(chassis_no: $chassis_no, model_no: $model_no, total_seats: $total_seats, name: $name, registration_no: $registration_no, vehicle_pic: $vehicle_pic, counterInfo: $counterInfo, routeInfo: $routeInfo)';
+    return 'VehicleModel(chassis_no: $chassis_no, model_no: $model_no, total_seats: $total_seats, name: $name, registration_no: $registration_no, vehicle_pic: $vehicle_pic, counter_info: $counter_info, route_info: $route_info)';
   }
 
   @override
@@ -257,9 +257,9 @@ class _$_VehicleModel implements _VehicleModel {
             (identical(other.vehicle_pic, vehicle_pic) ||
                 other.vehicle_pic == vehicle_pic) &&
             const DeepCollectionEquality()
-                .equals(other._counterInfo, _counterInfo) &&
+                .equals(other._counter_info, _counter_info) &&
             const DeepCollectionEquality()
-                .equals(other._routeInfo, _routeInfo));
+                .equals(other._route_info, _route_info));
   }
 
   @JsonKey(ignore: true)
@@ -272,8 +272,8 @@ class _$_VehicleModel implements _VehicleModel {
       name,
       registration_no,
       vehicle_pic,
-      const DeepCollectionEquality().hash(_counterInfo),
-      const DeepCollectionEquality().hash(_routeInfo));
+      const DeepCollectionEquality().hash(_counter_info),
+      const DeepCollectionEquality().hash(_route_info));
 
   @JsonKey(ignore: true)
   @override
@@ -297,8 +297,8 @@ abstract class _VehicleModel implements VehicleModel {
       required final String? name,
       required final String? registration_no,
       required final String? vehicle_pic,
-      final List<CounterInfoModel> counterInfo,
-      final List<RouteInfoModel> routeInfo}) = _$_VehicleModel;
+      final List<CounterInfoModel> counter_info,
+      final List<RouteInfoModel> route_info}) = _$_VehicleModel;
 
   factory _VehicleModel.fromJson(Map<String, dynamic> json) =
       _$_VehicleModel.fromJson;
@@ -316,9 +316,9 @@ abstract class _VehicleModel implements VehicleModel {
   @override
   String? get vehicle_pic;
   @override
-  List<CounterInfoModel> get counterInfo;
+  List<CounterInfoModel> get counter_info;
   @override
-  List<RouteInfoModel> get routeInfo;
+  List<RouteInfoModel> get route_info;
   @override
   @JsonKey(ignore: true)
   _$$_VehicleModelCopyWith<_$_VehicleModel> get copyWith =>

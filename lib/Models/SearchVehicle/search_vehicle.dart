@@ -75,7 +75,7 @@ class SearchVehicleResponse with _$SearchVehicleResponse {
   const factory SearchVehicleResponse({
     @Default(false) bool success,
     required String? message,
-    @Default([]) List<VehicleModel> vehicleInfo,
+    @Default([]) List<VehicleModel> vehicle_info,
 
   }) = _SearchVehicleResponse;
 

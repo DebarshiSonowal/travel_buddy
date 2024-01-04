@@ -26,9 +26,4 @@ class LocationModel with _$LocationModel {
 // "full_name": "newww",
 // "display_name": "newloc",
 // "longitude": "34545",
-// "latitude": "222",
-// "is_boarding": 1,
-// "is_destination": 1,
-// "status": 1,
-// "created_at": "2023-11-25 14:47:35",
-// "updated_at": null
+// "latitude": "222"

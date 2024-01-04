@@ -9,16 +9,18 @@ part of 'route_info_model.dart';
 _$_RouteInfoModel _$$_RouteInfoModelFromJson(Map<String, dynamic> json) =>
     _$_RouteInfoModel(
       id: json['id'] as int? ?? 0,
-      viaLocation: (json['data']['vialoc'] as List<dynamic>?)
+      travel_time: json['travel_time'] as int? ?? 0,
+      strt_time: json['strt_time'] as String? ?? "0",
+      vialoc: (json['vialoc'] as List<dynamic>?)
               ?.map((e) => ViaLocationModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      startLocation: (json['data']['start_loc'] as List<dynamic>?)
+      start_loc: (json['start_loc'] as List<dynamic>?)
               ?.map(
                   (e) => StartLocationModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      destLocation: (json['data']['dest_loc'] as List<dynamic>?)
+      dest_loc: (json['dest_loc'] as List<dynamic>?)
               ?.map((e) =>
                   DestinationLocationModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -28,7 +30,9 @@ _$_RouteInfoModel _$$_RouteInfoModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_RouteInfoModelToJson(_$_RouteInfoModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'viaLocation': instance.viaLocation,
-      'startLocation': instance.startLocation,
-      'destLocation': instance.destLocation,
+      'travel_time': instance.travel_time,
+      'strt_time': instance.strt_time,
+      'vialoc': instance.vialoc,
+      'start_loc': instance.start_loc,
+      'dest_loc': instance.dest_loc,
     };

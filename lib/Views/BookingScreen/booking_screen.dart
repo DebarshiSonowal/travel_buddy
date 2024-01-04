@@ -56,7 +56,7 @@ class BookingScreen extends ConsumerWidget {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           final item =
-                              data.vehicleInfo.first.counterInfo[index];
+                              data.vehicle_info.first.counter_info[index];
                           return CounterItem(item: item);
                         },
                         separatorBuilder: (context, index) {
@@ -64,7 +64,7 @@ class BookingScreen extends ConsumerWidget {
                             width: 3.w,
                           );
                         },
-                        itemCount: data.vehicleInfo.first.counterInfo.length,
+                        itemCount: data.vehicle_info.isNotEmpty?data.vehicle_info.first.counter_info.length:0,
                       );
                     },
                     error: (err, s) {
@@ -86,13 +86,13 @@ class BookingScreen extends ConsumerWidget {
                       return ListView.separated(
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          final item = data.vehicleInfo[index];
+                          final item = data.vehicle_info[index];
                           return VehicleItem(
                             item: item,
                             onTap: (VehicleModel val) {
                               ref.read(repositoryProvider).selectVehicle(item);
                               // ref.read(repositoryProvider).updateStartTime("");
-                              ref.read(repositoryProvider).updateRouteId("${item.routeInfo.first.id}");
+                              ref.read(repositoryProvider).updateRouteId("${item.route_info.first.id}");
                               Navigation.instance.navigate(Routes.seatLayout);
                             },
                           );
@@ -102,7 +102,7 @@ class BookingScreen extends ConsumerWidget {
                             height: 2.h,
                           );
                         },
-                        itemCount: data.vehicleInfo.length,
+                        itemCount: data.vehicle_info.length,
                       );
                     },
                     error: (err, s) {

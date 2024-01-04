@@ -23,8 +23,8 @@ class VehicleModel with _$VehicleModel {
     required String? name,
     required String? registration_no,
     required String? vehicle_pic,
-    @Default([]) List<CounterInfoModel> counterInfo,
-    @Default([]) List<RouteInfoModel> routeInfo,
+    @Default([]) List<CounterInfoModel> counter_info,
+    @Default([]) List<RouteInfoModel> route_info,
   }) = _VehicleModel;
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) =>

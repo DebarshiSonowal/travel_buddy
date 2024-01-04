@@ -8,7 +8,12 @@ import 'headline.dart';
 class InsuranceDetails extends StatelessWidget {
   const InsuranceDetails({
     super.key,
+    required this.is_insured,
+    required this.updateInsured,
   });
+
+  final int is_insured;
+  final Function(int) updateInsured;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,12 @@ class InsuranceDetails extends StatelessWidget {
           SizedBox(
             height: 1.h,
           ),
-          const AgreementSection(),
+          AgreementSection(
+            is_insured: is_insured,
+            updateInsured: (int val) {
+              updateInsured(val);
+            },
+          ),
         ],
       ),
     );

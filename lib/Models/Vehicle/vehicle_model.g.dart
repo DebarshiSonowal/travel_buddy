@@ -14,11 +14,11 @@ _$_VehicleModel _$$_VehicleModelFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String?,
       registration_no: json['registration_no'] as String?,
       vehicle_pic: json['vehicle_pic'] as String?,
-      counterInfo: (json['counter_info'] as List<dynamic>?)
+      counter_info: (json['counter_info'] as List<dynamic>?)
               ?.map((e) => CounterInfoModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      routeInfo: (json['route_info'] as List<dynamic>?)
+      route_info: (json['route_info'] as List<dynamic>?)
               ?.map((e) => RouteInfoModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
@@ -32,6 +32,6 @@ Map<String, dynamic> _$$_VehicleModelToJson(_$_VehicleModel instance) =>
       'name': instance.name,
       'registration_no': instance.registration_no,
       'vehicle_pic': instance.vehicle_pic,
-      'counterInfo': instance.counterInfo,
-      'routeInfo': instance.routeInfo,
+      'counter_info': instance.counter_info,
+      'route_info': instance.route_info,
     };

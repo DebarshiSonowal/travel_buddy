@@ -24,8 +24,7 @@ final searchVehicleProvider =
       ref.watch(repositoryProvider).strLocVal ?? "",
       ref.watch(repositoryProvider).endLocVal ?? "");
 });
-final searchLayoutProvider =
-    FutureProvider<LayoutResponse>((ref) async {
+final searchLayoutProvider = FutureProvider<LayoutResponse>((ref) async {
   return ref.watch(apiProvider).getLayout(
       ref.watch(repositoryProvider).route_id ?? "",
       ref.watch(repositoryProvider).dateVal ?? "",

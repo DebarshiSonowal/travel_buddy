@@ -3,12 +3,15 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:travel_buddy/Models/Data/data_response.dart';
 import 'package:travel_buddy/Models/Generic/generic_response.dart';
 import 'package:travel_buddy/Models/Layout/layout_response.dart';
 import 'package:travel_buddy/Models/SearchVehicle/search_vehicle.dart';
 
 import '../Helper/storage.dart';
 import '../Models/LocationResponse/location_response.dart';
+import '../Models/Login/login_response.dart';
+import '../Models/Seat/seat_response.dart';
 
 class ApiProvider {
   // ApiProvider._();
@@ -61,7 +64,7 @@ class ApiProvider {
     }
   }
 
-  Future<GenericResponse> login(mobile_no, otp) async {
+  Future<LoginResponse> login(mobile_no, otp) async {
     BaseOptions option = BaseOptions(
         connectTimeout: const Duration(seconds: waitTime),
         receiveTimeout: const Duration(seconds: waitTime),
@@ -87,16 +90,16 @@ class ApiProvider {
       );
       debugPrint("login response: ${response?.data} ${response?.headers}");
       if (response?.statusCode == 200 || response?.statusCode == 201) {
-        return GenericResponse.fromJson(response?.data);
+        return LoginResponse.fromJson(response?.data);
       } else {
         debugPrint("login error response: ${response?.data}");
-        return GenericResponse.error(response?.data['error']
+        return LoginResponse.error(response?.data['error']
             ? response?.data['message']['success']
             : response?.data['message']['error']);
       }
     } on DioError catch (e) {
-      debugPrint("login  error: ${e.error} ${e.message}");
-      return GenericResponse.error(e.message ?? "");
+      debugPrint("login  error: ${e.error} ${e.response?.data} ${e.message}");
+      return LoginResponse.error(e.response?.data['message']??e.message);
     }
   }
 
@@ -289,6 +292,7 @@ class ApiProvider {
       );
       debugPrint("layout response: ${response?.data} ${response?.headers}");
       if (response?.statusCode == 200 || response?.statusCode == 201) {
+        // ref.read(repositoryProvider).setAllLayouts( await data);
         return LayoutResponse.fromJson(response?.data);
       } else {
         debugPrint("layout error response: ${response?.data}");
@@ -297,12 +301,93 @@ class ApiProvider {
             : response?.data['message']['error']);
       }
     } on DioError catch (e) {
-      debugPrint(
-          "layout  error: ${e.error} ${e.response?.data} ${e.message}");
+      debugPrint("layout  error: ${e.error} ${e.response?.data} ${e.message}");
       return LayoutResponse.error(
           e.response?.data['message'] ?? e.message ?? "");
     }
   }
+
+  Future<SeatResponse> selectSeats(trip_id, seats) async {
+    BaseOptions option = BaseOptions(
+        connectTimeout: const Duration(seconds: waitTime),
+        receiveTimeout: const Duration(seconds: waitTime),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${Storage.instance.token}'
+          // 'APP-KEY': ConstanceData.app_key
+        });
+    var url = "$endpoint/$path/booking/seat";
+    dio = Dio(option);
+    debugPrint(url.toString());
+    var data = {
+      'trip_id': trip_id,
+      'seats': seats,
+    };
+    debugPrint(jsonEncode(data));
+
+    try {
+      Response? response = await dio?.post(
+        url,
+        data: jsonEncode(data),
+      );
+      debugPrint("SeatResponse response: ${response?.data} ${response?.headers}");
+      if (response?.statusCode == 200 || response?.statusCode == 201) {
+        return SeatResponse.fromJson(response?.data);
+      } else {
+        debugPrint("SeatResponse error response: ${response?.data}");
+        return SeatResponse.error(response?.data['error']
+            ? response?.data['message']['success']
+            : response?.data['message']['error']);
+      }
+    } on DioError catch (e) {
+      debugPrint("SeatResponse error: ${e.error} ${e.response?.data} ${e.message}");
+      return SeatResponse.error(
+          e.response?.data['message'] ?? e.message ?? "");
+    }
+  }
+
+  Future<DataResponse> bookSeats(trip_id,is_insured, seats) async {
+    BaseOptions option = BaseOptions(
+        connectTimeout: const Duration(seconds: waitTime),
+        receiveTimeout: const Duration(seconds: waitTime),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ${Storage.instance.token}'
+          // 'APP-KEY': ConstanceData.app_key
+        });
+    var url = "$endpoint/$path/booking/data";
+    dio = Dio(option);
+    debugPrint(url.toString());
+    var data = {
+      'trip_id': trip_id,
+      'is_insured': is_insured,
+      'seats': seats,
+    };
+    debugPrint(jsonEncode(data));
+
+    try {
+      Response? response = await dio?.post(
+        url,
+        data: jsonEncode(data),
+      );
+      debugPrint("DataResponse response: ${response?.data} ${response?.headers}");
+      if (response?.statusCode == 200 || response?.statusCode == 201) {
+        return DataResponse.fromJson(response?.data);
+      } else {
+        debugPrint("DataResponse error response: ${response?.data}");
+        return DataResponse.error(response?.data['error']
+            ? response?.data['message']['success']
+            : response?.data['message']['error']);
+      }
+    } on DioError catch (e) {
+      debugPrint("DataResponse error: ${e.error} ${e.response?.data} ${e.message}");
+      return DataResponse.error(
+          e.response?.data['message'] ?? e.message ?? "");
+    }
+  }
+
 }
 
 final apiProvider = Provider<ApiProvider>((ref) => ApiProvider());
