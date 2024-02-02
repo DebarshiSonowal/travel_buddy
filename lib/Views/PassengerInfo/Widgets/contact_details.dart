@@ -33,6 +33,7 @@ class _ContactDetailsCardState extends State<ContactDetailsCard> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController mobileController = TextEditingController();
   final TextEditingController whatsappController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -252,7 +253,7 @@ class _ContactDetailsCardState extends State<ContactDetailsCard> {
                       ),
                     ),
                     onPressed: () {
-                      setState(() {
+                      try {
                         widget.updateSelected(ContactDetails(
                           widget.data.row,
                           widget.data.col,
@@ -261,9 +262,12 @@ class _ContactDetailsCardState extends State<ContactDetailsCard> {
                           isSelected,
                           widget.data.gender,
                           widget.data.age,
-                          "",
+                          whatsappController.text,
                         ));
-                      });
+                      } catch (e) {
+                        print(e);
+                      }
+                      setState(() {});
                       debugPrint(
                           "Update Selected:\n${widget.data.row}\n${widget.data.col}\n${nameController.text}\n${mobileController.text}\n${isSelected}\n${widget.data.gender}\n${widget.data.age}");
                     },
@@ -293,8 +297,8 @@ class _ContactDetailsCardState extends State<ContactDetailsCard> {
       setState(() {
         nameController.text = widget.data.passenger_name ?? '';
         isSelected = widget.selected;
-        mobileController.text = widget.data.passenger_contact??"";
-        whatsappController.text = widget.data.whatsapp??"";
+        mobileController.text = widget.data.passenger_contact ?? "";
+        whatsappController.text = widget.data.whatsapp ?? "";
       });
     });
   }

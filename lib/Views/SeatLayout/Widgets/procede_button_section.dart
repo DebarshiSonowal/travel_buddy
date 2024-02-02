@@ -40,7 +40,7 @@ class ProceedButtonSection extends ConsumerWidget {
               onTap: () {
                 if (selected.isNotEmpty) {
                   selectTheSeats(
-                    "${data.trip_id}",
+                    "${data.data?.trip_id}",
                     getSelectedList(selected),
                   );
                 } else {

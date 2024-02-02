@@ -8,8 +8,8 @@ part of 'vehicle_model.dart';
 
 _$_VehicleModel _$$_VehicleModelFromJson(Map<String, dynamic> json) =>
     _$_VehicleModel(
-      chassis_no: json['chassis_no'] as int?,
-      model_no: json['model_no'] as int?,
+      chassis_no: json['chassis_no'] as String?,
+      model_no: json['model_no'] as String?,
       total_seats: json['total_seats'] as String?,
       name: json['name'] as String?,
       registration_no: json['registration_no'] as String?,

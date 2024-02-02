@@ -17,9 +17,10 @@ class InfoTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 25.w,
+          width: 30.w,
           child: Text(
             title,
+            overflow: TextOverflow.ellipsis,
             style: GoogleFonts.roboto().copyWith(
               fontSize: 10.5.sp,
               color: Colors.black87,
@@ -28,9 +29,10 @@ class InfoTitle extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 25.w,
+          width: 30.w,
           child: Text(
             value,
+            overflow: TextOverflow.ellipsis,
             style: GoogleFonts.roboto().copyWith(
               fontSize: 8.5.sp,
               color: Colors.black,

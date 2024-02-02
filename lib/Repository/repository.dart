@@ -4,6 +4,7 @@ import 'package:travel_buddy/Models/Vehicle/vehicle_model.dart';
 import '../Models/ContactDetails/contact_details.dart';
 import '../Models/Layout/layout_model.dart';
 import '../Models/Layout/layout_response.dart';
+import '../Models/SeatData/seat_data.dart';
 
 class Repository with ChangeNotifier {
   String dateVal = "",
@@ -18,6 +19,7 @@ class Repository with ChangeNotifier {
   LayoutResponse? layoutResponse;
   VehicleModel? selectedVehicle;
   List<ContactDetails> contactDetails = [];
+  List<SeatData> seatData = [];
 
   void updateDate(String val) {
     dateVal = val;
@@ -28,7 +30,7 @@ class Repository with ChangeNotifier {
     selectedLayouts.add(val);
     layoutResponse = data;
     debugPrint(
-        "Layouts added ${selectedLayouts.map((e) => debugPrint("[${e.row},${e.column}]")).toList()} ${val} ${layoutResponse?.trip_id} ${data}");
+        "Layouts added ${selectedLayouts.map((e) => debugPrint("[${e.row},${e.column}]")).toList()} ${val} ${layoutResponse?.data?.trip_id} ${data}");
     notifyListeners();
   }
 
@@ -37,9 +39,14 @@ class Repository with ChangeNotifier {
     notifyListeners();
   }
 
-  void setAllLayouts(LayoutResponse val) {
-    layoutResponse = val;
+  void setSeatData(List<SeatData> val) {
+    seatData = val;
     notifyListeners();
+  }
+
+  void setAllLayouts(LayoutResponse? val) {
+    layoutResponse = val;
+    // notifyListeners();
   }
 
   void removeLayout(LayoutModel val) {

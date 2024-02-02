@@ -17,6 +17,7 @@ class ContactDetailsList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.watch(repositoryProvider);
     return ListView.separated(
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) {
         final item = contactDetails[index];
@@ -27,8 +28,9 @@ class ContactDetailsList extends ConsumerWidget {
           data: item,
           selected: item.is_selected ?? false,
           updateSelected: (ContactDetails val) {
-            ref.read(repositoryProvider).updateContactDetails(index, val);
-            updateContactDetails(index,val);
+            debugPrint("update selected $index $val ${item.passenger_name} ${contactDetails.length} ${contactDetails[index].passenger_name}");
+              ref.read(repositoryProvider).updateContactDetails(index, val);
+              updateContactDetails(index,val);
           },
         );
       },

@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../Models/SeatData/seat_data.dart';
 
 class Storage {
   Storage._();
@@ -20,6 +24,39 @@ class Storage {
   Future<void> setToken(String token) async {
     await sharedPreferences.setString("token", token);
   }
+
+  Future<void> setSeatData(List<SeatData> val) async {
+    List<String> seatDataListString =
+    val.map((seatData) => jsonEncode(seatData.toJson())).toList();
+
+    await sharedPreferences.setStringList("seatData", seatDataListString);
+  }
+
+
+  Future<List<SeatData>> getSeatData() async {
+    List<String>? seatDataListString = sharedPreferences.getStringList("seatData");
+
+    if (seatDataListString != null) {
+      try {
+        List<Map<String, dynamic>> seatDataListMap = seatDataListString
+            .map((data) => jsonDecode(data) as Map<String, dynamic>)
+            .toList();
+
+        List<SeatData> seatDataList =
+        seatDataListMap.map((data) => SeatData.fromJson(data)).toList();
+
+        return seatDataList;
+      } catch (e) {
+        print('Error decoding JSON: $e');
+        // Handle the error (e.g., return an empty list or show an error message)
+        return [];
+      }
+    } else {
+      return [];
+    }
+  }
+
+
 
   Future<void> setClosedForDay(bool val) async {
     await sharedPreferences.setBool("closed", val);

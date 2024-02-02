@@ -13,7 +13,7 @@ part 'route_info_model.g.dart';
 class RouteInfoModel with _$RouteInfoModel {
   const factory RouteInfoModel({
     @Default(0) int id,
-    @Default(0) int travel_time,
+    @Default("0") String travel_time,
     @Default("0") String strt_time,
     @Default([]) List<ViaLocationModel> vialoc,
     @Default([]) List<StartLocationModel> start_loc,

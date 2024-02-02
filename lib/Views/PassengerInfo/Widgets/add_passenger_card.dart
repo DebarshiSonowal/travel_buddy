@@ -159,7 +159,8 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                   padding:
                       EdgeInsets.symmetric(horizontal: 2.w, vertical: 0.1.w),
                   child: Text(
-                    widget.seatNumber,
+                    // widget.seatNumber,
+                    "${widget.index + 1}",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 9.sp,
                       color: Colors.black,
@@ -278,6 +279,7 @@ class _AddPassengerCardState extends State<AddPassengerCard> {
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
+                        keyboardType: TextInputType.number,
                         cursorColor: const Color(0xff747474),
                         decoration: InputDecoration(
                           enabledBorder: const UnderlineInputBorder(

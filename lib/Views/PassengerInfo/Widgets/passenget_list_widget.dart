@@ -10,9 +10,12 @@ import '../../../main.dart';
 import 'add_passenger_card.dart';
 
 class PassengerListWidget extends ConsumerStatefulWidget {
-  const PassengerListWidget(this.contactDetails, this.addContactDetails, {super.key});
+  const PassengerListWidget(this.contactDetails, this.addContactDetails,
+      {super.key});
+
   final List<ContactDetails> contactDetails;
   final Function(ContactDetails val) addContactDetails;
+
   @override
   ConsumerState<PassengerListWidget> createState() =>
       _PassengerListWidgetState();
@@ -24,7 +27,6 @@ class _PassengerListWidgetState extends ConsumerState<PassengerListWidget> {
   ];
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,43 +42,48 @@ class _PassengerListWidgetState extends ConsumerState<PassengerListWidget> {
         shrinkWrap: true,
         itemBuilder: (BuildContext context, int index) {
           final item = selected[index];
-          if (index >= widget.contactDetails.length) {
-            return AddPassengerCard(
-              // nameController: nameController,
-              // ageController: ageController,
-              onTap: (int val, String name, String age) {
-                // ref.read(repositoryProvider).addContactDetails(
-                //       ContactDetails(
-                //           item.row.toString(),
-                //           item.column.toString(),
-                //           name,
-                //           "",
-                //           false,
-                //           val,
-                //           int.parse(age),
-                //           ""),
-                //     );
-                setState(() {
-                  widget.addContactDetails(ContactDetails(
-                      item.row.toString(),
-                      item.column.toString(),
-                      name,
-                      "",
-                      false,
-                      val,
-                      int.parse(age),
-                      ""));
-                });
-              },
-              refreshUpdate: () {
-                setState(() {});
-              },
-              seatNumber: "${item.row}${item.column}",
-              index: index,
-            );
-          } else {
-            return Container();
-          }
+          // if (index >= widget.contactDetails.length) {
+          return AddPassengerCard(
+            // nameController: nameController,
+            // ageController: ageController,
+            onTap: (int val, String name, String age) {
+              // ref.read(repositoryProvider).addContactDetails(
+              //       ContactDetails(
+              //           item.row.toString(),
+              //           item.column.toString(),
+              //           name,
+              //           "",
+              //           false,
+              //           val,
+              //           int.parse(age),
+              //           ""),
+              //     );
+              setState(() {
+                widget.addContactDetails(ContactDetails(
+                    item.row.toString(),
+                    item.column.toString(),
+                    name,
+                    "",
+                    false,
+                    val,
+                    int.parse(age),
+                    ""));
+              });
+            },
+            refreshUpdate: () {
+              setState(() {});
+            },
+            seatNumber: "${findSeatNumber(
+              item.row ?? 0,
+              item.column ?? 0,
+              ref.watch(repositoryProvider).layoutResponse?.data?.rows ?? 0,
+              ref.watch(repositoryProvider).layoutResponse?.data?.columns ?? 0,
+            )}",
+            index: widget.contactDetails.length,
+          );
+          // } else {
+          //   return Container();
+          // }
         },
         separatorBuilder: (BuildContext context, int index) {
           return SizedBox(
@@ -84,8 +91,24 @@ class _PassengerListWidgetState extends ConsumerState<PassengerListWidget> {
           );
         },
         // itemCount: ref.watch(repositoryProvider).selectedLayouts.length,
-        itemCount: ref.watch(repositoryProvider).selectedLayouts.length,
+        itemCount: (selected.length - widget.contactDetails.length)>=1?1:0,
       ),
     );
+  }
+
+  int findSeatNumber(int rows, int columns, int targetRow, int targetColumn) {
+    debugPrint("findSeatNumber($rows, $columns, $targetRow, $targetColumn)");
+    // Validate the input values
+    if (targetRow <= 0 ||
+        targetRow > rows ||
+        targetColumn <= 0 ||
+        targetColumn > columns) {
+      return 0;
+    }
+
+    // Calculate the seat number using the formula
+    int seatNumber = (targetRow - 1) * columns + targetColumn;
+
+    return seatNumber;
   }
 }

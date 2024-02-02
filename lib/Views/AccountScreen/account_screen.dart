@@ -372,6 +372,7 @@ class _AccountScreenState extends State<AccountScreen> {
       Navigation.instance.navigateAndRemoveUntil(Routes.loginScreen);
     } else {
       Fluttertoast.showToast(msg: response.message ?? "Something went wrong");
+      Navigation.instance.navigateAndRemoveUntil(Routes.loginScreen);
     }
   }
 }

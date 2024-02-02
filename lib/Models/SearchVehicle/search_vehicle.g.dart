@@ -11,10 +11,9 @@ _$_SearchVehicleResponse _$$_SearchVehicleResponseFromJson(
     _$_SearchVehicleResponse(
       success: json['success'] as bool? ?? false,
       message: json['message'] as String?,
-      vehicle_info: (json['data']['vehicle_info'] as List<dynamic>?)
-              ?.map((e) => VehicleModel.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
+      data: json['data'] == null
+          ? null
+          : SearchVehicleData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_SearchVehicleResponseToJson(
@@ -22,5 +21,5 @@ Map<String, dynamic> _$$_SearchVehicleResponseToJson(
     <String, dynamic>{
       'success': instance.success,
       'message': instance.message,
-      'vehicle_info': instance.vehicle_info,
+      'data': instance.data,
     };

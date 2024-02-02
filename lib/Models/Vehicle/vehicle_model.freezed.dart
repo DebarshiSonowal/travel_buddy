@@ -20,8 +20,8 @@ VehicleModel _$VehicleModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$VehicleModel {
-  int? get chassis_no => throw _privateConstructorUsedError;
-  int? get model_no => throw _privateConstructorUsedError;
+  String? get chassis_no => throw _privateConstructorUsedError;
+  String? get model_no => throw _privateConstructorUsedError;
   String? get total_seats => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get registration_no => throw _privateConstructorUsedError;
@@ -42,8 +42,8 @@ abstract class $VehicleModelCopyWith<$Res> {
       _$VehicleModelCopyWithImpl<$Res, VehicleModel>;
   @useResult
   $Res call(
-      {int? chassis_no,
-      int? model_no,
+      {String? chassis_no,
+      String? model_no,
       String? total_seats,
       String? name,
       String? registration_no,
@@ -78,11 +78,11 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
       chassis_no: freezed == chassis_no
           ? _value.chassis_no
           : chassis_no // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       model_no: freezed == model_no
           ? _value.model_no
           : model_no // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       total_seats: freezed == total_seats
           ? _value.total_seats
           : total_seats // ignore: cast_nullable_to_non_nullable
@@ -120,8 +120,8 @@ abstract class _$$_VehicleModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? chassis_no,
-      int? model_no,
+      {String? chassis_no,
+      String? model_no,
       String? total_seats,
       String? name,
       String? registration_no,
@@ -154,11 +154,11 @@ class __$$_VehicleModelCopyWithImpl<$Res>
       chassis_no: freezed == chassis_no
           ? _value.chassis_no
           : chassis_no // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       model_no: freezed == model_no
           ? _value.model_no
           : model_no // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       total_seats: freezed == total_seats
           ? _value.total_seats
           : total_seats // ignore: cast_nullable_to_non_nullable
@@ -206,9 +206,9 @@ class _$_VehicleModel implements _VehicleModel {
       _$$_VehicleModelFromJson(json);
 
   @override
-  final int? chassis_no;
+  final String? chassis_no;
   @override
-  final int? model_no;
+  final String? model_no;
   @override
   final String? total_seats;
   @override
@@ -291,8 +291,8 @@ class _$_VehicleModel implements _VehicleModel {
 
 abstract class _VehicleModel implements VehicleModel {
   const factory _VehicleModel(
-      {required final int? chassis_no,
-      required final int? model_no,
+      {required final String? chassis_no,
+      required final String? model_no,
       required final String? total_seats,
       required final String? name,
       required final String? registration_no,
@@ -304,9 +304,9 @@ abstract class _VehicleModel implements VehicleModel {
       _$_VehicleModel.fromJson;
 
   @override
-  int? get chassis_no;
+  String? get chassis_no;
   @override
-  int? get model_no;
+  String? get model_no;
   @override
   String? get total_seats;
   @override

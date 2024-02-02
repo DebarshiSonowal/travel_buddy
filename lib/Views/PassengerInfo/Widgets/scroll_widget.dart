@@ -31,6 +31,9 @@ class ScrollWidget extends StatelessWidget {
         child: Column(
           children: [
             const VehicleInfo(),
+            SizedBox(
+              height: 0.2.h,
+            ),
             ContactDetailsList(
               contactDetails,
               (int index, ContactDetails val) {

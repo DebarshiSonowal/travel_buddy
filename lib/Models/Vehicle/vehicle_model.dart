@@ -17,8 +17,8 @@ part 'vehicle_model.g.dart';
 @Freezed()
 class VehicleModel with _$VehicleModel {
   const factory VehicleModel({
-    required int? chassis_no,
-    required int? model_no,
+    required String? chassis_no,
+    required String? model_no,
     required String? total_seats,
     required String? name,
     required String? registration_no,

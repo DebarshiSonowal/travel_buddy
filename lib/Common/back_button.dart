@@ -5,13 +5,16 @@ import '../Router/navigator.dart';
 
 class BackButtonCustom extends StatelessWidget {
   const BackButtonCustom({
-    super.key,
+    super.key, this.onClick,
   });
-
+  final Function? onClick;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap:(){
+        if(onClick!=null){
+          onClick!();
+        }
         Navigation.instance.goBack();
       },
       child: Container(

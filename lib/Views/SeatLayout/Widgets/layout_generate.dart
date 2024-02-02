@@ -14,7 +14,8 @@ import 'last_line.dart';
 import 'other_lines.dart';
 
 class LayoutGenerator extends ConsumerStatefulWidget {
-  const LayoutGenerator(this.removeSeat, this.addSeat, {super.key, required this.selected});
+  const LayoutGenerator(this.removeSeat, this.addSeat,
+      {super.key, required this.selected});
 
   final List<LayoutModel> selected;
   final Function(LayoutModel val) removeSeat;
@@ -49,12 +50,13 @@ class _ConsumerStateState extends ConsumerState<LayoutGenerator> {
           child: GridView.builder(
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: data.columns ?? 1,
+              crossAxisCount: data.data?.columns ?? 1,
               crossAxisSpacing: 2.w,
+              childAspectRatio: 1.2,
             ),
-            itemCount: data.layouts.length,
+            itemCount: data.data?.layout.length ?? 0,
             itemBuilder: (BuildContext context, int index) {
-              final item = data.layouts[index];
+              final item = data.data?.layout[index];
 
               return GestureDetector(
                 onTap: () {
@@ -65,17 +67,25 @@ class _ConsumerStateState extends ConsumerState<LayoutGenerator> {
                     //       item,
                     //     );
                     widget.removeSeat(item);
+                    ref.read(repositoryProvider).removeLayout(item);
                   } else {
                     // ref.read(repositoryProvider).addLayouts(
                     //       item,
                     //       layout,
                     //     );
-                    widget.addSeat(item);
-                    ref.read(repositoryProvider).setAllLayouts(layout!);
+                    if (item.seat_status=="empty") {
+                      widget.addSeat(item);
+                      ref.read(repositoryProvider).setAllLayouts(layout);
+                      ref.read(repositoryProvider).addLayouts(item,layout);
+                    }
                   }
                 },
+                // child: Container(
+                //   height: 4.h,
+                //   width: 20.w,
+                // ),
                 child: SeatWidget(
-                  item: item,
+                  item: item!,
                   is_selected: widget.selected.contains(item),
                 ),
               );

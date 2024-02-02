@@ -40,6 +40,7 @@ class _SeatLayoutState extends ConsumerState<SeatLayout> {
 
   @override
   Widget build(BuildContext context) {
+    final data=ref.watch(repositoryProvider);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
@@ -55,7 +56,7 @@ class _SeatLayoutState extends ConsumerState<SeatLayout> {
               children: [
                 const CounterAppBar(),
                 Container(
-                  height: 70.h,
+                  height: 73.5.h,
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(
                     horizontal: 2.w,
@@ -105,14 +106,17 @@ class _SeatLayoutState extends ConsumerState<SeatLayout> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 10.w,
+                                    width: 5.w,
                                   ),
-                                  Text(
-                                    "Seats No: ${selected.toList()}",
-                                    style: GoogleFonts.roboto().copyWith(
-                                      fontSize: 11.sp,
-                                      color: Colors.black,
-                                      // fontWeight: FontWeight.bold,
+                                  SizedBox(
+                                    width: 40.w,
+                                    child: Text(
+                                      "Seats No: ${selected.map((e) => e.label).toList()}",
+                                      style: GoogleFonts.roboto().copyWith(
+                                        fontSize: 10.sp,
+                                        color: Colors.black,
+                                        // fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                   const Spacer(),
@@ -133,7 +137,7 @@ class _SeatLayoutState extends ConsumerState<SeatLayout> {
                               Row(
                                 children: [
                                   Text(
-                                    "Itanagar",
+                                    data.startLoc,
                                     style: GoogleFonts.roboto().copyWith(
                                       fontSize: 11.sp,
                                       color: Colors.black,
@@ -145,7 +149,7 @@ class _SeatLayoutState extends ConsumerState<SeatLayout> {
                                     color: Colors.black,
                                   ),
                                   Text(
-                                    "Guwahati",
+                                    data.endLoc,
                                     style: GoogleFonts.roboto().copyWith(
                                       fontSize: 11.sp,
                                       color: Colors.black,

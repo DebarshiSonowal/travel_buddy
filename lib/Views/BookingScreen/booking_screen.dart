@@ -56,15 +56,15 @@ class BookingScreen extends ConsumerWidget {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           final item =
-                              data.vehicle_info.first.counter_info[index];
-                          return CounterItem(item: item);
+                              data.data?.vehicle_info.first.counter_info[index];
+                          return CounterItem(item: item!);
                         },
                         separatorBuilder: (context, index) {
                           return SizedBox(
                             width: 3.w,
                           );
                         },
-                        itemCount: data.vehicle_info.isNotEmpty?data.vehicle_info.first.counter_info.length:0,
+                        itemCount: (data.data?.vehicle_info.isNotEmpty??false)?data.data!.vehicle_info.first.counter_info.length:0,
                       );
                     },
                     error: (err, s) {
@@ -86,9 +86,9 @@ class BookingScreen extends ConsumerWidget {
                       return ListView.separated(
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          final item = data.vehicle_info[index];
+                          final item = data.data?.vehicle_info[index];
                           return VehicleItem(
-                            item: item,
+                            item: item!,
                             onTap: (VehicleModel val) {
                               ref.read(repositoryProvider).selectVehicle(item);
                               // ref.read(repositoryProvider).updateStartTime("");
@@ -102,7 +102,7 @@ class BookingScreen extends ConsumerWidget {
                             height: 2.h,
                           );
                         },
-                        itemCount: data.vehicle_info.length,
+                        itemCount: data.data?.vehicle_info.length??0,
                       );
                     },
                     error: (err, s) {

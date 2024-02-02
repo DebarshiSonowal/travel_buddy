@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Constants/assets.dart';
 import 'package:travel_buddy/Constants/constants.dart';
 import 'package:travel_buddy/Router/navigator.dart';
+import 'package:travel_buddy/main.dart';
 
 import '../../Constants/routes.dart';
+import '../../Helper/storage.dart';
 import 'Widgets/book_widget.dart';
 import 'Widgets/from_to_widget.dart';
 import 'Widgets/main_screen_appbar.dart';
@@ -13,14 +16,14 @@ import 'Widgets/main_screen_bottom_widget.dart';
 import 'Widgets/recent_search_item.dart';
 import 'Widgets/search_widget.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends ConsumerStatefulWidget {
   const MainScreen({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  ConsumerState<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends ConsumerState<MainScreen> {
   final TextEditingController from = TextEditingController();
   final TextEditingController to = TextEditingController();
   int selected = 0;
@@ -30,6 +33,12 @@ class _MainScreenState extends State<MainScreen> {
     super.dispose();
     from.dispose();
     to.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchSeatDetails();
   }
 
   @override
@@ -79,7 +88,8 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         GestureDetector(
                             onTap: () {
-                              Navigation.instance.navigate(Routes.bookingScreen);
+                              Navigation.instance
+                                  .navigate(Routes.bookingScreen);
                             },
                             child: const SearchWidget()),
                         SizedBox(
@@ -112,7 +122,8 @@ class _MainScreenState extends State<MainScreen> {
                             itemBuilder: (context, index) {
                               return const ResentSearchItem();
                             },
-                            separatorBuilder: (BuildContext context, int index) {
+                            separatorBuilder:
+                                (BuildContext context, int index) {
                               return SizedBox(
                                 width: 2.w,
                               );
@@ -155,7 +166,8 @@ class _MainScreenState extends State<MainScreen> {
                                 ),
                               );
                             },
-                            separatorBuilder: (BuildContext context, int index) {
+                            separatorBuilder:
+                                (BuildContext context, int index) {
                               return SizedBox(
                                 width: 2.w,
                               );
@@ -188,5 +200,10 @@ class _MainScreenState extends State<MainScreen> {
       ),
       bottomNavigationBar: const MainScreenBottomWidget(),
     );
+  }
+
+  void fetchSeatDetails() async {
+    final seats = await Storage.instance.getSeatData();
+    ref.read(repositoryProvider).setSeatData(seats);
   }
 }

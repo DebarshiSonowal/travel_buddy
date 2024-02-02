@@ -96,7 +96,7 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
                               if (contactDetails.isNotEmpty &&
                                   is_ensured != 0) {
                                 bookTheSeats(
-                                  data.trip_id,
+                                  data.data?.trip_id,
                                   is_ensured,
                                   contactDetails.map((i) {
                                     return {
@@ -158,7 +158,7 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
         // ref.read(repositoryProvider).clearContactDetails();
       }
     } else {
-      Fluttertoast.showToast(msg: "Seats are not available");
+      Fluttertoast.showToast(msg: response.message??"Seats are not available");
     }
   }
 }

@@ -60,7 +60,7 @@ class StatsWidget extends ConsumerWidget {
                   children: [
                     startData.when(
                       data: (LocationResponse val) {
-                        return Text(
+                        return val.location.isNotEmpty?Text(
                           val.location
                               .firstWhere((element) =>
                           element.id.toString() == data.strLocVal)
@@ -71,7 +71,7 @@ class StatsWidget extends ConsumerWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
-                        );
+                        ):Container();
                       },
                       error: (err, s) {
                         debugPrint(err.toString());
@@ -88,7 +88,7 @@ class StatsWidget extends ConsumerWidget {
                     ),
                     endData.when(
                       data: (LocationResponse val) {
-                        return Text(
+                        return val.location.isNotEmpty?Text(
                           val.location
                               .firstWhere((element) =>
                           element.id.toString() == data.endLocVal)
@@ -99,7 +99,7 @@ class StatsWidget extends ConsumerWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
-                        );
+                        ):Container();
                       },
                       error: (err, s) {
                         debugPrint(err.toString());
@@ -124,7 +124,7 @@ class StatsWidget extends ConsumerWidget {
                 ),
                 child: Center(
                   child: Text(
-                    getDateFormatted(data.dateVal),
+                      data.dateVal.isNotEmpty?getDateFormatted(data.dateVal):"",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 11.sp,
                       color: Colors.white,
@@ -142,7 +142,7 @@ class StatsWidget extends ConsumerWidget {
             child: vehicleData.when(
               data: (SearchVehicleResponse val) {
                 return Text(
-                  "${val.vehicle_info.length} Vehicles available",
+                  "${val.data?.vehicle_info.length} Vehicles available",
                   style: GoogleFonts.roboto().copyWith(
                     fontSize: 12.sp,
                     color: Colors.white,

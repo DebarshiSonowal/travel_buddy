@@ -17,6 +17,7 @@ class CounterAppBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final data = ref.watch(repositoryProvider);
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 4.w,
@@ -38,7 +39,11 @@ class CounterAppBar extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const BackButtonCustom(),
+              BackButtonCustom(
+                onClick: () {
+                  ref.read(repositoryProvider).clearLayouts();
+                },
+              ),
               Image.asset(
                 Assets.colorLogo,
                 scale: 26,
@@ -46,7 +51,7 @@ class CounterAppBar extends ConsumerWidget {
             ],
           ),
           Text(
-            "${ref.watch(repositoryProvider).selectedVehicle?.name}",
+            "${data.selectedVehicle?.name}",
             style: GoogleFonts.roboto().copyWith(
               fontSize: 14.sp,
               color: Colors.black,
@@ -56,7 +61,8 @@ class CounterAppBar extends ConsumerWidget {
           Row(
             children: [
               Text(
-                "18:00",
+                DateFormat("HH:mm")
+                    .format(DateFormat("HH:mm").parse(data.start_time)),
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black,
@@ -75,7 +81,8 @@ class CounterAppBar extends ConsumerWidget {
                 width: 0.5.w,
               ),
               Text(
-                DateFormat("dd MMM, yyyy").format(DateFormat("yyyy-MM-dd").parse(ref.watch(repositoryProvider).dateVal)),
+                DateFormat("dd MMM, yyyy")
+                    .format(DateFormat("yyyy-MM-dd").parse(data.dateVal)),
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black87,
@@ -87,7 +94,7 @@ class CounterAppBar extends ConsumerWidget {
           Row(
             children: [
               Text(
-                ref.watch(repositoryProvider).startLoc,
+                data.startLoc,
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black,
@@ -106,7 +113,7 @@ class CounterAppBar extends ConsumerWidget {
                 width: 0.5.w,
               ),
               Text(
-                ref.watch(repositoryProvider).endLoc,
+                data.endLoc,
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black87,

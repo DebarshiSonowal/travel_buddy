@@ -21,7 +21,7 @@ RouteInfoModel _$RouteInfoModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RouteInfoModel {
   int get id => throw _privateConstructorUsedError;
-  int get travel_time => throw _privateConstructorUsedError;
+  String get travel_time => throw _privateConstructorUsedError;
   String get strt_time => throw _privateConstructorUsedError;
   List<ViaLocationModel> get vialoc => throw _privateConstructorUsedError;
   List<StartLocationModel> get start_loc => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $RouteInfoModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      int travel_time,
+      String travel_time,
       String strt_time,
       List<ViaLocationModel> vialoc,
       List<StartLocationModel> start_loc,
@@ -77,7 +77,7 @@ class _$RouteInfoModelCopyWithImpl<$Res, $Val extends RouteInfoModel>
       travel_time: null == travel_time
           ? _value.travel_time
           : travel_time // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       strt_time: null == strt_time
           ? _value.strt_time
           : strt_time // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$_RouteInfoModelCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      int travel_time,
+      String travel_time,
       String strt_time,
       List<ViaLocationModel> vialoc,
       List<StartLocationModel> start_loc,
@@ -141,7 +141,7 @@ class __$$_RouteInfoModelCopyWithImpl<$Res>
       travel_time: null == travel_time
           ? _value.travel_time
           : travel_time // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       strt_time: null == strt_time
           ? _value.strt_time
           : strt_time // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ class __$$_RouteInfoModelCopyWithImpl<$Res>
 class _$_RouteInfoModel implements _RouteInfoModel {
   const _$_RouteInfoModel(
       {this.id = 0,
-      this.travel_time = 0,
+      this.travel_time = "0",
       this.strt_time = "0",
       final List<ViaLocationModel> vialoc = const [],
       final List<StartLocationModel> start_loc = const [],
@@ -184,7 +184,7 @@ class _$_RouteInfoModel implements _RouteInfoModel {
   final int id;
   @override
   @JsonKey()
-  final int travel_time;
+  final String travel_time;
   @override
   @JsonKey()
   final String strt_time;
@@ -264,7 +264,7 @@ class _$_RouteInfoModel implements _RouteInfoModel {
 abstract class _RouteInfoModel implements RouteInfoModel {
   const factory _RouteInfoModel(
       {final int id,
-      final int travel_time,
+      final String travel_time,
       final String strt_time,
       final List<ViaLocationModel> vialoc,
       final List<StartLocationModel> start_loc,
@@ -276,7 +276,7 @@ abstract class _RouteInfoModel implements RouteInfoModel {
   @override
   int get id;
   @override
-  int get travel_time;
+  String get travel_time;
   @override
   String get strt_time;
   @override

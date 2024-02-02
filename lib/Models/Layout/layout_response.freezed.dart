@@ -22,11 +22,8 @@ LayoutResponse _$LayoutResponseFromJson(Map<String, dynamic> json) {
 mixin _$LayoutResponse {
   bool? get success => throw _privateConstructorUsedError;
   int? get status => throw _privateConstructorUsedError;
-  int? get trip_id => throw _privateConstructorUsedError;
-  int? get rows => throw _privateConstructorUsedError;
-  int? get columns => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
-  List<LayoutModel> get layouts => throw _privateConstructorUsedError;
+  LayoutResponseData? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,13 +38,9 @@ abstract class $LayoutResponseCopyWith<$Res> {
       _$LayoutResponseCopyWithImpl<$Res, LayoutResponse>;
   @useResult
   $Res call(
-      {bool? success,
-      int? status,
-      int? trip_id,
-      int? rows,
-      int? columns,
-      String? message,
-      List<LayoutModel> layouts});
+      {bool? success, int? status, String? message, LayoutResponseData? data});
+
+  $LayoutResponseDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -65,11 +58,8 @@ class _$LayoutResponseCopyWithImpl<$Res, $Val extends LayoutResponse>
   $Res call({
     Object? success = freezed,
     Object? status = freezed,
-    Object? trip_id = freezed,
-    Object? rows = freezed,
-    Object? columns = freezed,
     Object? message = freezed,
-    Object? layouts = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
       success: freezed == success
@@ -80,27 +70,27 @@ class _$LayoutResponseCopyWithImpl<$Res, $Val extends LayoutResponse>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as int?,
-      trip_id: freezed == trip_id
-          ? _value.trip_id
-          : trip_id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      rows: freezed == rows
-          ? _value.rows
-          : rows // ignore: cast_nullable_to_non_nullable
-              as int?,
-      columns: freezed == columns
-          ? _value.columns
-          : columns // ignore: cast_nullable_to_non_nullable
-              as int?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      layouts: null == layouts
-          ? _value.layouts
-          : layouts // ignore: cast_nullable_to_non_nullable
-              as List<LayoutModel>,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LayoutResponseData?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LayoutResponseDataCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $LayoutResponseDataCopyWith<$Res>(_value.data!, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
   }
 }
 
@@ -113,13 +103,10 @@ abstract class _$$_LayoutResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? success,
-      int? status,
-      int? trip_id,
-      int? rows,
-      int? columns,
-      String? message,
-      List<LayoutModel> layouts});
+      {bool? success, int? status, String? message, LayoutResponseData? data});
+
+  @override
+  $LayoutResponseDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -135,11 +122,8 @@ class __$$_LayoutResponseCopyWithImpl<$Res>
   $Res call({
     Object? success = freezed,
     Object? status = freezed,
-    Object? trip_id = freezed,
-    Object? rows = freezed,
-    Object? columns = freezed,
     Object? message = freezed,
-    Object? layouts = null,
+    Object? data = freezed,
   }) {
     return _then(_$_LayoutResponse(
       success: freezed == success
@@ -150,26 +134,14 @@ class __$$_LayoutResponseCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as int?,
-      trip_id: freezed == trip_id
-          ? _value.trip_id
-          : trip_id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      rows: freezed == rows
-          ? _value.rows
-          : rows // ignore: cast_nullable_to_non_nullable
-              as int?,
-      columns: freezed == columns
-          ? _value.columns
-          : columns // ignore: cast_nullable_to_non_nullable
-              as int?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      layouts: null == layouts
-          ? _value._layouts
-          : layouts // ignore: cast_nullable_to_non_nullable
-              as List<LayoutModel>,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LayoutResponseData?,
     ));
   }
 }
@@ -180,12 +152,8 @@ class _$_LayoutResponse implements _LayoutResponse {
   const _$_LayoutResponse(
       {required this.success,
       required this.status,
-      this.trip_id,
-      this.rows,
-      this.columns,
       required this.message,
-      final List<LayoutModel> layouts = const []})
-      : _layouts = layouts;
+      this.data});
 
   factory _$_LayoutResponse.fromJson(Map<String, dynamic> json) =>
       _$$_LayoutResponseFromJson(json);
@@ -195,25 +163,13 @@ class _$_LayoutResponse implements _LayoutResponse {
   @override
   final int? status;
   @override
-  final int? trip_id;
-  @override
-  final int? rows;
-  @override
-  final int? columns;
-  @override
   final String? message;
-  final List<LayoutModel> _layouts;
   @override
-  @JsonKey()
-  List<LayoutModel> get layouts {
-    if (_layouts is EqualUnmodifiableListView) return _layouts;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_layouts);
-  }
+  final LayoutResponseData? data;
 
   @override
   String toString() {
-    return 'LayoutResponse(success: $success, status: $status, trip_id: $trip_id, rows: $rows, columns: $columns, message: $message, layouts: $layouts)';
+    return 'LayoutResponse(success: $success, status: $status, message: $message, data: $data)';
   }
 
   @override
@@ -223,17 +179,13 @@ class _$_LayoutResponse implements _LayoutResponse {
             other is _$_LayoutResponse &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.trip_id, trip_id) || other.trip_id == trip_id) &&
-            (identical(other.rows, rows) || other.rows == rows) &&
-            (identical(other.columns, columns) || other.columns == columns) &&
             (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality().equals(other._layouts, _layouts));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, success, status, trip_id, rows,
-      columns, message, const DeepCollectionEquality().hash(_layouts));
+  int get hashCode => Object.hash(runtimeType, success, status, message, data);
 
   @JsonKey(ignore: true)
   @override
@@ -253,11 +205,8 @@ abstract class _LayoutResponse implements LayoutResponse {
   const factory _LayoutResponse(
       {required final bool? success,
       required final int? status,
-      final int? trip_id,
-      final int? rows,
-      final int? columns,
       required final String? message,
-      final List<LayoutModel> layouts}) = _$_LayoutResponse;
+      final LayoutResponseData? data}) = _$_LayoutResponse;
 
   factory _LayoutResponse.fromJson(Map<String, dynamic> json) =
       _$_LayoutResponse.fromJson;
@@ -267,15 +216,9 @@ abstract class _LayoutResponse implements LayoutResponse {
   @override
   int? get status;
   @override
-  int? get trip_id;
-  @override
-  int? get rows;
-  @override
-  int? get columns;
-  @override
   String? get message;
   @override
-  List<LayoutModel> get layouts;
+  LayoutResponseData? get data;
   @override
   @JsonKey(ignore: true)
   _$$_LayoutResponseCopyWith<_$_LayoutResponse> get copyWith =>

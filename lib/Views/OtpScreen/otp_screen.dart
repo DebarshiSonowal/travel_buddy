@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:otp_text_field/otp_field.dart';
@@ -13,16 +14,18 @@ import 'package:travel_buddy/Helper/storage.dart';
 import 'package:travel_buddy/Router/navigator.dart';
 import 'package:travel_buddy/Services/api_provider.dart';
 
-class OtpScreen extends StatefulWidget {
+import '../../main.dart';
+
+class OtpScreen extends ConsumerStatefulWidget {
   const OtpScreen({super.key, required this.mobile});
 
   final String mobile;
 
   @override
-  State<OtpScreen> createState() => _OtpScreenState();
+  ConsumerState<OtpScreen> createState() => _OtpScreenState();
 }
 
-class _OtpScreenState extends State<OtpScreen> {
+class _OtpScreenState extends ConsumerState<OtpScreen> {
   final OtpFieldController otpTextController = OtpFieldController();
   String otp = "";
   Timer? timer;
@@ -269,6 +272,8 @@ class _OtpScreenState extends State<OtpScreen> {
     final response = await ApiProvider().login(mobile_no, otp);
     if (response.status ?? false) {
       Storage.instance.setUser(response.token ?? "");
+      Storage.instance.setSeatData(response.seats);
+      ref.watch(repositoryProvider).setSeatData(response.seats);
       Navigation.instance.navigate(Routes.mainScreen);
     } else {
       Fluttertoast.showToast(msg: response.message ?? "Something went wrong");

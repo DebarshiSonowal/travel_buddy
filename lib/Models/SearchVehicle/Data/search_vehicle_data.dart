@@ -61,29 +61,43 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:travel_buddy/Models/RouteInfo/route_info_model.dart';
-import 'package:travel_buddy/Models/Vehicle/vehicle_model.dart';
 
-import '../Counter/counter_info.dart';
-import 'Data/search_vehicle_data.dart';
+import '../../Vehicle/vehicle_model.dart';
 
-part 'search_vehicle.freezed.dart';
+part 'search_vehicle_data.freezed.dart';
 
-part 'search_vehicle.g.dart';
+part 'search_vehicle_data.g.dart';
 
 @Freezed()
-class SearchVehicleResponse with _$SearchVehicleResponse {
-  const factory SearchVehicleResponse({
-    @Default(false) bool success,
-    required String? message,
-    SearchVehicleData? data,
+class SearchVehicleData with _$SearchVehicleData {
+  const factory SearchVehicleData({
+    @Default([]) List<VehicleModel> vehicle_info,
 
-  }) = _SearchVehicleResponse;
+  }) = _SearchVehicleData;
 
-  factory SearchVehicleResponse.fromJson(Map<String, dynamic> json) =>
-      _$SearchVehicleResponseFromJson(json);
+  factory SearchVehicleData.fromJson(Map<String, dynamic> json) =>
+      _$SearchVehicleDataFromJson(json);
 
-  factory SearchVehicleResponse.error(String message) => SearchVehicleResponse(
-    message: message,
-  );
 }
+
+
+//
+// part 'search_vehicle_data.freezed.dart';
+//
+// part 'search_vehicle_data.g.dart';
+//
+// @Freezed()
+// class SearchVehicleData with _$SearchVehicleData {
+//   const factory SearchVehicleData({
+//     @Default([]) List<VehicleModel> vehicle_info,
+//
+//   }) = _SearchVehicleData;
+//
+//   factory SearchVehicleData.fromJson(Map<String, dynamic> json) =>
+//       _$SearchVehicleDataFromJson(json);
+//
+//
+// }
+
+
+

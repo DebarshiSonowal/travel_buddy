@@ -23,7 +23,7 @@ SearchVehicleResponse _$SearchVehicleResponseFromJson(
 mixin _$SearchVehicleResponse {
   bool get success => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
-  List<VehicleModel> get vehicle_info => throw _privateConstructorUsedError;
+  SearchVehicleData? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,9 @@ abstract class $SearchVehicleResponseCopyWith<$Res> {
           $Res Function(SearchVehicleResponse) then) =
       _$SearchVehicleResponseCopyWithImpl<$Res, SearchVehicleResponse>;
   @useResult
-  $Res call({bool success, String? message, List<VehicleModel> vehicle_info});
+  $Res call({bool success, String? message, SearchVehicleData? data});
+
+  $SearchVehicleDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -56,7 +58,7 @@ class _$SearchVehicleResponseCopyWithImpl<$Res,
   $Res call({
     Object? success = null,
     Object? message = freezed,
-    Object? vehicle_info = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
       success: null == success
@@ -67,11 +69,23 @@ class _$SearchVehicleResponseCopyWithImpl<$Res,
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehicle_info: null == vehicle_info
-          ? _value.vehicle_info
-          : vehicle_info // ignore: cast_nullable_to_non_nullable
-              as List<VehicleModel>,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SearchVehicleData?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SearchVehicleDataCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $SearchVehicleDataCopyWith<$Res>(_value.data!, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
   }
 }
 
@@ -83,7 +97,10 @@ abstract class _$$_SearchVehicleResponseCopyWith<$Res>
       __$$_SearchVehicleResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool success, String? message, List<VehicleModel> vehicle_info});
+  $Res call({bool success, String? message, SearchVehicleData? data});
+
+  @override
+  $SearchVehicleDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -99,7 +116,7 @@ class __$$_SearchVehicleResponseCopyWithImpl<$Res>
   $Res call({
     Object? success = null,
     Object? message = freezed,
-    Object? vehicle_info = null,
+    Object? data = freezed,
   }) {
     return _then(_$_SearchVehicleResponse(
       success: null == success
@@ -110,10 +127,10 @@ class __$$_SearchVehicleResponseCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehicle_info: null == vehicle_info
-          ? _value._vehicle_info
-          : vehicle_info // ignore: cast_nullable_to_non_nullable
-              as List<VehicleModel>,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SearchVehicleData?,
     ));
   }
 }
@@ -122,10 +139,7 @@ class __$$_SearchVehicleResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SearchVehicleResponse implements _SearchVehicleResponse {
   const _$_SearchVehicleResponse(
-      {this.success = false,
-      required this.message,
-      final List<VehicleModel> vehicle_info = const []})
-      : _vehicle_info = vehicle_info;
+      {this.success = false, required this.message, this.data});
 
   factory _$_SearchVehicleResponse.fromJson(Map<String, dynamic> json) =>
       _$$_SearchVehicleResponseFromJson(json);
@@ -135,18 +149,12 @@ class _$_SearchVehicleResponse implements _SearchVehicleResponse {
   final bool success;
   @override
   final String? message;
-  final List<VehicleModel> _vehicle_info;
   @override
-  @JsonKey()
-  List<VehicleModel> get vehicle_info {
-    if (_vehicle_info is EqualUnmodifiableListView) return _vehicle_info;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_vehicle_info);
-  }
+  final SearchVehicleData? data;
 
   @override
   String toString() {
-    return 'SearchVehicleResponse(success: $success, message: $message, vehicle_info: $vehicle_info)';
+    return 'SearchVehicleResponse(success: $success, message: $message, data: $data)';
   }
 
   @override
@@ -156,14 +164,12 @@ class _$_SearchVehicleResponse implements _SearchVehicleResponse {
             other is _$_SearchVehicleResponse &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality()
-                .equals(other._vehicle_info, _vehicle_info));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, success, message,
-      const DeepCollectionEquality().hash(_vehicle_info));
+  int get hashCode => Object.hash(runtimeType, success, message, data);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +190,7 @@ abstract class _SearchVehicleResponse implements SearchVehicleResponse {
   const factory _SearchVehicleResponse(
       {final bool success,
       required final String? message,
-      final List<VehicleModel> vehicle_info}) = _$_SearchVehicleResponse;
+      final SearchVehicleData? data}) = _$_SearchVehicleResponse;
 
   factory _SearchVehicleResponse.fromJson(Map<String, dynamic> json) =
       _$_SearchVehicleResponse.fromJson;
@@ -194,7 +200,7 @@ abstract class _SearchVehicleResponse implements SearchVehicleResponse {
   @override
   String? get message;
   @override
-  List<VehicleModel> get vehicle_info;
+  SearchVehicleData? get data;
   @override
   @JsonKey(ignore: true)
   _$$_SearchVehicleResponseCopyWith<_$_SearchVehicleResponse> get copyWith =>
