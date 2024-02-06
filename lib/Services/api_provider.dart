@@ -384,7 +384,7 @@ class ApiProvider {
     } on DioError catch (e) {
       debugPrint("DataResponse error: ${e.error} ${e.response?.data} ${e.message}");
       return DataResponse.error(
-          e.response?.data['message'] ?? e.message ?? "");
+          e.response?.data['data'] ?? e.message);
     }
   }
 

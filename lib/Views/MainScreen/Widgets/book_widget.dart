@@ -101,13 +101,13 @@ class _BookWidgetState extends State<BookWidget> {
                     return GestureDetector(
                       onTap: () async {
                         final current = DateTime.now();
-                        DatePicker.showDateTimePicker(
+                        DatePicker.showDatePicker(
                           context,
                           showTitleActions: true,
                           // minTime: DateTime(current.year, current.month, current.day),
-                          // maxTime: DateTime(DateTime.now().year,),
+                          maxTime: DateTime.now().add(const Duration(days: 3)),
                           onChanged: (date) {
-                            print('change $date');
+
                           },
                           onConfirm: (val) {
                             setState(() {
