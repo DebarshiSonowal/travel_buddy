@@ -75,6 +75,7 @@ class _ConsumerStateState extends ConsumerState<LayoutGenerator> {
                     //     );
                     if (item.seat_status=="empty") {
                       widget.addSeat(item);
+                      debugPrint("adding ${item.row} ${item.column}");
                       ref.read(repositoryProvider).setAllLayouts(layout);
                       ref.read(repositoryProvider).addLayouts(item,layout);
                     }

@@ -41,7 +41,7 @@ class _PassengerListWidgetState extends ConsumerState<PassengerListWidget> {
       child: ListView.separated(
         shrinkWrap: true,
         itemBuilder: (BuildContext context, int index) {
-          final item = selected[index];
+          final item = selected[index+widget.contactDetails.length];
           // if (index >= widget.contactDetails.length) {
           return AddPassengerCard(
             // nameController: nameController,
@@ -59,15 +59,18 @@ class _PassengerListWidgetState extends ConsumerState<PassengerListWidget> {
               //           ""),
               //     );
               setState(() {
+                debugPrint(
+                    "Contact Details Added ${item.row} \n${item.column} \n${item.label}");
                 widget.addContactDetails(ContactDetails(
-                    item.row.toString(),
-                    item.column.toString(),
-                    name,
-                    "",
-                    false,
-                    val,
-                    int.parse(age),
-                    ""));
+                  item.row.toString(),
+                  item.column.toString(),
+                  name,
+                  "",
+                  false,
+                  val,
+                  int.parse(age),
+                  "",
+                ));
               });
             },
             refreshUpdate: () {
@@ -91,7 +94,8 @@ class _PassengerListWidgetState extends ConsumerState<PassengerListWidget> {
           );
         },
         // itemCount: ref.watch(repositoryProvider).selectedLayouts.length,
-        itemCount: (selected.length - widget.contactDetails.length)>=1?1:0,
+        itemCount:
+            (selected.length - widget.contactDetails.length) >= 1 ? 1 : 0,
       ),
     );
   }

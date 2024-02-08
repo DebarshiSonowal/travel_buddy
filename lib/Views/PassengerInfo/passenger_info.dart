@@ -71,6 +71,8 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
                         });
                       },
                       addContactDetails: (ContactDetails val) {
+                        debugPrint(
+                            "Add contact details ${val.row} ${val.col} ${val.passenger_name}");
                         setState(() {
                           contactDetails.add(val);
                         });
@@ -158,7 +160,8 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
         // ref.read(repositoryProvider).clearContactDetails();
       }
     } else {
-      Fluttertoast.showToast(msg: response.message??"Seats are not available");
+      Fluttertoast.showToast(
+          msg: response.message ?? "Seats are not available");
     }
   }
 }

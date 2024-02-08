@@ -27,15 +27,19 @@ class Repository with ChangeNotifier {
   }
 
   void addLayouts(LayoutModel val, LayoutResponse? data) {
+    debugPrint("addLayouts ${val.row} ${val.column}");
     selectedLayouts.add(val);
     layoutResponse = data;
     debugPrint(
-        "Layouts added ${selectedLayouts.map((e) => debugPrint("[${e.row},${e.column}]")).toList()} ${val} ${layoutResponse?.data?.trip_id} ${data}");
-    notifyListeners();
+        "Layouts added \n${selectedLayouts.toList()} "
+            "\n$val ${layoutResponse?.data?.trip_id} "
+            "\n$data");
+    // notifyListeners();
   }
 
   void addContactDetails(ContactDetails val) {
     contactDetails.add(val);
+    debugPrint("addContactDetails ${val.row} ${val.col} ${val.passenger_name}");
     notifyListeners();
   }
 
@@ -50,9 +54,10 @@ class Repository with ChangeNotifier {
   }
 
   void removeLayout(LayoutModel val) {
+    debugPrint("Remove ${val.row} ${val.column} ${val.label}");
     selectedLayouts.remove(val);
     debugPrint(
-        "Layouts removed ${selectedLayouts.map((e) => debugPrint("[${e.row} ${e.column}]")).toList()}");
+        "Layouts removed ${selectedLayouts.toList()}");
     notifyListeners();
   }
 
