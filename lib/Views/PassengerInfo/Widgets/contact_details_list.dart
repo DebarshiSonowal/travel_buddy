@@ -28,9 +28,14 @@ class ContactDetailsList extends ConsumerWidget {
           data: item,
           selected: item.is_selected ?? false,
           updateSelected: (ContactDetails val) {
-            debugPrint("update selected $index $val ${item.passenger_name} ${contactDetails.length} ${contactDetails[index].passenger_name}");
-              ref.read(repositoryProvider).updateContactDetails(index, val);
+            debugPrint("Update 1 Selected ${contactDetails.first.passenger_name} \n$index \n$val \n${item.passenger_name} \n${item.passenger_contact} \n${item.whatsapp}");
+              // ref.read(repositoryProvider).updateContactDetails(index, val);
               updateContactDetails(index,val);
+            try {
+              ref.read(repositoryProvider).updateContactDetails(index, val);
+            } catch (e) {
+              debugPrint(e.toString());
+            }
           },
         );
       },

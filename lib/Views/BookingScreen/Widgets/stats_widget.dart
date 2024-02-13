@@ -33,7 +33,7 @@ class StatsWidget extends ConsumerWidget {
         horizontal: 4.w,
         vertical: 1.5.h,
       ),
-      height: 10.h,
+      height: 12.h,
       decoration: BoxDecoration(
         color: Colors.black87,
         borderRadius: BorderRadius.circular(20),
@@ -150,6 +150,8 @@ class StatsWidget extends ConsumerWidget {
                   ),
                 );
               },
+                //8638372157
+                // 942965
               error: (err, s) {
                 debugPrint(err.toString());
                 return Container();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
@@ -6,6 +7,8 @@ import 'package:sizer/sizer.dart';
 import '../../Common/back_button.dart';
 import '../../Constants/assets.dart';
 import '../../Constants/constants.dart';
+import '../../main.dart';
+import '../InvoiceReceipt/Widgets/ticket_details.dart';
 import '../InvoiceReceipt/invoice_receipt.dart';
 import 'Widgets/bottom_bar.dart';
 import 'Widgets/label_widget.dart';
@@ -13,16 +16,17 @@ import 'Widgets/payment_app_bar.dart';
 import 'Widgets/price_indepenent.dart';
 import 'Widgets/ticket_details.dart';
 
-class PaymentScreen extends StatefulWidget {
+class PaymentScreen extends ConsumerStatefulWidget {
   const PaymentScreen({super.key});
 
   @override
-  State<PaymentScreen> createState() => _PaymentScreenState();
+  ConsumerState<PaymentScreen> createState() => _PaymentScreenState();
 }
 
-class _PaymentScreenState extends State<PaymentScreen> {
+class _PaymentScreenState extends ConsumerState<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(17.h),
@@ -79,6 +83,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ],
               ),
+              //7896208559
               Container(
                 width: double.infinity,
                 margin: EdgeInsets.symmetric(

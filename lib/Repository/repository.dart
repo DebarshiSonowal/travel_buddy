@@ -31,7 +31,7 @@ class Repository with ChangeNotifier {
     selectedLayouts.add(val);
     layoutResponse = data;
     debugPrint(
-        "Layouts added \n${selectedLayouts.toList()} "
+        "Layouts Added \n${selectedLayouts.toList()} "
             "\n$val ${layoutResponse?.data?.trip_id} "
             "\n$data");
     // notifyListeners();
@@ -58,7 +58,7 @@ class Repository with ChangeNotifier {
     selectedLayouts.remove(val);
     debugPrint(
         "Layouts removed ${selectedLayouts.toList()}");
-    notifyListeners();
+    // notifyListeners();
   }
 
   void removeContactDetails(ContactDetails val) {

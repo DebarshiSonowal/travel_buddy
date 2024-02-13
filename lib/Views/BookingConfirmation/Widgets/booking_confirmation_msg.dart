@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../Constants/constants.dart';
 
-class BookingCofirmationMsg extends StatelessWidget {
-  const BookingCofirmationMsg({
+class BookingConfirmationMsg extends StatelessWidget {
+  const BookingConfirmationMsg({
     super.key,
   });
 
@@ -39,7 +40,7 @@ class BookingCofirmationMsg extends StatelessWidget {
             ),
           ),
           Text(
-            "on 21st Sept, 10:23 AM",
+            "on ${DateFormat("dd MMM, yyyy HH:mm aa").format(DateTime.now())}",
             style: GoogleFonts.roboto().copyWith(
               fontSize: 11.sp,
               color: Colors.white,

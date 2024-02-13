@@ -87,6 +87,7 @@ class _ConsumerStateState extends ConsumerState<LayoutGenerator> {
                 // ),
                 child: SeatWidget(
                   item: item!,
+                  seat_status: item.seat_status,
                   is_selected: widget.selected.contains(item),
                 ),
               );

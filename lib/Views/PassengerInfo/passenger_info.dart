@@ -76,7 +76,10 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
                         setState(() {
                           contactDetails.add(val);
                         });
+                        ref.read(repositoryProvider).addContactDetails(val);
                       },
+                      //8638372157
+                      //7896208559
                       // nameController: nameController, mobileController: mobileController, whatsappController: whatsappController
                     ),
                     Container(

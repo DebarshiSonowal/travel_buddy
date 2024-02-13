@@ -7,7 +7,7 @@ import '../../../Constants/constants.dart';
 import '../../../Models/ContactDetails/contact_details.dart';
 
 class ContactDetailsCard extends StatefulWidget {
-  ContactDetailsCard({
+  const ContactDetailsCard({
     super.key,
     // required this.nameController,
     // required this.mobileController,
@@ -253,6 +253,8 @@ class _ContactDetailsCardState extends State<ContactDetailsCard> {
                       ),
                     ),
                     onPressed: () {
+                      debugPrint(
+                          "Update Selected ISSUES:\n${widget.data.row}\n${widget.data.col}\n${nameController.text}\n${mobileController.text}\n${whatsappController.text}\n$isSelected\n${widget.data.gender}\n${widget.data.age}");
                       try {
                         widget.updateSelected(ContactDetails(
                           widget.data.row,
@@ -268,8 +270,6 @@ class _ContactDetailsCardState extends State<ContactDetailsCard> {
                         print(e);
                       }
                       setState(() {});
-                      debugPrint(
-                          "Update Selected:\n${widget.data.row}\n${widget.data.col}\n${nameController.text}\n${mobileController.text}\n${isSelected}\n${widget.data.gender}\n${widget.data.age}");
                     },
                     child: Text(
                       "Update",

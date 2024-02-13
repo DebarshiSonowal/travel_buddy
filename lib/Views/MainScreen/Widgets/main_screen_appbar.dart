@@ -25,16 +25,18 @@ class MainScreenAppbar extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(
           left: 4.w,
+          right: 4.w,
           // top: 0.2.h,
           bottom: 0.5.h,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const BackButtonCustom(),
-            SizedBox(
-              width: 4.w,
-            ),
+            // const BackButtonCustom(),
+            // SizedBox(
+            //   width: 4.w,
+            // ),
             Text(
               "Hello, Deepak",
               style: GoogleFonts.roboto().copyWith(

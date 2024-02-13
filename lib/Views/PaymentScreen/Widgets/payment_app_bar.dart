@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../Common/back_button.dart';
 import '../../../Constants/assets.dart';
 import '../../../Constants/constants.dart';
+import '../../../main.dart';
 
-class PaymentAppbar extends StatelessWidget {
+class PaymentAppbar extends ConsumerWidget {
   const PaymentAppbar({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final data = ref.watch(repositoryProvider);
     return SafeArea(
       child: Container(
         padding: EdgeInsets.symmetric(
@@ -61,7 +64,9 @@ class PaymentAppbar extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: "Mr. Johnson",
+                        text: (data.contactDetails.isNotEmpty
+                            ? data.contactDetails.first.passenger_name ?? ""
+                            : ""),
                         style: GoogleFonts.roboto().copyWith(
                           fontSize: 12.sp,
                           color: Colors.black,
@@ -72,7 +77,7 @@ class PaymentAppbar extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Seat: 25,26",
+                  "Seat: ${data.selectedLayouts.map((e) => "").toList()}",
                   style: GoogleFonts.roboto().copyWith(
                     fontSize: 8.sp,
                     color: Colors.black,

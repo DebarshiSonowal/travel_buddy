@@ -12,6 +12,7 @@ import 'package:travel_buddy/Widgets/loading_dialog.dart';
 import 'package:travel_buddy/main.dart';
 
 import '../../../Constants/constants.dart';
+import 'calendar_button.dart';
 import 'from_to_widget.dart';
 
 class BookWidget extends StatefulWidget {
@@ -231,43 +232,4 @@ class _BookWidgetState extends State<BookWidget> {
   }
 }
 
-class CalendarButton extends StatelessWidget {
-  const CalendarButton({super.key, required this.date});
 
-  final String date;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          Icons.calendar_month,
-          size: 22.sp,
-        ),
-        SizedBox(
-          width: 1.w,
-        ),
-        SizedBox(
-          width: 22.w,
-          child: Column(
-            children: [
-              Text(
-                "Date of journey",
-                style: GoogleFonts.roboto()
-                    .copyWith(fontSize: 7.sp, color: Colors.black45),
-              ),
-              Text(
-                date,
-                style: GoogleFonts.roboto().copyWith(
-                  fontSize: 9.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
