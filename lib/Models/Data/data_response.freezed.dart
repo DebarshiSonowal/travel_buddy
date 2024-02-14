@@ -23,7 +23,7 @@ mixin _$DataResponse {
   bool get success => throw _privateConstructorUsedError;
   int? get status => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
-  Data? get data => throw _privateConstructorUsedError;
+  CustomSeatData? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $DataResponseCopyWith<$Res> {
           DataResponse value, $Res Function(DataResponse) then) =
       _$DataResponseCopyWithImpl<$Res, DataResponse>;
   @useResult
-  $Res call({bool success, int? status, String? message, Data? data});
+  $Res call({bool success, int? status, String? message, CustomSeatData? data});
 
   $DataCopyWith<$Res>? get data;
 }
@@ -76,7 +76,7 @@ class _$DataResponseCopyWithImpl<$Res, $Val extends DataResponse>
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Data?,
+              as CustomSeatData?,
     ) as $Val);
   }
 
@@ -101,7 +101,7 @@ abstract class _$$_DataResponseCopyWith<$Res>
       __$$_DataResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool success, int? status, String? message, Data? data});
+  $Res call({bool success, int? status, String? message, CustomSeatData? data});
 
   @override
   $DataCopyWith<$Res>? get data;
@@ -139,7 +139,7 @@ class __$$_DataResponseCopyWithImpl<$Res>
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Data?,
+              as CustomSeatData?,
     ));
   }
 }
@@ -161,7 +161,7 @@ class _$_DataResponse implements _DataResponse {
   @override
   final String? message;
   @override
-  final Data? data;
+  final CustomSeatData? data;
 
   @override
   String toString() {
@@ -202,7 +202,7 @@ abstract class _DataResponse implements DataResponse {
       {final bool success,
       final int? status,
       required final String? message,
-      final Data? data}) = _$_DataResponse;
+      final CustomSeatData? data}) = _$_DataResponse;
 
   factory _DataResponse.fromJson(Map<String, dynamic> json) =
       _$_DataResponse.fromJson;
@@ -214,7 +214,7 @@ abstract class _DataResponse implements DataResponse {
   @override
   String? get message;
   @override
-  Data? get data;
+  CustomSeatData? get data;
   @override
   @JsonKey(ignore: true)
   _$$_DataResponseCopyWith<_$_DataResponse> get copyWith =>

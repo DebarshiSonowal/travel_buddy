@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../Location/location_model.dart';
+import 'data.dart';
 
 part 'location_response.freezed.dart';
 
@@ -20,7 +21,7 @@ class LocationResponse with _$LocationResponse {
   const factory LocationResponse({
     @Default(false) bool success,
     required String? message,
-    @Default([]) List<LocationModel> location,
+    Data? data,
   }) = _LocationResponse;
 
   factory LocationResponse.fromJson(Map<String, dynamic> json) =>

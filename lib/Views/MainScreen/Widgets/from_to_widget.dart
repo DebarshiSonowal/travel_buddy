@@ -110,7 +110,7 @@ class TheDropMenuButton extends StatelessWidget {
               color: Colors.black45,
             ),
           ),
-          items: data.location
+          items: data.data?.location
               .map((e) => DropdownMenuItem(
                     value: e,
                     child: Text(

@@ -13,13 +13,14 @@ import 'contact_item.dart';
 import 'icon_label_value.dart';
 import 'title_widget.dart';
 
-class TravellerDetails extends StatelessWidget {
+class TravellerDetails extends ConsumerWidget {
   const TravellerDetails({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    final data = ref.watch(repositoryProvider);
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(
@@ -201,7 +202,7 @@ class TravellerDetails extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "₹1930",
+                      "₹${data.customSeatData?.total_amount}",
                       style: GoogleFonts.roboto().copyWith(
                         fontSize: 11.sp,
                         color: Colors.black87,
@@ -228,7 +229,7 @@ class TravellerDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "₹1466",
+                            "₹${data.customSeatData?.gst}",
                             style: GoogleFonts.roboto().copyWith(
                               fontSize: 9.sp,
                               color: Colors.black87,
@@ -249,7 +250,7 @@ class TravellerDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "₹1466",
+                            "₹0",
                             style: GoogleFonts.roboto().copyWith(
                               fontSize: 9.sp,
                               color: Colors.black87,
@@ -270,7 +271,7 @@ class TravellerDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "₹1466",
+                            "0",
                             style: GoogleFonts.roboto().copyWith(
                               fontSize: 9.sp,
                               color: Colors.black87,
@@ -301,7 +302,7 @@ class TravellerDetails extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "₹1930",
+                      "₹${data.customSeatData?.total_amount}",
                       style: GoogleFonts.roboto().copyWith(
                         fontSize: 11.sp,
                         color: Colors.black87,
@@ -336,7 +337,7 @@ class TravellerDetails extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "₹1466",
+                  "Gpay",
                   style: GoogleFonts.roboto().copyWith(
                     fontSize: 9.sp,
                     color: Colors.black87,

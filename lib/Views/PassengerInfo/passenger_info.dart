@@ -154,8 +154,9 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
   // }
 
   Future<void> bookTheSeats(trip_id, is_insured, seats) async {
-    final response = await ApiProvider().bookSeats(trip_id, is_insured, seats);
-    if (response.success ?? false) {
+    final response1 = await ApiProvider().bookSeats(trip_id, is_insured, seats);
+    if (response1.success ?? false) {
+      ref.read(repositoryProvider).setBookingData(response1.data);
       final response = Navigation.instance.navigate(Routes.paymentScreen);
       if (response == null) {
         // ref.read(repositoryProvider).clearContactDetails();
@@ -164,7 +165,7 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
       }
     } else {
       Fluttertoast.showToast(
-          msg: response.message ?? "Seats are not available");
+          msg: response1.message ?? "Seats are not available");
     }
   }
 }

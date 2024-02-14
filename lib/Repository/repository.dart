@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:travel_buddy/Models/Vehicle/vehicle_model.dart';
 
 import '../Models/ContactDetails/contact_details.dart';
+import '../Models/Data/data.dart';
 import '../Models/Layout/layout_model.dart';
 import '../Models/Layout/layout_response.dart';
 import '../Models/SeatData/seat_data.dart';
@@ -14,7 +15,7 @@ class Repository with ChangeNotifier {
       endLoc = "",
       route_id = "",
       start_time = "";
-
+  CustomSeatData? customSeatData;
   List<LayoutModel> selectedLayouts = [];
   LayoutResponse? layoutResponse;
   VehicleModel? selectedVehicle;
@@ -30,10 +31,9 @@ class Repository with ChangeNotifier {
     debugPrint("addLayouts ${val.row} ${val.column}");
     selectedLayouts.add(val);
     layoutResponse = data;
-    debugPrint(
-        "Layouts Added \n${selectedLayouts.toList()} "
-            "\n$val ${layoutResponse?.data?.trip_id} "
-            "\n$data");
+    debugPrint("Layouts Added \n${selectedLayouts.toList()} "
+        "\n$val ${layoutResponse?.data?.trip_id} "
+        "\n$data");
     // notifyListeners();
   }
 
@@ -56,8 +56,7 @@ class Repository with ChangeNotifier {
   void removeLayout(LayoutModel val) {
     debugPrint("Remove ${val.row} ${val.column} ${val.label}");
     selectedLayouts.remove(val);
-    debugPrint(
-        "Layouts removed ${selectedLayouts.toList()}");
+    debugPrint("Layouts removed ${selectedLayouts.toList()}");
     // notifyListeners();
   }
 
@@ -118,9 +117,13 @@ class Repository with ChangeNotifier {
     notifyListeners();
   }
 
-  void updateContactDetails(int index,ContactDetails val){
+  void updateContactDetails(int index, ContactDetails val) {
     contactDetails[index] = val;
     notifyListeners();
   }
 
+  void setBookingData(CustomSeatData? data) {
+    customSeatData = data;
+    notifyListeners();
+  }
 }

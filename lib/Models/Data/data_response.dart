@@ -21,7 +21,7 @@ class DataResponse with _$DataResponse {
     @Default(false) bool success,
     int? status,
     required String? message,
-    Data? data
+    CustomSeatData? data
   }) = _DataResponse;
 
   factory DataResponse.fromJson(Map<String, dynamic> json) =>

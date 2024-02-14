@@ -13,7 +13,7 @@ _$_DataResponse _$$_DataResponseFromJson(Map<String, dynamic> json) =>
       message: json['message'] as String?,
       data: json['data'] == null
           ? null
-          : Data.fromJson(json['data'] as Map<String, dynamic>),
+          : CustomSeatData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_DataResponseToJson(_$_DataResponse instance) =>

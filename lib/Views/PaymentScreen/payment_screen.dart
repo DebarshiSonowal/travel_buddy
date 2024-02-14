@@ -26,7 +26,7 @@ class PaymentScreen extends ConsumerStatefulWidget {
 class _PaymentScreenState extends ConsumerState<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
-
+    final data = ref.watch(repositoryProvider);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(17.h),
@@ -55,88 +55,88 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
               SizedBox(
                 height: 0.5.h,
               ),
-              Divider(
-                color: Colors.black,
-                thickness: 0.08.h,
-              ),
-              SizedBox(
-                height: 0.5.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Fare",
-                    style: GoogleFonts.roboto().copyWith(
-                      fontSize: 11.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "₹1280",
-                    style: GoogleFonts.roboto().copyWith(
-                      fontSize: 11.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              //7896208559
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(
-                  horizontal: 2.w,
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                    const PriceIndependentWidget(
-                      label: "GST 18%",
-                      value: "₹1466",
-                    ),
-                    const PriceIndependentWidget(
-                      label: "Platform Charge (20)",
-                      value: "₹1466",
-                    ),
-                    const PriceIndependentWidget(
-                      label: "Insurance",
-                      value: "₹1466",
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 0.5.h,
-              ),
-              Divider(
-                color: Colors.black,
-                thickness: 0.08.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Total Fare",
-                    style: GoogleFonts.roboto().copyWith(
-                      fontSize: 11.sp,
-                      color: Colors.black,
-                      // fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "₹1486",
-                    style: GoogleFonts.roboto().copyWith(
-                      fontSize: 11.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
+              // Divider(
+              //   color: Colors.black,
+              //   thickness: 0.08.h,
+              // ),
+              // SizedBox(
+              //   height: 0.5.h,
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text(
+              //       "Fare",
+              //       style: GoogleFonts.roboto().copyWith(
+              //         fontSize: 11.sp,
+              //         color: Colors.black,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     Text(
+              //       "₹${data.customSeatData?.total_amount}",
+              //       style: GoogleFonts.roboto().copyWith(
+              //         fontSize: 11.sp,
+              //         color: Colors.black,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // //7896208559
+              // Container(
+              //   width: double.infinity,
+              //   margin: EdgeInsets.symmetric(
+              //     horizontal: 2.w,
+              //   ),
+              //   child: Column(
+              //     children: [
+              //       SizedBox(
+              //         height: 1.h,
+              //       ),
+              //        PriceIndependentWidget(
+              //         label: "GST 18%",
+              //         value: "₹${data.customSeatData?.gst??0}",
+              //       ),
+              //       const PriceIndependentWidget(
+              //         label: "Platform Charge (20)",
+              //         value: "₹0",
+              //       ),
+              //       const PriceIndependentWidget(
+              //         label: "Insurance",
+              //         value: "₹0",
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: 0.5.h,
+              // ),
+              // Divider(
+              //   color: Colors.black,
+              //   thickness: 0.08.h,
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text(
+              //       "Total Fare",
+              //       style: GoogleFonts.roboto().copyWith(
+              //         fontSize: 11.sp,
+              //         color: Colors.black,
+              //         // fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     Text(
+              //       "₹${data.customSeatData?.total_amount}",
+              //       style: GoogleFonts.roboto().copyWith(
+              //         fontSize: 11.sp,
+              //         color: Colors.black,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //   ],
+              // ),
               SizedBox(
                 height: 1.h,
               ),

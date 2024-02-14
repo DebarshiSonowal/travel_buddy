@@ -60,8 +60,8 @@ class StatsWidget extends ConsumerWidget {
                   children: [
                     startData.when(
                       data: (LocationResponse val) {
-                        return val.location.isNotEmpty?Text(
-                          val.location
+                        return (val.data?.location.isNotEmpty??false)?Text(
+                          val.data!.location
                               .firstWhere((element) =>
                           element.id.toString() == data.strLocVal)
                               .display_name ??
@@ -88,8 +88,8 @@ class StatsWidget extends ConsumerWidget {
                     ),
                     endData.when(
                       data: (LocationResponse val) {
-                        return val.location.isNotEmpty?Text(
-                          val.location
+                        return (val.data?.location.isNotEmpty??false)?Text(
+                          val.data?.location
                               .firstWhere((element) =>
                           element.id.toString() == data.endLocVal)
                               .display_name ??

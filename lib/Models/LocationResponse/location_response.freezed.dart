@@ -22,7 +22,7 @@ LocationResponse _$LocationResponseFromJson(Map<String, dynamic> json) {
 mixin _$LocationResponse {
   bool get success => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
-  List<LocationModel> get location => throw _privateConstructorUsedError;
+  Data? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,9 @@ abstract class $LocationResponseCopyWith<$Res> {
           LocationResponse value, $Res Function(LocationResponse) then) =
       _$LocationResponseCopyWithImpl<$Res, LocationResponse>;
   @useResult
-  $Res call({bool success, String? message, List<LocationModel> location});
+  $Res call({bool success, String? message, Data? data});
+
+  $DataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -54,7 +56,7 @@ class _$LocationResponseCopyWithImpl<$Res, $Val extends LocationResponse>
   $Res call({
     Object? success = null,
     Object? message = freezed,
-    Object? location = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
       success: null == success
@@ -65,11 +67,23 @@ class _$LocationResponseCopyWithImpl<$Res, $Val extends LocationResponse>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as List<LocationModel>,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Data?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DataCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $DataCopyWith<$Res>(_value.data!, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
   }
 }
 
@@ -81,7 +95,10 @@ abstract class _$$_LocationResponseCopyWith<$Res>
       __$$_LocationResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool success, String? message, List<LocationModel> location});
+  $Res call({bool success, String? message, Data? data});
+
+  @override
+  $DataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -97,7 +114,7 @@ class __$$_LocationResponseCopyWithImpl<$Res>
   $Res call({
     Object? success = null,
     Object? message = freezed,
-    Object? location = null,
+    Object? data = freezed,
   }) {
     return _then(_$_LocationResponse(
       success: null == success
@@ -108,10 +125,10 @@ class __$$_LocationResponseCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      location: null == location
-          ? _value._location
-          : location // ignore: cast_nullable_to_non_nullable
-              as List<LocationModel>,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Data?,
     ));
   }
 }
@@ -120,10 +137,7 @@ class __$$_LocationResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_LocationResponse implements _LocationResponse {
   const _$_LocationResponse(
-      {this.success = false,
-      required this.message,
-      final List<LocationModel> location = const []})
-      : _location = location;
+      {this.success = false, required this.message, this.data});
 
   factory _$_LocationResponse.fromJson(Map<String, dynamic> json) =>
       _$$_LocationResponseFromJson(json);
@@ -133,18 +147,12 @@ class _$_LocationResponse implements _LocationResponse {
   final bool success;
   @override
   final String? message;
-  final List<LocationModel> _location;
   @override
-  @JsonKey()
-  List<LocationModel> get location {
-    if (_location is EqualUnmodifiableListView) return _location;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_location);
-  }
+  final Data? data;
 
   @override
   String toString() {
-    return 'LocationResponse(success: $success, message: $message, location: $location)';
+    return 'LocationResponse(success: $success, message: $message, data: $data)';
   }
 
   @override
@@ -154,13 +162,12 @@ class _$_LocationResponse implements _LocationResponse {
             other is _$_LocationResponse &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality().equals(other._location, _location));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, success, message,
-      const DeepCollectionEquality().hash(_location));
+  int get hashCode => Object.hash(runtimeType, success, message, data);
 
   @JsonKey(ignore: true)
   @override
@@ -180,7 +187,7 @@ abstract class _LocationResponse implements LocationResponse {
   const factory _LocationResponse(
       {final bool success,
       required final String? message,
-      final List<LocationModel> location}) = _$_LocationResponse;
+      final Data? data}) = _$_LocationResponse;
 
   factory _LocationResponse.fromJson(Map<String, dynamic> json) =
       _$_LocationResponse.fromJson;
@@ -190,7 +197,7 @@ abstract class _LocationResponse implements LocationResponse {
   @override
   String? get message;
   @override
-  List<LocationModel> get location;
+  Data? get data;
   @override
   @JsonKey(ignore: true)
   _$$_LocationResponseCopyWith<_$_LocationResponse> get copyWith =>

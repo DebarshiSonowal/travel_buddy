@@ -261,7 +261,7 @@ class TicketDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹1280",
+                    "₹${data.customSeatData?.total_amount}",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 14.sp,
                       color: Colors.black,
@@ -290,7 +290,7 @@ class TicketDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹1280",
+                    "₹${data.customSeatData?.gst}",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 11.5.sp,
                       color: Colors.black54,
@@ -319,7 +319,7 @@ class TicketDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹1280",
+                    "₹0",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 11.5.sp,
                       color: Colors.black54,
@@ -348,7 +348,7 @@ class TicketDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹1280",
+                    "₹0",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 11.5.sp,
                       color: Colors.black54,
@@ -376,7 +376,7 @@ class TicketDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹1280",
+                    "₹${data.customSeatData?.total_amount}",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 14.sp,
                       color: Colors.black,
