@@ -11,7 +11,7 @@ _$_SeatData _$$_SeatDataFromJson(Map<String, dynamic> json) => _$_SeatData(
       seat_no: json['seat_no'] as String? ?? "",
       passenger_name: json['passenger_name'] as String? ?? "",
       passenger_contact: json['passenger_contact'] as String? ?? "",
-      is_insured: json['is_insured'] as String? ?? "",
+      is_insured: json['is_insured'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$$_SeatDataToJson(_$_SeatData instance) =>

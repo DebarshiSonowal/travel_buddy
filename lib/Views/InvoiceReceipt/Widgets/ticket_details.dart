@@ -8,6 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_buddy/Models/Data/data.dart';
 import 'package:travel_buddy/main.dart';
 
 import '../../PaymentScreen/Widgets/label_widget.dart';
@@ -34,7 +35,8 @@ class TicketDetails extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "Travel Buddy",
+                    data.customSeatData?.counter_info?.contact_name ??
+                        "Travel Buddy",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 13.5.sp,
                       color: Colors.black,
@@ -133,14 +135,14 @@ class TicketDetails extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 0.5.h),
               child: ListView.separated(
-                shrinkWrap: true,
+                  shrinkWrap: true,
                   itemBuilder: (context, index) {
-                  final item = data.contactDetails[index];
+                    final item = data.contactDetails[index];
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "${item.passenger_name} (${item.gender==0?"M":item.gender==1?"F":"O"}, ${item.age})",
+                          "${item.passenger_name} (${item.gender == 0 ? "M" : item.gender == 1 ? "F" : "O"}, ${item.age})",
                           style: GoogleFonts.roboto().copyWith(
                             fontSize: 11.sp,
                             color: Colors.black,
@@ -261,7 +263,7 @@ class TicketDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹${data.customSeatData?.total_amount}",
+                    "₹${data.customSeatData?.fair}",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 14.sp,
                       color: Colors.black,
@@ -319,7 +321,7 @@ class TicketDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹0",
+                    "₹${data.customSeatData?.gst}",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 11.5.sp,
                       color: Colors.black54,
@@ -348,7 +350,7 @@ class TicketDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹0",
+                    "₹${data.customSeatData?.insurance_charge}",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 11.5.sp,
                       color: Colors.black54,
@@ -415,7 +417,7 @@ class TicketDetails extends StatelessWidget {
                         width: 2.w,
                       ),
                       Text(
-                        "+91 ${(data.selectedVehicle?.counter_info.isEmpty??false)?"":data.selectedVehicle?.counter_info[0].contact_name??""}",
+                        "+91 ${(data.customSeatData?.counter_info?.contact_number ?? "")}",
                         style: GoogleFonts.roboto().copyWith(
                           fontSize: 11.sp,
                           color: Colors.black,
@@ -424,27 +426,27 @@ class TicketDetails extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.whatsapp,
-                        color: Colors.black,
-                        size: 14.sp,
-                      ),
-                      SizedBox(
-                        width: 2.w,
-                      ),
-                      Text(
-                        "+91 ${(data.selectedVehicle?.counter_info.isEmpty??false)?"":data.selectedVehicle?.counter_info[1].contact_name??""}",
-                        style: GoogleFonts.roboto().copyWith(
-                          fontSize: 11.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.start,
+                  //   children: [
+                  //     Icon(
+                  //       FontAwesomeIcons.whatsapp,
+                  //       color: Colors.black,
+                  //       size: 14.sp,
+                  //     ),
+                  //     SizedBox(
+                  //       width: 2.w,
+                  //     ),
+                  //     Text(
+                  //       "+91 ${(data.selectedVehicle?.counter_info.isEmpty ?? false) ? "" : data.selectedVehicle?.counter_info[1].contact_name ?? ""}",
+                  //       style: GoogleFonts.roboto().copyWith(
+                  //         fontSize: 11.sp,
+                  //         color: Colors.black,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
@@ -473,10 +475,10 @@ class TicketDetails extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              // data.selectedLayouts.map((e) => e.),
-                              "",
+                              "${data.customSeatData?.seats.map((e) => (e.trip_tickets_seat_id ?? 0).toString()).toList()}",
+                              // "",
                               style: GoogleFonts.roboto().copyWith(
-                                fontSize: 12.5.sp,
+                                fontSize: 10.5.sp,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -485,12 +487,12 @@ class TicketDetails extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 25.w,
+                        width: 30.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Ticket No:",
+                              "Ticket No",
                               style: GoogleFonts.roboto().copyWith(
                                 fontSize: 11.sp,
                                 color: Colors.black87,
@@ -498,9 +500,9 @@ class TicketDetails extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "AR4k98675",
+                              "${data.customSeatData?.ticket_number}",
                               style: GoogleFonts.roboto().copyWith(
-                                fontSize: 12.5.sp,
+                                fontSize: 10.5.sp,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -514,7 +516,7 @@ class TicketDetails extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              "OrderId:",
+                              "Ticket Id",
                               style: GoogleFonts.roboto().copyWith(
                                 fontSize: 11.sp,
                                 color: Colors.black87,
@@ -522,9 +524,9 @@ class TicketDetails extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "78638",
+                              "${data.customSeatData?.ticket_id}",
                               style: GoogleFonts.roboto().copyWith(
-                                fontSize: 12.5.sp,
+                                fontSize: 10.5.sp,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -542,7 +544,7 @@ class TicketDetails extends StatelessWidget {
                     height: 10.h,
                     child: BarcodeWidget(
                       barcode: Barcode.code128(),
-                      data: 'This is a QR code',
+                      data: getBarcodeData(data.customSeatData).toString(),
                     ),
                   ),
                 ],
@@ -552,5 +554,20 @@ class TicketDetails extends StatelessWidget {
         ),
       );
     });
+  }
+
+  getBarcodeData(CustomSeatData? customSeatData) {
+    var data = {
+      "Ticket Id": customSeatData?.ticket_id,
+      "Ticket Number": customSeatData?.ticket_number,
+      "Total Amount": customSeatData?.total_amount,
+    };
+    for (int i = 0; i < (customSeatData?.seats ?? []).length; i++) {
+      data.addAll({
+        "Customer ${i + 1}": customSeatData?.seats[i].passenger_name ?? "",
+      });
+    }
+
+    return data;
   }
 }

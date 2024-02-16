@@ -39,7 +39,7 @@ abstract class $DataResponseCopyWith<$Res> {
   @useResult
   $Res call({bool success, int? status, String? message, CustomSeatData? data});
 
-  $DataCopyWith<$Res>? get data;
+  $CustomSeatDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -82,12 +82,12 @@ class _$DataResponseCopyWithImpl<$Res, $Val extends DataResponse>
 
   @override
   @pragma('vm:prefer-inline')
-  $DataCopyWith<$Res>? get data {
+  $CustomSeatDataCopyWith<$Res>? get data {
     if (_value.data == null) {
       return null;
     }
 
-    return $DataCopyWith<$Res>(_value.data!, (value) {
+    return $CustomSeatDataCopyWith<$Res>(_value.data!, (value) {
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
@@ -104,7 +104,7 @@ abstract class _$$_DataResponseCopyWith<$Res>
   $Res call({bool success, int? status, String? message, CustomSeatData? data});
 
   @override
-  $DataCopyWith<$Res>? get data;
+  $CustomSeatDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc

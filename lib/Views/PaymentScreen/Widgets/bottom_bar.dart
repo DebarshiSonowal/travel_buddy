@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Constants/constants.dart';
 import 'package:travel_buddy/Constants/routes.dart';
 import 'package:travel_buddy/Router/navigator.dart';
+import 'package:travel_buddy/main.dart';
 
-class BottomBar extends StatelessWidget {
+class BottomBar extends ConsumerWidget {
   const BottomBar({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+     final data = ref.watch(repositoryProvider);
     return Container(
       height: 17.h,
       decoration: const BoxDecoration(
@@ -57,7 +60,7 @@ class BottomBar extends StatelessWidget {
             width: 60.w,
             child: Center(
               child: Text(
-                "Pay ₹1448",
+                "Pay ₹${data.customSeatData?.total_amount??0}",
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 11.sp,
                   color: Colors.white,

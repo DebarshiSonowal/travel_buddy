@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-CustomSeatData _$DataFromJson(Map<String, dynamic> json) {
+CustomSeatData _$CustomSeatDataFromJson(Map<String, dynamic> json) {
   return _Data.fromJson(json);
 }
 
@@ -24,32 +24,44 @@ mixin _$CustomSeatData {
   String get ticket_number => throw _privateConstructorUsedError;
   int get total_amount => throw _privateConstructorUsedError;
   int get gst => throw _privateConstructorUsedError;
+  int get platform_charge => throw _privateConstructorUsedError;
   String get timeout_time => throw _privateConstructorUsedError;
-  List<CustomSeatData> get seatData => throw _privateConstructorUsedError;
+  String get fair => throw _privateConstructorUsedError;
+  String get insurance_charge => throw _privateConstructorUsedError;
+  CustomCounter? get counter_info => throw _privateConstructorUsedError;
+  List<SeatData> get seats => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DataCopyWith<CustomSeatData> get copyWith => throw _privateConstructorUsedError;
+  $CustomSeatDataCopyWith<CustomSeatData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DataCopyWith<$Res> {
-  factory $DataCopyWith(CustomSeatData value, $Res Function(CustomSeatData) then) =
-      _$DataCopyWithImpl<$Res, CustomSeatData>;
+abstract class $CustomSeatDataCopyWith<$Res> {
+  factory $CustomSeatDataCopyWith(
+          CustomSeatData value, $Res Function(CustomSeatData) then) =
+      _$CustomSeatDataCopyWithImpl<$Res, CustomSeatData>;
   @useResult
   $Res call(
       {int ticket_id,
       String ticket_number,
       int total_amount,
       int gst,
+      int platform_charge,
       String timeout_time,
-      List<CustomSeatData> seatData});
+      String fair,
+      String insurance_charge,
+      CustomCounter? counter_info,
+      List<SeatData> seats});
+
+  $CustomCounterCopyWith<$Res>? get counter_info;
 }
 
 /// @nodoc
-class _$DataCopyWithImpl<$Res, $Val extends CustomSeatData>
-    implements $DataCopyWith<$Res> {
-  _$DataCopyWithImpl(this._value, this._then);
+class _$CustomSeatDataCopyWithImpl<$Res, $Val extends CustomSeatData>
+    implements $CustomSeatDataCopyWith<$Res> {
+  _$CustomSeatDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,8 +75,12 @@ class _$DataCopyWithImpl<$Res, $Val extends CustomSeatData>
     Object? ticket_number = null,
     Object? total_amount = null,
     Object? gst = null,
+    Object? platform_charge = null,
     Object? timeout_time = null,
-    Object? seatData = null,
+    Object? fair = null,
+    Object? insurance_charge = null,
+    Object? counter_info = freezed,
+    Object? seats = null,
   }) {
     return _then(_value.copyWith(
       ticket_id: null == ticket_id
@@ -83,20 +99,48 @@ class _$DataCopyWithImpl<$Res, $Val extends CustomSeatData>
           ? _value.gst
           : gst // ignore: cast_nullable_to_non_nullable
               as int,
+      platform_charge: null == platform_charge
+          ? _value.platform_charge
+          : platform_charge // ignore: cast_nullable_to_non_nullable
+              as int,
       timeout_time: null == timeout_time
           ? _value.timeout_time
           : timeout_time // ignore: cast_nullable_to_non_nullable
               as String,
-      seatData: null == seatData
-          ? _value.seatData
-          : seatData // ignore: cast_nullable_to_non_nullable
-              as List<CustomSeatData>,
+      fair: null == fair
+          ? _value.fair
+          : fair // ignore: cast_nullable_to_non_nullable
+              as String,
+      insurance_charge: null == insurance_charge
+          ? _value.insurance_charge
+          : insurance_charge // ignore: cast_nullable_to_non_nullable
+              as String,
+      counter_info: freezed == counter_info
+          ? _value.counter_info
+          : counter_info // ignore: cast_nullable_to_non_nullable
+              as CustomCounter?,
+      seats: null == seats
+          ? _value.seats
+          : seats // ignore: cast_nullable_to_non_nullable
+              as List<SeatData>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomCounterCopyWith<$Res>? get counter_info {
+    if (_value.counter_info == null) {
+      return null;
+    }
+
+    return $CustomCounterCopyWith<$Res>(_value.counter_info!, (value) {
+      return _then(_value.copyWith(counter_info: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
+abstract class _$$_DataCopyWith<$Res> implements $CustomSeatDataCopyWith<$Res> {
   factory _$$_DataCopyWith(_$_Data value, $Res Function(_$_Data) then) =
       __$$_DataCopyWithImpl<$Res>;
   @override
@@ -106,12 +150,20 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
       String ticket_number,
       int total_amount,
       int gst,
+      int platform_charge,
       String timeout_time,
-      List<CustomSeatData> seatData});
+      String fair,
+      String insurance_charge,
+      CustomCounter? counter_info,
+      List<SeatData> seats});
+
+  @override
+  $CustomCounterCopyWith<$Res>? get counter_info;
 }
 
 /// @nodoc
-class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
+class __$$_DataCopyWithImpl<$Res>
+    extends _$CustomSeatDataCopyWithImpl<$Res, _$_Data>
     implements _$$_DataCopyWith<$Res> {
   __$$_DataCopyWithImpl(_$_Data _value, $Res Function(_$_Data) _then)
       : super(_value, _then);
@@ -123,8 +175,12 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
     Object? ticket_number = null,
     Object? total_amount = null,
     Object? gst = null,
+    Object? platform_charge = null,
     Object? timeout_time = null,
-    Object? seatData = null,
+    Object? fair = null,
+    Object? insurance_charge = null,
+    Object? counter_info = freezed,
+    Object? seats = null,
   }) {
     return _then(_$_Data(
       ticket_id: null == ticket_id
@@ -143,14 +199,30 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
           ? _value.gst
           : gst // ignore: cast_nullable_to_non_nullable
               as int,
+      platform_charge: null == platform_charge
+          ? _value.platform_charge
+          : platform_charge // ignore: cast_nullable_to_non_nullable
+              as int,
       timeout_time: null == timeout_time
           ? _value.timeout_time
           : timeout_time // ignore: cast_nullable_to_non_nullable
               as String,
-      seatData: null == seatData
-          ? _value._seatData
-          : seatData // ignore: cast_nullable_to_non_nullable
-              as List<CustomSeatData>,
+      fair: null == fair
+          ? _value.fair
+          : fair // ignore: cast_nullable_to_non_nullable
+              as String,
+      insurance_charge: null == insurance_charge
+          ? _value.insurance_charge
+          : insurance_charge // ignore: cast_nullable_to_non_nullable
+              as String,
+      counter_info: freezed == counter_info
+          ? _value.counter_info
+          : counter_info // ignore: cast_nullable_to_non_nullable
+              as CustomCounter?,
+      seats: null == seats
+          ? _value._seats
+          : seats // ignore: cast_nullable_to_non_nullable
+              as List<SeatData>,
     ));
   }
 }
@@ -163,9 +235,13 @@ class _$_Data implements _Data {
       this.ticket_number = "",
       this.total_amount = 0,
       this.gst = 0,
+      this.platform_charge = 0,
       this.timeout_time = '0',
-      final List<CustomSeatData> seatData = const []})
-      : _seatData = seatData;
+      this.fair = '0',
+      this.insurance_charge = '0',
+      this.counter_info,
+      final List<SeatData> seats = const []})
+      : _seats = seats;
 
   factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
 
@@ -183,19 +259,30 @@ class _$_Data implements _Data {
   final int gst;
   @override
   @JsonKey()
-  final String timeout_time;
-  final List<CustomSeatData> _seatData;
+  final int platform_charge;
   @override
   @JsonKey()
-  List<CustomSeatData> get seatData {
-    if (_seatData is EqualUnmodifiableListView) return _seatData;
+  final String timeout_time;
+  @override
+  @JsonKey()
+  final String fair;
+  @override
+  @JsonKey()
+  final String insurance_charge;
+  @override
+  final CustomCounter? counter_info;
+  final List<SeatData> _seats;
+  @override
+  @JsonKey()
+  List<SeatData> get seats {
+    if (_seats is EqualUnmodifiableListView) return _seats;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_seatData);
+    return EqualUnmodifiableListView(_seats);
   }
 
   @override
   String toString() {
-    return 'Data(ticket_id: $ticket_id, ticket_number: $ticket_number, total_amount: $total_amount, gst: $gst, timeout_time: $timeout_time, seatData: $seatData)';
+    return 'CustomSeatData(ticket_id: $ticket_id, ticket_number: $ticket_number, total_amount: $total_amount, gst: $gst, platform_charge: $platform_charge, timeout_time: $timeout_time, fair: $fair, insurance_charge: $insurance_charge, counter_info: $counter_info, seats: $seats)';
   }
 
   @override
@@ -210,9 +297,16 @@ class _$_Data implements _Data {
             (identical(other.total_amount, total_amount) ||
                 other.total_amount == total_amount) &&
             (identical(other.gst, gst) || other.gst == gst) &&
+            (identical(other.platform_charge, platform_charge) ||
+                other.platform_charge == platform_charge) &&
             (identical(other.timeout_time, timeout_time) ||
                 other.timeout_time == timeout_time) &&
-            const DeepCollectionEquality().equals(other._seatData, _seatData));
+            (identical(other.fair, fair) || other.fair == fair) &&
+            (identical(other.insurance_charge, insurance_charge) ||
+                other.insurance_charge == insurance_charge) &&
+            (identical(other.counter_info, counter_info) ||
+                other.counter_info == counter_info) &&
+            const DeepCollectionEquality().equals(other._seats, _seats));
   }
 
   @JsonKey(ignore: true)
@@ -223,8 +317,12 @@ class _$_Data implements _Data {
       ticket_number,
       total_amount,
       gst,
+      platform_charge,
       timeout_time,
-      const DeepCollectionEquality().hash(_seatData));
+      fair,
+      insurance_charge,
+      counter_info,
+      const DeepCollectionEquality().hash(_seats));
 
   @JsonKey(ignore: true)
   @override
@@ -246,8 +344,12 @@ abstract class _Data implements CustomSeatData {
       final String ticket_number,
       final int total_amount,
       final int gst,
+      final int platform_charge,
       final String timeout_time,
-      final List<CustomSeatData> seatData}) = _$_Data;
+      final String fair,
+      final String insurance_charge,
+      final CustomCounter? counter_info,
+      final List<SeatData> seats}) = _$_Data;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
 
@@ -260,9 +362,17 @@ abstract class _Data implements CustomSeatData {
   @override
   int get gst;
   @override
+  int get platform_charge;
+  @override
   String get timeout_time;
   @override
-  List<CustomSeatData> get seatData;
+  String get fair;
+  @override
+  String get insurance_charge;
+  @override
+  CustomCounter? get counter_info;
+  @override
+  List<SeatData> get seats;
   @override
   @JsonKey(ignore: true)
   _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;

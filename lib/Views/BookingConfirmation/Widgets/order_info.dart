@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_buddy/main.dart';
 
-class OrderInfo extends StatelessWidget {
+class OrderInfo extends ConsumerWidget{
   const OrderInfo({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    final data = ref.watch(repositoryProvider);
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 8.w,
@@ -25,7 +28,7 @@ class OrderInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Order Id:",
+                "Ticket Id:",
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black54,
@@ -33,7 +36,7 @@ class OrderInfo extends StatelessWidget {
                 ),
               ),
               Text(
-                "785665",
+                "${data.customSeatData?.ticket_id}",
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black,
@@ -54,7 +57,7 @@ class OrderInfo extends StatelessWidget {
                 ),
               ),
               Text(
-                "AR4k9857",
+                "${data.customSeatData?.ticket_number}",
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,
                   color: Colors.black,

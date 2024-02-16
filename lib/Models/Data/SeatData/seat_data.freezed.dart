@@ -24,7 +24,7 @@ mixin _$SeatData {
   String get seat_no => throw _privateConstructorUsedError;
   String get passenger_name => throw _privateConstructorUsedError;
   String get passenger_contact => throw _privateConstructorUsedError;
-  String get is_insured => throw _privateConstructorUsedError;
+  int get is_insured => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $SeatDataCopyWith<$Res> {
       String seat_no,
       String passenger_name,
       String passenger_contact,
-      String is_insured});
+      int is_insured});
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ class _$SeatDataCopyWithImpl<$Res, $Val extends SeatData>
       is_insured: null == is_insured
           ? _value.is_insured
           : is_insured // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -101,7 +101,7 @@ abstract class _$$_SeatDataCopyWith<$Res> implements $SeatDataCopyWith<$Res> {
       String seat_no,
       String passenger_name,
       String passenger_contact,
-      String is_insured});
+      int is_insured});
 }
 
 /// @nodoc
@@ -141,7 +141,7 @@ class __$$_SeatDataCopyWithImpl<$Res>
       is_insured: null == is_insured
           ? _value.is_insured
           : is_insured // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -154,7 +154,7 @@ class _$_SeatData implements _SeatData {
       this.seat_no = "",
       this.passenger_name = "",
       this.passenger_contact = "",
-      this.is_insured = ""});
+      this.is_insured = 0});
 
   factory _$_SeatData.fromJson(Map<String, dynamic> json) =>
       _$$_SeatDataFromJson(json);
@@ -173,7 +173,7 @@ class _$_SeatData implements _SeatData {
   final String passenger_contact;
   @override
   @JsonKey()
-  final String is_insured;
+  final int is_insured;
 
   @override
   String toString() {
@@ -221,7 +221,7 @@ abstract class _SeatData implements SeatData {
       final String seat_no,
       final String passenger_name,
       final String passenger_contact,
-      final String is_insured}) = _$_SeatData;
+      final int is_insured}) = _$_SeatData;
 
   factory _SeatData.fromJson(Map<String, dynamic> json) = _$_SeatData.fromJson;
 
@@ -234,7 +234,7 @@ abstract class _SeatData implements SeatData {
   @override
   String get passenger_contact;
   @override
-  String get is_insured;
+  int get is_insured;
   @override
   @JsonKey(ignore: true)
   _$$_SeatDataCopyWith<_$_SeatData> get copyWith =>

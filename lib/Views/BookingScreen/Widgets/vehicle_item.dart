@@ -66,26 +66,26 @@ class _VehicleItemState extends State<VehicleItem> {
               SizedBox(
                 height: 0.3.h,
               ),
-              !isExpended
-                  ? Text(
-                      "Time: 21:00 - 03:45",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 7.sp,
-                        color: Colors.black,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  : Text(
-                      "21:00 - 03:45",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 7.sp,
-                        color: Colors.black,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    ),
-              SizedBox(
-                height: 0.3.h,
-              ),
+              // !isExpended
+              //     ? Text(
+              //         "Time: 21:00 - 03:45",
+              //         style: GoogleFonts.roboto().copyWith(
+              //           fontSize: 7.sp,
+              //           color: Colors.black,
+              //           // fontWeight: FontWeight.bold,
+              //         ),
+              //       )
+              //     : Text(
+              //         "21:00 - 03:45",
+              //         style: GoogleFonts.roboto().copyWith(
+              //           fontSize: 7.sp,
+              //           color: Colors.black,
+              //           // fontWeight: FontWeight.bold,
+              //         ),
+              //       ),
+              // SizedBox(
+              //   height: 0.3.h,
+              // ),
               isExpended
                   ? Text(
                       "11h 30m - 8 seats left",

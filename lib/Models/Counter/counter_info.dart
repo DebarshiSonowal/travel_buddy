@@ -9,6 +9,7 @@
 //                 "credit_balance": "90"
 //             }
 
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'counter_info.freezed.dart';

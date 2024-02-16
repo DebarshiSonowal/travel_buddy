@@ -17,7 +17,7 @@ class SeatData with _$SeatData {
     @Default("") String seat_no,
     @Default("") String passenger_name,
     @Default("") String passenger_contact,
-    @Default("") String is_insured,
+    @Default(0) int is_insured,
 
   }) = _SeatData;
 

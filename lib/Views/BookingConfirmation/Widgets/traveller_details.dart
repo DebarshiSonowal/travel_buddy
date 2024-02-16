@@ -5,12 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_buddy/Models/ContactDetails/contact_details.dart';
+import 'package:travel_buddy/Repository/repository.dart';
 import 'package:travel_buddy/main.dart';
 
 import '../../../Constants/routes.dart';
 import '../../../Router/navigator.dart';
+import 'contact_details_widget.dart';
 import 'contact_item.dart';
 import 'icon_label_value.dart';
+import 'price_widget_section.dart';
 import 'title_widget.dart';
 
 class TravellerDetails extends ConsumerWidget {
@@ -100,224 +103,24 @@ class TravellerDetails extends ConsumerWidget {
                   ListView.separated(
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      final item = data.contactDetails[index];
-                      return ContactItem(item: item);
+                      final item = data.customSeatData?.seats[index];
+                      return ContactItem(item: item!);
                     },
                     separatorBuilder: (context, index) {
                       return SizedBox(
                         height: 1.h,
                       );
                     },
-                    itemCount: data.contactDetails.length,
+                    itemCount: data.customSeatData?.seats.length??0,
                   ),
                 ],
               );
             }),
           ),
           const DottedLine(),
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(
-              horizontal: 6.w,
-              vertical: 1.5.h,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Contact Details",
-                  style: GoogleFonts.roboto().copyWith(
-                    fontSize: 11.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 0.5.h,
-                ),
-                Text(
-                  "Email",
-                  style: GoogleFonts.roboto().copyWith(
-                    fontSize: 9.sp,
-                    color: Colors.black87,
-                    // fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "qwerty@gmail.com",
-                  style: GoogleFonts.roboto().copyWith(
-                    fontSize: 8.sp,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 0.5.h,
-                ),
-                Text(
-                  "Mobile No",
-                  style: GoogleFonts.roboto().copyWith(
-                    fontSize: 9.sp,
-                    color: Colors.black87,
-                    // fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "+91 7002819283",
-                  style: GoogleFonts.roboto().copyWith(
-                    fontSize: 8.sp,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const ContactDetailsWidget(),
           const DottedLine(),
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(
-              horizontal: 6.w,
-              vertical: 1.5.h,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Fare",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "₹${data.customSeatData?.total_amount}",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 2.w,
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Gst 18%",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 10.sp,
-                              color: Colors.black87,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "₹${data.customSeatData?.gst}",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 9.sp,
-                              color: Colors.black87,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Platform Charge (20)",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 10.sp,
-                              color: Colors.black87,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "₹0",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 9.sp,
-                              color: Colors.black87,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Insurance",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 10.sp,
-                              color: Colors.black87,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "0",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 9.sp,
-                              color: Colors.black87,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 0.5.h,
-                      ),
-                    ],
-                  ),
-                ),
-                const DottedLine(),
-                SizedBox(
-                  height: 0.5.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Total Fare",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "₹${data.customSeatData?.total_amount}",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 11.sp,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 0.5.h,
-                ),
-                const DottedLine(),
-              ],
-            ),
-          ),
+          PriceWidgetSection(data: data),
           SizedBox(
             height: 0.2.h,
           ),
@@ -379,5 +182,8 @@ class TravellerDetails extends ConsumerWidget {
     );
   }
 }
+
+
+
 
 
