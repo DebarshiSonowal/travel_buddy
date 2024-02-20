@@ -23,6 +23,7 @@ mixin _$VehicleModel {
   String? get chassis_no => throw _privateConstructorUsedError;
   String? get model_no => throw _privateConstructorUsedError;
   String? get total_seats => throw _privateConstructorUsedError;
+  int? get rating => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get registration_no => throw _privateConstructorUsedError;
   String? get vehicle_pic => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $VehicleModelCopyWith<$Res> {
       {String? chassis_no,
       String? model_no,
       String? total_seats,
+      int? rating,
       String? name,
       String? registration_no,
       String? vehicle_pic,
@@ -68,6 +70,7 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
     Object? chassis_no = freezed,
     Object? model_no = freezed,
     Object? total_seats = freezed,
+    Object? rating = freezed,
     Object? name = freezed,
     Object? registration_no = freezed,
     Object? vehicle_pic = freezed,
@@ -87,6 +90,10 @@ class _$VehicleModelCopyWithImpl<$Res, $Val extends VehicleModel>
           ? _value.total_seats
           : total_seats // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -123,6 +130,7 @@ abstract class _$$_VehicleModelCopyWith<$Res>
       {String? chassis_no,
       String? model_no,
       String? total_seats,
+      int? rating,
       String? name,
       String? registration_no,
       String? vehicle_pic,
@@ -144,6 +152,7 @@ class __$$_VehicleModelCopyWithImpl<$Res>
     Object? chassis_no = freezed,
     Object? model_no = freezed,
     Object? total_seats = freezed,
+    Object? rating = freezed,
     Object? name = freezed,
     Object? registration_no = freezed,
     Object? vehicle_pic = freezed,
@@ -163,6 +172,10 @@ class __$$_VehicleModelCopyWithImpl<$Res>
           ? _value.total_seats
           : total_seats // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -194,6 +207,7 @@ class _$_VehicleModel implements _VehicleModel {
       {required this.chassis_no,
       required this.model_no,
       required this.total_seats,
+      required this.rating,
       required this.name,
       required this.registration_no,
       required this.vehicle_pic,
@@ -211,6 +225,8 @@ class _$_VehicleModel implements _VehicleModel {
   final String? model_no;
   @override
   final String? total_seats;
+  @override
+  final int? rating;
   @override
   final String? name;
   @override
@@ -237,7 +253,7 @@ class _$_VehicleModel implements _VehicleModel {
 
   @override
   String toString() {
-    return 'VehicleModel(chassis_no: $chassis_no, model_no: $model_no, total_seats: $total_seats, name: $name, registration_no: $registration_no, vehicle_pic: $vehicle_pic, counter_info: $counter_info, route_info: $route_info)';
+    return 'VehicleModel(chassis_no: $chassis_no, model_no: $model_no, total_seats: $total_seats, rating: $rating, name: $name, registration_no: $registration_no, vehicle_pic: $vehicle_pic, counter_info: $counter_info, route_info: $route_info)';
   }
 
   @override
@@ -251,6 +267,7 @@ class _$_VehicleModel implements _VehicleModel {
                 other.model_no == model_no) &&
             (identical(other.total_seats, total_seats) ||
                 other.total_seats == total_seats) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.registration_no, registration_no) ||
                 other.registration_no == registration_no) &&
@@ -269,6 +286,7 @@ class _$_VehicleModel implements _VehicleModel {
       chassis_no,
       model_no,
       total_seats,
+      rating,
       name,
       registration_no,
       vehicle_pic,
@@ -294,6 +312,7 @@ abstract class _VehicleModel implements VehicleModel {
       {required final String? chassis_no,
       required final String? model_no,
       required final String? total_seats,
+      required final int? rating,
       required final String? name,
       required final String? registration_no,
       required final String? vehicle_pic,
@@ -309,6 +328,8 @@ abstract class _VehicleModel implements VehicleModel {
   String? get model_no;
   @override
   String? get total_seats;
+  @override
+  int? get rating;
   @override
   String? get name;
   @override

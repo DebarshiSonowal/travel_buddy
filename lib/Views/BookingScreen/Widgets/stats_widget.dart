@@ -142,7 +142,7 @@ class StatsWidget extends ConsumerWidget {
             child: vehicleData.when(
               data: (SearchVehicleResponse val) {
                 return Text(
-                  "${val.data?.vehicle_info.length} Vehicles available",
+                  "${val.data?.vehicle_info.length??0} Vehicles available",
                   style: GoogleFonts.roboto().copyWith(
                     fontSize: 12.sp,
                     color: Colors.white,
