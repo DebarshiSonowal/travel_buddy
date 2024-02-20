@@ -6,8 +6,8 @@ import '../../../Common/back_button.dart';
 import '../../../Constants/assets.dart';
 import '../../../Constants/constants.dart';
 
-class olderAppBar extends StatelessWidget {
-  const olderAppBar({
+class HelpAppBar extends StatelessWidget {
+  const HelpAppBar({
     super.key,
   });
 
@@ -17,8 +17,8 @@ class olderAppBar extends StatelessWidget {
       padding: EdgeInsets.only(
         left: 4.w,
         right: 4.w,
-        bottom: 1.5.h,
         top: 4.h,
+        bottom: 2.h,
       ),
       decoration: const BoxDecoration(
         color: Constants.primaryColor,
@@ -29,7 +29,7 @@ class olderAppBar extends StatelessWidget {
       ),
       width: double.infinity,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
@@ -45,7 +45,7 @@ class olderAppBar extends StatelessWidget {
             ],
           ),
           Text(
-            "What's New",
+            "Help!",
             style: GoogleFonts.roboto().copyWith(
               fontSize: 19.sp,
               color: Colors.black,

@@ -45,6 +45,10 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(15.h),
+        child: const MainScreenAppbar(),
+      ),
       body: SafeArea(
         child: SizedBox(
           height: double.infinity,
@@ -53,9 +57,9 @@ class _MainScreenState extends ConsumerState<MainScreen> {
             physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                const MainScreenAppbar(),
+                // const MainScreenAppbar(),
                 SizedBox(
-                  height: 78.h,
+                  height: 85.h,
                   width: double.infinity,
                   child: SingleChildScrollView(
                     child: Column(

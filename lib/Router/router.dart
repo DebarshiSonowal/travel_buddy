@@ -19,34 +19,66 @@ import '../Widgets/transition_builder.dart';
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case Routes.splashScreen:
-      return FadeTransitionPageRouteBuilder(page: const SplashScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: const SplashScreen(),
+      );
     case Routes.mainScreen:
-      return FadeTransitionPageRouteBuilder(page: const MainScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: const MainScreen(),
+      );
     case Routes.introScreen:
-      return FadeTransitionPageRouteBuilder(page: const IntroScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: const IntroScreen(),
+      );
     case Routes.loginScreen:
-      return FadeTransitionPageRouteBuilder(page: const LoginScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: const LoginScreen(),
+      );
     case Routes.otpScreen:
-      return FadeTransitionPageRouteBuilder(page: OtpScreen(mobile: settings.arguments as String,));
+      return FadeTransitionPageRouteBuilder(
+        page: OtpScreen(
+          mobile: settings.arguments as String,
+        ),
+      );
     case Routes.bookingScreen:
-      return FadeTransitionPageRouteBuilder(page:  BookingScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: BookingScreen(),
+      );
     case Routes.seatLayout:
-      return FadeTransitionPageRouteBuilder(page: const SeatLayout());
+      return FadeTransitionPageRouteBuilder(
+        page: const SeatLayout(),
+      );
     case Routes.passengerLayout:
-      return FadeTransitionPageRouteBuilder(page: const PassengerInfo());
+      return FadeTransitionPageRouteBuilder(
+        page: const PassengerInfo(),
+      );
     case Routes.paymentScreen:
-      return FadeTransitionPageRouteBuilder(page: const PaymentScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: const PaymentScreen(),
+      );
     case Routes.bookingConfirmationScreen:
-      return FadeTransitionPageRouteBuilder(page: const BookingConfirmation());
+      return FadeTransitionPageRouteBuilder(
+        page: const BookingConfirmation(),
+      );
     case Routes.invoiceReceiptScreen:
-      return FadeTransitionPageRouteBuilder(page: const InvoiceReceipt());
+      return FadeTransitionPageRouteBuilder(
+        page: const InvoiceReceipt(),
+      );
     case Routes.oldBookingScreen:
-      return FadeTransitionPageRouteBuilder(page: const OlderBookingScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: const OlderBookingScreen(),
+      );
     case Routes.helpScreen:
-      return FadeTransitionPageRouteBuilder(page: const HelpScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: const HelpScreen(),
+      );
     case Routes.accountScreen:
-      return FadeTransitionPageRouteBuilder(page: const AccountScreen());
+      return FadeTransitionPageRouteBuilder(
+        page: const AccountScreen(),
+      );
     default:
-      return FadeTransitionPageRouteBuilder(page: Container());
+      return FadeTransitionPageRouteBuilder(
+        page: Container(),
+      );
   }
 }

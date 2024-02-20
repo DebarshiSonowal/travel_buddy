@@ -7,6 +7,7 @@ import '../../Common/back_button.dart';
 import '../../Constants/assets.dart';
 import '../../Constants/constants.dart';
 import '../BookingConfirmation/Widgets/booking_confirmation_appbar.dart';
+import 'Widgets/help_app_bar.dart';
 
 class HelpScreen extends StatefulWidget {
   const HelpScreen({super.key});
@@ -20,7 +21,7 @@ class _HelpScreenState extends State<HelpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(13.h),
+        preferredSize: Size.fromHeight(12.h),
         child: const HelpAppBar(),
       ),
       body: Container(
@@ -42,7 +43,7 @@ class _HelpScreenState extends State<HelpScreen> {
                 Text(
                   "FAQ!",
                   style: GoogleFonts.roboto().copyWith(
-                    fontSize: 14.sp,
+                    fontSize: 18.sp,
                     color: Colors.black,
                     // fontWeight: FontWeight.bold,
                   ),
@@ -127,54 +128,4 @@ class _HelpScreenState extends State<HelpScreen> {
   }
 }
 
-class HelpAppBar extends StatelessWidget {
-  const HelpAppBar({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 4.w,
-          vertical: 1.5.h,
-        ),
-        decoration: const BoxDecoration(
-          color: Constants.primaryColor,
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(30),
-            bottomLeft: Radius.circular(30),
-          ),
-        ),
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const BackButtonCustom(),
-                Image.asset(
-                  Assets.colorLogo,
-                  fit: BoxFit.fill,
-                  scale: 22,
-                ),
-              ],
-            ),
-            Text(
-              "Help!",
-              style: GoogleFonts.roboto().copyWith(
-                fontSize: 13.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

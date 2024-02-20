@@ -25,48 +25,7 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(13.h),
-        child: SafeArea(
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 4.w,
-              vertical: 1.5.h,
-            ),
-            decoration: const BoxDecoration(
-              color: Constants.primaryColor,
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(30),
-                bottomLeft: Radius.circular(30),
-              ),
-            ),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const BackButtonCustom(),
-                    Image.asset(
-                      Assets.colorLogo,
-                      fit: BoxFit.fill,
-                      scale: 22,
-                    ),
-                  ],
-                ),
-                Text(
-                  "My Account",
-                  style: GoogleFonts.roboto().copyWith(
-                    fontSize: 13.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        child: const MyAccountAppbar(),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(
@@ -374,6 +333,59 @@ class _AccountScreenState extends State<AccountScreen> {
       Fluttertoast.showToast(msg: response.message ?? "Something went wrong");
       Navigation.instance.navigateAndRemoveUntil(Routes.loginScreen);
     }
+  }
+}
+
+class MyAccountAppbar extends StatelessWidget {
+  const MyAccountAppbar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(
+        left: 4.w,
+        right: 4.w,
+        bottom: 2.h,
+        top: 4.h,
+
+      ),
+      decoration: const BoxDecoration(
+        color: Constants.primaryColor,
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(30),
+          bottomLeft: Radius.circular(30),
+        ),
+      ),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const BackButtonCustom(),
+              Image.asset(
+                Assets.colorLogo,
+                fit: BoxFit.fill,
+                scale: 22,
+              ),
+            ],
+          ),
+          Text(
+            "My Account",
+            style: GoogleFonts.roboto().copyWith(
+              fontSize: 18.sp,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
