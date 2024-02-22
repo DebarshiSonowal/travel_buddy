@@ -75,21 +75,9 @@ class VehicleInfo extends ConsumerWidget {
                         ),
                         InfoTitle(
                           title: "Reach Time",
-                          value: DateFormat("HH:mm:ss").format(
-                            DateFormat("HH:mm:ss")
-                                .parse(repo.selectedVehicle?.route_info.first
-                                        .strt_time ??
-                                    "10:05:20")
-                                .add(
-                                  Duration(
-                                    minutes: DateFormat("HH:mm:ss")
-                                        .parse(repo.selectedVehicle?.route_info
-                                                .first.travel_time ??
-                                            "00:00:00")
-                                        .minute,
-                                  ),
-                                ),
-                          ),
+                          value: repo.selectedVehicle?.route_info
+                              .first.travel_time ??
+                              "0 hours",
                         ),
                       ],
                     ),

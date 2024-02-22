@@ -45,6 +45,10 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
     final response = ref.read(repositoryProvider);
     final layout = ref.watch(searchLayoutProvider);
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(15.h),
+        child: const PassengerInfoAppbar(),
+      ),
       backgroundColor: Colors.white,
       body: layout.when(
         data: (data) {
@@ -56,7 +60,6 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
                 physics: const NeverScrollableScrollPhysics(),
                 child: Column(
                   children: [
-                    const PassengerInfoAppbar(),
                     ScrollWidget(
                       contactDetails: contactDetails,
                       is_insured: is_ensured,
@@ -78,7 +81,6 @@ class _PassengerInfoState extends ConsumerState<PassengerInfo> {
                         });
                         ref.read(repositoryProvider).addContactDetails(val);
                       },
-
                     ),
                     Container(
                       height: 8.h,

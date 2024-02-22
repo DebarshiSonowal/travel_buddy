@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_buddy/main.dart';
 
 import '../../../Constants/constants.dart';
 
-class RatingButton extends StatelessWidget {
+class RatingButton extends ConsumerWidget {
   const RatingButton({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    final data = ref.watch(repositoryProvider);
     return Container(
       width: 15.w,
       decoration: BoxDecoration(
@@ -33,7 +36,7 @@ class RatingButton extends StatelessWidget {
             width: 1.w,
           ),
           Text(
-            "4.5",
+            "${data.selectedVehicle?.rating??4.5}",
             style: GoogleFonts.roboto().copyWith(
               fontSize: 8.5.sp,
               color: Colors.white,

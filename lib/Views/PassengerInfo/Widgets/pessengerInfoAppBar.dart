@@ -14,9 +14,11 @@ class PassengerInfoAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 4.w,
-        vertical: 1.h,
+      padding: EdgeInsets.only(
+        left: 4.w,
+        right: 4.w,
+        bottom: 1.h,
+        top: 4.h,
       ),
       decoration: const BoxDecoration(
         color: Constants.primaryColor,
@@ -26,7 +28,7 @@ class PassengerInfoAppbar extends StatelessWidget {
         ),
       ),
       width: double.infinity,
-      height: 11.5.h,
+      height: 15.h,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,

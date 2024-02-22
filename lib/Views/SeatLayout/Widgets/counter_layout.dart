@@ -19,12 +19,14 @@ class CounterAppBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.watch(repositoryProvider);
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 4.w,
-        vertical: 1.h,
+      padding: EdgeInsets.only(
+        left: 4.w,
+        right: 4.w,
+        bottom: 1.h,
+        top: 3.h,
       ),
       width: double.infinity,
-      height: 15.h,
+      height: 17.h,
       decoration: const BoxDecoration(
         color: Constants.primaryColor,
         borderRadius: BorderRadius.only(
@@ -61,7 +63,7 @@ class CounterAppBar extends ConsumerWidget {
           Row(
             children: [
               Text(
-                DateFormat("HH:mm")
+                DateFormat("HH:mm aa")
                     .format(DateFormat("HH:mm").parse(data.start_time)),
                 style: GoogleFonts.roboto().copyWith(
                   fontSize: 10.sp,

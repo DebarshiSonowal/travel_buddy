@@ -20,7 +20,7 @@ final searchToProvider = FutureProvider<LocationResponse>((ref) async {
 final searchVehicleProvider =
     FutureProvider<SearchVehicleResponse>((ref) async {
   return ref.watch(apiProvider).searchVehicle(
-      ref.watch(repositoryProvider).dateVal.replaceAll("-", "/") ?? "",
+      ref.watch(repositoryProvider).dateVal?? "",
       ref.watch(repositoryProvider).strLocVal ?? "",
       ref.watch(repositoryProvider).endLocVal ?? "");
 });

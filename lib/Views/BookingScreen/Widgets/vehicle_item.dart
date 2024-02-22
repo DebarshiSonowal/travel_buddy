@@ -88,7 +88,7 @@ class _VehicleItemState extends State<VehicleItem> {
               // ),
               isExpended
                   ? Text(
-                      "11h 30m - 8 seats left",
+                      "${widget.item.route_info.first.strt_time} - ${widget.item.total_seats} seats left",
                       style: GoogleFonts.roboto().copyWith(
                         fontSize: 6.sp,
                         color: Colors.black54,
@@ -162,7 +162,7 @@ class _VehicleItemState extends State<VehicleItem> {
                                     width: 1.w,
                                   ),
                                   Text(
-                                    "4.5",
+                                    "${widget.item.rating??0}",
                                     style: GoogleFonts.roboto().copyWith(
                                       fontSize: 7.sp,
                                       color: Colors.white,
