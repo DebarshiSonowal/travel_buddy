@@ -7,19 +7,22 @@ import '../../../Models/Counter/counter_info.dart';
 
 class CounterItem extends StatelessWidget {
   const CounterItem({
-    super.key, required this.item,
+    super.key,
+    required this.item,
   });
+
   final CounterInfoModel item;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 40.w,
+      width: 45.w,
       decoration: BoxDecoration(
           color: Constants.primaryColor,
           borderRadius: BorderRadius.circular(15)),
       padding: EdgeInsets.symmetric(
         horizontal: 3.w,
-        vertical: 1.h,
+        vertical: 0.5.h,
       ),
       child: Column(
         children: [
@@ -29,25 +32,32 @@ class CounterItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             padding: EdgeInsets.symmetric(
-              horizontal: 2.w,
+              horizontal: 1.w,
               vertical: 0.2.h,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Icon(
+                Icon(
                   Icons.desk,
                   color: Constants.primaryColor,
+                  size: 15.sp,
                 ),
                 SizedBox(
-                  width: 2.w,
+                  width: 0.w,
                 ),
-                Text(
-                  item.name??"Counter Name",
-                  style: GoogleFonts.roboto().copyWith(
-                    fontSize: 9.sp,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                SizedBox(
+                  width: 30.w,
+                  child: Text(
+                    item.name ?? "Counter Name",
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.roboto().copyWith(
+                      fontSize: 9.sp,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -56,10 +66,24 @@ class CounterItem extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            width: 40.w,
+            child: Text(
+              item.address ?? "Counter Name",
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.roboto().copyWith(
+                fontSize: 8.sp,
+                color: Colors.black,
+                // fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           Icon(
             Icons.arrow_drop_down,
             color: Colors.black,
-            size: 20.sp,
+            size: 15.sp,
           ),
         ],
       ),

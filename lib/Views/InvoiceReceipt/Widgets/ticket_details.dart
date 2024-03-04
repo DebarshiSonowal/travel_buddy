@@ -29,6 +29,7 @@ class TicketDetails extends StatelessWidget {
         child: Column(
           children: [
             Padding(
+
               padding: EdgeInsets.symmetric(
                 horizontal: 6.w,
               ),

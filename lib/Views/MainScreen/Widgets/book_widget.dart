@@ -15,7 +15,7 @@ import '../../../Constants/constants.dart';
 import 'calendar_button.dart';
 import 'from_to_widget.dart';
 
-class BookWidget extends StatefulWidget {
+class BookWidget extends ConsumerStatefulWidget {
   const BookWidget({
     super.key,
     required this.from,
@@ -30,10 +30,10 @@ class BookWidget extends StatefulWidget {
   final Function(int) updateSelected;
 
   @override
-  State<BookWidget> createState() => _BookWidgetState();
+  ConsumerState<BookWidget> createState() => _BookWidgetState();
 }
 
-class _BookWidgetState extends State<BookWidget> {
+class _BookWidgetState extends ConsumerState<BookWidget> {
   LocationModel? fromLocation, toLocation;
   String date = "";
   List<DateTime?> dates = [];
@@ -44,6 +44,11 @@ class _BookWidgetState extends State<BookWidget> {
     Future.delayed(Duration.zero, () {
       date = DateFormat("E, dd MMM").format(DateTime.now());
       setState(() {});
+      widget.updateSelected(0);
+      ref.read(repositoryProvider).updateDate(
+          DateFormat("yyyy-MM-dd").format(DateTime.now()));
+      ref.read(repositoryProvider).updateStartTime(
+          DateFormat("hh:MM:ss").format(DateTime.now()));
     });
   }
 
@@ -183,45 +188,40 @@ class _BookWidgetState extends State<BookWidget> {
                 SizedBox(
                   width: 2.w,
                 ),
-                Consumer(
-                    builder:
-                        (BuildContext context, WidgetRef ref, Widget? child) {
-                    return GestureDetector(
-                      onTap: () {
-                        final val = DateTime.now().add(const Duration(days: 1));
-                        setState(() {
-                          date = DateFormat("E, dd MMM").format(val);
-                          widget.updateSelected(1);
-                          ref.read(repositoryProvider).updateDate(
-                              DateFormat("yyyy-MM-dd").format(val));
-                          ref.read(repositoryProvider).updateStartTime(
-                              DateFormat("hh:MM:ss").format(val));
-                        });
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
+                GestureDetector(
+                  onTap: () {
+                    final val = DateTime.now().add(const Duration(days: 1));
+                    setState(() {
+                      date = DateFormat("E, dd MMM").format(val);
+                      widget.updateSelected(1);
+                      ref.read(repositoryProvider).updateDate(
+                          DateFormat("yyyy-MM-dd").format(val));
+                      ref.read(repositoryProvider).updateStartTime(
+                          DateFormat("hh:MM:ss").format(val));
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: widget.selected == 1
+                          ? Constants.primaryColor
+                          : Colors.black,
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    width: 23.w,
+                    height: 5.5.h,
+                    child: Center(
+                      child: Text(
+                        "Tomorrow",
+                        style: GoogleFonts.roboto().copyWith(
+                          fontSize: 11.sp,
                           color: widget.selected == 1
-                              ? Constants.primaryColor
-                              : Colors.black,
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        width: 23.w,
-                        height: 5.5.h,
-                        child: Center(
-                          child: Text(
-                            "Tomorrow",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 11.sp,
-                              color: widget.selected == 1
-                                  ? Colors.black
-                                  : Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                              ? Colors.black
+                              : Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    );
-                  }
+                    ),
+                  ),
                 ),
               ],
             ),

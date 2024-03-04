@@ -38,7 +38,7 @@ class RatingButton extends ConsumerWidget {
           Text(
             "${data.selectedVehicle?.rating??4.5}",
             style: GoogleFonts.roboto().copyWith(
-              fontSize: 8.5.sp,
+              fontSize: 8.sp,
               color: Colors.white,
               // fontWeight: FontWeight.bold,
             ),

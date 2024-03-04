@@ -49,7 +49,7 @@ class BookingScreen extends ConsumerWidget {
                 ),
                 SizedBox(
                   width: double.infinity,
-                  height: 9.h,
+                  height: 8.h,
                   child: data.when(
                     data: (SearchVehicleResponse data) {
                       return ListView.separated(

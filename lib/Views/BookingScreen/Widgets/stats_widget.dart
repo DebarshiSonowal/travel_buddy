@@ -27,13 +27,13 @@ class StatsWidget extends ConsumerWidget {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(
-        horizontal: 8.w,
+        horizontal: 5.w,
       ),
       padding: EdgeInsets.symmetric(
         horizontal: 4.w,
         vertical: 1.5.h,
       ),
-      height: 12.h,
+      height: 13.h,
       decoration: BoxDecoration(
         color: Colors.black87,
         borderRadius: BorderRadius.circular(20),
@@ -43,35 +43,45 @@ class StatsWidget extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: 50.w,
+                width: 55.w,
                 padding: EdgeInsets.symmetric(
                   horizontal: 4.w,
                   vertical: 0.5.h,
                 ),
                 decoration: BoxDecoration(
                   color: Constants.grey,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child:Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     startData.when(
                       data: (LocationResponse val) {
-                        return (val.data?.location.isNotEmpty??false)?Text(
-                          val.data!.location
-                              .firstWhere((element) =>
-                          element.id.toString() == data.strLocVal)
-                              .display_name ??
-                              "",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 11.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ):Container();
+                        return (val.data?.location.isNotEmpty ?? false)
+                            ? SizedBox(
+                                width: 16.w,
+                                child: Text(
+                                  val.data!.location
+                                          .firstWhere((element) =>
+                                              element.id.toString() ==
+                                              data.strLocVal)
+                                          .display_name ??
+                                      "",
+                                  textAlign: TextAlign.center,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: GoogleFonts.roboto().copyWith(
+                                    fontSize: 11.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              )
+                            : Container();
                       },
                       error: (err, s) {
                         debugPrint(err.toString());
@@ -83,23 +93,32 @@ class StatsWidget extends ConsumerWidget {
                     ),
                     Icon(
                       Icons.arrow_forward,
-                      size: 15.sp,
+                      size: 12.sp,
                       color: Colors.white,
                     ),
                     endData.when(
                       data: (LocationResponse val) {
-                        return (val.data?.location.isNotEmpty??false)?Text(
-                          val.data?.location
-                              .firstWhere((element) =>
-                          element.id.toString() == data.endLocVal)
-                              .display_name ??
-                              "",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 11.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ):Container();
+                        return (val.data?.location.isNotEmpty ?? false)
+                            ? SizedBox(
+                                width: 18.w,
+                                child: Text(
+                                  val.data?.location
+                                          .firstWhere((element) =>
+                                              element.id.toString() ==
+                                              data.endLocVal)
+                                          .display_name ??
+                                      "",
+                                  textAlign: TextAlign.center,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: GoogleFonts.roboto().copyWith(
+                                    fontSize: 11.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              )
+                            : Container();
                       },
                       error: (err, s) {
                         debugPrint(err.toString());
@@ -112,6 +131,7 @@ class StatsWidget extends ConsumerWidget {
                   ],
                 ),
               ),
+
               Container(
                 width: 25.w,
                 padding: EdgeInsets.symmetric(
@@ -120,11 +140,13 @@ class StatsWidget extends ConsumerWidget {
                 ),
                 decoration: BoxDecoration(
                   color: Constants.grey,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
                   child: Text(
-                      data.dateVal.isNotEmpty?getDateFormatted(data.dateVal):"",
+                    data.dateVal.isNotEmpty
+                        ? getDateFormatted(data.dateVal)
+                        : "",
                     style: GoogleFonts.roboto().copyWith(
                       fontSize: 11.sp,
                       color: Colors.white,
@@ -135,6 +157,9 @@ class StatsWidget extends ConsumerWidget {
               ),
             ],
           ),
+          SizedBox(
+            height: 0.5.h,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 4.w,
@@ -142,7 +167,7 @@ class StatsWidget extends ConsumerWidget {
             child: vehicleData.when(
               data: (SearchVehicleResponse val) {
                 return Text(
-                  "${val.data?.vehicle_info.length??0} Vehicles available",
+                  "${val.data?.vehicle_info.length ?? 0} Vehicles available",
                   style: GoogleFonts.roboto().copyWith(
                     fontSize: 12.sp,
                     color: Colors.white,
@@ -150,8 +175,8 @@ class StatsWidget extends ConsumerWidget {
                   ),
                 );
               },
-                //8638372157
-                // 942965
+              //8638372157
+              // 942965
               error: (err, s) {
                 debugPrint(err.toString());
                 return Container();

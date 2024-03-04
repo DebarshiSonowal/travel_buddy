@@ -95,12 +95,16 @@ class CounterAppBar extends ConsumerWidget {
           ),
           Row(
             children: [
-              Text(
-                data.startLoc,
-                style: GoogleFonts.roboto().copyWith(
-                  fontSize: 10.sp,
-                  color: Colors.black,
-                  // fontWeight: FontWeight.bold,
+              SizedBox(
+                width: 30.w,
+                child: Text(
+                  data.startLoc,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.roboto().copyWith(
+                    fontSize: 10.sp,
+                    color: Colors.black,
+                    // fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               SizedBox(
@@ -114,17 +118,19 @@ class CounterAppBar extends ConsumerWidget {
               SizedBox(
                 width: 0.5.w,
               ),
-              Text(
-                data.endLoc,
-                style: GoogleFonts.roboto().copyWith(
-                  fontSize: 10.sp,
-                  color: Colors.black87,
-                  // fontWeight: FontWeight.bold,
+              SizedBox(
+                width: 30.w,
+                child: Text(
+                  data.endLoc,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.roboto().copyWith(
+                    fontSize: 10.sp,
+                    color: Colors.black87,
+                    // fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              SizedBox(
-                width: 43.w,
-              ),
+             const Spacer(),
               const RatingButton(),
             ],
           ),
